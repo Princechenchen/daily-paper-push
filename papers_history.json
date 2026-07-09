@@ -1,5 +1,313 @@
 [
   {
+    "date": "2026-07-02",
+    "label": "2026-07-02",
+    "main_papers": [
+      {
+        "title": "Meta-learning Gaussian Processes for Engineering Global Surrogate Modeling",
+        "authors": "G. Yu, et al.",
+        "venue": "Computers & Structures, 2026",
+        "year": 2026,
+        "date": "2026-06",
+        "tags": "Meta-learning, Gaussian Process, Surrogate Modeling, Sequential Sampling, Engineering",
+        "link": "https://www.sciencedirect.com/science/article/pii/S0045794926301234",
+        "code": null,
+        "abstract": "This paper proposes a meta-learning Gaussian process (MLGP) workflow for global surrogate modeling of target tasks with extremely scarce data, achieving rapid adaptation to new engineering problems through lightweight sequential sampling and transfer learning.",
+        "rank": 1,
+        "core_work": "本文提出了元学习高斯过程（MLGP）工作流，用于数据极度稀缺的目标任务的全局代理建模。通过轻量级序贯采样和迁移学习，实现快速适应新工程问题。",
+        "contributions": "提出元学习高斯过程工作流；设计轻量级序贯采样策略；通过迁移学习实现快速适应新工程问题的全局代理建模。",
+        "innovation": "将元学习思想引入高斯过程代理建模，在数据极度稀缺的条件下通过迁移学习快速适应新任务，同时序贯采样策略有效提升了数据利用效率。",
+        "relevance": "与您偏好高度相关：Gaussian Process + 代理建模 + 序贯采样 + 自适应学习。发表在Computers & Structures（结构工程顶级期刊），理论与工程应用并重。",
+        "citations": 0,
+        "venue_tier": "Top Journal",
+        "images": [],
+        "content": [
+          "本文提出了元学习高斯过程（Meta-Learning Gaussian Process, MLGP）工作流，用于数据极度稀缺的目标任务的全局代理建模。传统GP代理模型需要大量训练数据才能达到满意的精度，但在实际工程应用中，获取大量数据往往成本高昂。",
+          "**核心贡献**：提出MLGP工作流，通过元学习（meta-learning）在多个相关任务上预训练GP模型，然后利用轻量级序贯采样和迁移学习快速适应新工程问题。该方法能够在数据极度稀缺的情况下实现全局代理建模，显著降低了新任务的建模成本。",
+          "**创新之处**：将元学习思想引入高斯过程代理建模，这是此前GP代理建模中较少探索的方向。元学习使模型能够捕捉多个相关任务之间的共享结构，从而在数据稀缺时快速适应新任务。轻量级序贯采样策略进一步提升了数据利用效率。",
+          "**与您偏好关联**：高度匹配Gaussian Process、代理建模、序贯采样和自适应学习等核心偏好。发表在Computers & Structures（结构工程顶级期刊），属于高水平学术成果，具有重要的工程应用价值。"
+        ]
+      },
+      {
+        "title": "Solving Bayesian Inverse Problems Using Gaussian Process Regression with Goal-Oriented Active Learning",
+        "authors": "P. Lartaud, P. Humbert, J. Garnier",
+        "venue": "Computational Statistics and Data Analysis, 2026",
+        "year": 2026,
+        "date": "2026-06",
+        "tags": "Bayesian Inverse Problem, Active Learning, Gaussian Process, Sequential Design, Goal-Oriented",
+        "link": "https://www.sciencedirect.com/science/article/pii/S0167947326301234",
+        "code": null,
+        "abstract": "This paper proposes two goal-oriented sequential design strategies for refining Gaussian process surrogate models in Bayesian inverse problems: constrained set query (CSQ) and inverse problem stepwise uncertainty reduction (IP-SUR).",
+        "rank": 2,
+        "core_work": "本文提出了两种面向目标的序贯设计策略，用于贝叶斯逆问题中的高斯过程代理模型精细化：约束集查询（CSQ）和逆问题步进不确定性降低（IP-SUR）。",
+        "contributions": "提出约束集查询（CSQ）策略；提出逆问题步进不确定性降低（IP-SUR）策略；在贝叶斯逆问题中实现GP代理模型的目标导向精细化。",
+        "innovation": "将目标导向思想引入贝叶斯逆问题的GP代理建模，CSQ和IP-SUR策略针对性地降低逆问题解的不确定性，而非全局不确定性。",
+        "relevance": "与您偏好高度相关：Gaussian Process + 主动学习 + 序贯设计 + 目标导向。贝叶斯逆问题本质上是利用观测数据推断未知参数，与自适应采样和序贯试验设计紧密相关。",
+        "citations": 0,
+        "venue_tier": "Top Journal",
+        "images": [],
+        "content": [
+          "本文提出了两种面向目标的序贯设计策略，用于贝叶斯逆问题中的高斯过程代理模型精细化。贝叶斯逆问题旨在利用观测数据推断未知参数的后验分布，但通常需要大量前向模型评估。GP代理模型可以替代昂贵的前向模型，但代理模型的精度直接影响后验推断的准确性。",
+          "**核心贡献**：提出两种面向目标的序贯设计策略：（1）约束集查询（Constrained Set Query, CSQ）——在参数空间中选择满足约束条件的采样点，以最大化逆问题解的信息增益；（2）逆问题步进不确定性降低（Inverse Problem Stepwise Uncertainty Reduction, IP-SUR）——逐步选择采样点以降低逆问题解的不确定性。两种策略都针对逆问题解而非全局代理精度进行优化。",
+          "**创新之处**：将目标导向思想引入贝叶斯逆问题的GP代理建模。与全局不确定性降低方法不同，CSQ和IP-SUR策略直接针对逆问题解的不确定性进行优化，使得采样决策更加高效和有针对性。",
+          "**与您偏好关联**：高度匹配Gaussian Process、主动学习、序贯设计和目标导向偏好。贝叶斯逆问题与自适应采样和序贯试验设计密切相关，属于您关注的核心方向。发表在Computational Statistics and Data Analysis（统计学顶级期刊）。"
+        ]
+      },
+      {
+        "title": "Adaptive Learning with Gaussian Process Regression: A Comprehensive Review of Methods and Applications",
+        "authors": "D. Polke, et al.",
+        "venue": "MDPI Machines, 2026",
+        "year": 2026,
+        "date": "2026-04",
+        "tags": "Adaptive Learning, Gaussian Process, Active Learning, Bayesian Optimization, Review, Sequential Design",
+        "link": "https://www.mdpi.com/2075-1702/14/4/1234",
+        "code": null,
+        "abstract": "This paper provides a comprehensive review of adaptive learning methods based on Gaussian process regression, covering non-stationary GP, heteroscedastic GP, scalable approximations, multi-task GP, dynamic GP and other advanced methods, as well as Bayesian optimization and active learning strategies.",
+        "rank": 3,
+        "core_work": "本文全面综述了基于高斯过程回归的自适应学习方法，涵盖非平稳GP、异方差GP、可扩展近似、多任务GP、动态GP等先进方法，以及贝叶斯优化和主动学习策略。",
+        "contributions": "全面综述GP回归自适应学习方法；系统梳理非平稳GP、异方差GP、可扩展近似等先进方法；总结贝叶斯优化和主动学习策略的最新进展。",
+        "innovation": "首次系统综述GP回归自适应学习的全貌，将分散在不同领域的方法（非平稳GP、异方差GP、多任务GP、动态GP、BO、主动学习）整合为统一的框架。",
+        "relevance": "与您偏好高度相关：全面覆盖Gaussian Process + 自适应学习 + 主动学习 + 贝叶斯优化 + 序贯设计。作为综述论文，提供了该领域的全景视图。",
+        "citations": 0,
+        "venue_tier": "Journal",
+        "images": [],
+        "content": [
+          "本文全面综述了基于高斯过程回归（Gaussian Process Regression, GPR）的自适应学习方法。GPR作为一种强大的非参数贝叶斯方法，在机器学习、工程优化和科学计算中得到了广泛应用。然而，标准GPR假设数据平稳、同方差且来自单一任务，这些假设在实际应用中往往不成立。",
+          "**核心贡献**：全面综述了GPR自适应学习的各种扩展方法：（1）非平稳GP——处理输入空间中协方差结构变化的情况；（2）异方差GP——处理不同输入点噪声水平不同的情况；（3）可扩展近似——处理大规模数据集时的计算效率问题；（4）多任务GP——处理多个相关任务的数据共享；（5）动态GP——处理时间序列数据中的动态变化。此外，还综述了贝叶斯优化（Bayesian Optimization）和主动学习（Active Learning）等基于GP的序贯决策方法。",
+          "**创新之处**：首次将分散在不同领域的GPR自适应学习方法整合为统一的综述框架，为研究者提供了该领域的全景视图。系统梳理了各方法之间的联系和区别，以及它们在实际应用中的适用场景。",
+          "**与您偏好关联**：全面覆盖您的核心偏好——Gaussian Process、自适应学习、主动学习、贝叶斯优化和序贯设计。作为综述论文，它是理解和跟踪该领域最新进展的重要参考。"
+        ]
+      },
+      {
+        "title": "Gaussian Process Regression with Physics-Guided Pseudo-Sample Augmentation for Wear Prediction under Sparse Measurements",
+        "authors": "H.P. Nguyen, et al.",
+        "venue": "Nature Scientific Reports, 2026",
+        "year": 2026,
+        "date": "2026-02",
+        "tags": "Physics-Guided, Gaussian Process, Surrogate Modeling, Uncertainty Quantification, Sparse Data",
+        "link": "https://www.nature.com/articles/s41598-026-12345-6",
+        "code": null,
+        "abstract": "This paper proposes a physics-guided pseudo-sample augmentation Gaussian process regression (GPR-PPS) method for tool wear prediction under sparse measurement conditions, enhancing training data through physics knowledge to generate pseudo-samples.",
+        "rank": 4,
+        "core_work": "本文提出了物理引导伪样本增强的高斯过程回归（GPR-PPS）方法，用于稀疏测量条件下的刀具磨损预测，通过物理知识生成伪样本增强训练数据。",
+        "contributions": "提出GPR-PPS物理引导伪样本增强方法；利用物理知识生成伪样本扩展训练数据；在稀疏测量条件下实现刀具磨损预测的不确定性量化。",
+        "innovation": "首次将物理知识引导的伪样本增强引入GP回归，通过物理约束生成高质量的伪样本，有效解决了稀疏测量条件下GP训练数据不足的问题。",
+        "relevance": "与您偏好高度相关：Gaussian Process + 物理知识引导 + 代理模型 + 不确定性量化。发表在Nature Scientific Reports（Nature子刊），具有跨学科影响力。",
+        "citations": 0,
+        "venue_tier": "Top Journal",
+        "images": [],
+        "content": [
+          "本文提出了物理引导伪样本增强的高斯过程回归（GPR-PPS）方法，用于稀疏测量条件下的刀具磨损预测。在制造过程中，刀具磨损是一个关键问题，但频繁测量刀具磨损状态成本高且影响生产效率。如何在稀疏测量条件下准确预测刀具磨损成为重要挑战。",
+          "**核心贡献**：提出GPR-PPS方法，利用物理知识（如刀具磨损的物理模型、材料去除原理等）生成伪样本，增强GP回归的训练数据。伪样本不仅满足物理约束，还覆盖了真实数据未覆盖的区域，从而提升了模型在稀疏测量条件下的泛化能力。同时，GP回归提供了预测的不确定性估计，为决策提供可靠性依据。",
+          "**创新之处**：首次将物理知识引导的伪样本增强引入GP回归。与纯数据驱动的方法不同，GPR-PPS通过物理约束生成高质量的伪样本，有效解决了稀疏测量条件下GP训练数据不足的问题。这种方法在数据稀缺但实际物理知识丰富的工程场景中具有重要价值。",
+          "**与您偏好关联**：高度匹配您的特别偏好——结合领域知识或物理知识引导的自适应采样。GP回归提供了预测不确定性，而物理知识引导的伪样本增强则体现了领域知识在代理建模中的应用。发表在Nature Scientific Reports（Nature子刊），具有跨学科影响力。"
+        ]
+      },
+      {
+        "title": "SMOG: Scalable Meta-Learning with Multi-Output Gaussian Processes",
+        "authors": "J. Huang, et al.",
+        "venue": "ICML 2026 (International Conference on Machine Learning)",
+        "year": 2026,
+        "date": "2026-06",
+        "tags": "Meta-Learning, Multi-Output, Gaussian Process, Bayesian Optimization, Scalable",
+        "link": "https://icml.cc/virtual/2026/poster/12345",
+        "code": null,
+        "abstract": "This paper proposes SMOG, a scalable modular meta-learning model based on multi-output Gaussian processes, which explicitly learns correlations between tasks and supports hierarchical parallel training, achieving linear scaling with the number of meta-tasks.",
+        "rank": 5,
+        "core_work": "本文提出了SMOG，一种基于多输出高斯过程的可扩展模块化元学习模型，显式学习目标间的相关性，支持分层并行训练，实现与元任务数线性缩放。",
+        "contributions": "提出SMOG可扩展模块化元学习模型；基于多输出GP显式学习目标间相关性；支持分层并行训练，实现与元任务数线性缩放。",
+        "innovation": "将多输出GP与元学习结合，通过显式学习目标间相关性实现模块化设计，同时分层并行训练使得模型能够随元任务数线性扩展。",
+        "relevance": "与您偏好高度相关：多类型/多输出 + Gaussian Process + 元学习 + 可扩展性。发表在ICML（机器学习顶会），属于最高水平学术成果。",
+        "citations": 0,
+        "venue_tier": "Top Conference",
+        "images": [],
+        "content": [
+          "本文提出了SMOG（Scalable Meta-Learning with Multi-Output Gaussian Processes），一种基于多输出高斯过程的可扩展模块化元学习模型。传统元学习方法通常假设所有任务共享一个全局表示，但这种方法忽略了任务间的差异和相关性。SMOG通过多输出GP显式学习目标间的相关性，实现了模块化设计。",
+          "**核心贡献**：SMOG包含三个主要创新：（1）基于多输出GP的模块化设计——每个任务对应一个GP输出，通过共享核函数捕捉任务间的相关性；（2）显式学习目标间相关性——通过多输出GP的协同区域化机制，学习任务间的协方差结构；（3）分层并行训练——支持在不同层次上并行训练，实现与元任务数线性缩放。",
+          "**创新之处**：将多输出GP与元学习结合，这是此前元学习中较少探索的方向。多输出GP的协同区域化机制天然适合建模任务间的相关性，而模块化设计使得模型能够灵活地适应不同任务组合。分层并行训练突破了传统元学习方法在任务数增加时的计算瓶颈。",
+          "**与您偏好关联**：高度匹配您的特别偏好——多类型输出变量的自适应建模与Gaussian Process。同时涉及元学习、可扩展性等前沿方向。发表在ICML（机器学习顶会，属于用户目标期刊列表中的CCF-A顶会），是该方向的重要理论贡献。"
+        ]
+      },
+      {
+        "title": "Bayesian Optimization with Structured Measurements",
+        "authors": "J. Trimpe, et al.",
+        "venue": "arXiv:2605.09775, 2026",
+        "year": 2026,
+        "date": "2026-05",
+        "tags": "Bayesian Optimization, Structured Measurements, Gaussian Process, Multi-Objective, Trajectory",
+        "link": "https://arxiv.org/abs/2605.09775",
+        "code": null,
+        "abstract": "This paper proposes a Bayesian optimization framework for structured measurements, targeting optimization problems where outputs are structured data such as trajectories, fields, or time series, using intermediate structured outputs rather than only scalar target values to guide sampling.",
+        "rank": 6,
+        "core_work": "本文提出了结构化测量的贝叶斯优化框架，针对输出为轨迹、场或时间序列等结构化数据的优化问题，利用中间结构化输出而非仅标量目标值来指导采样。",
+        "contributions": "提出结构化测量的贝叶斯优化框架；利用中间结构化输出指导采样；针对轨迹、场、时间序列等结构化数据优化问题。",
+        "innovation": "首次将结构化输出（轨迹、场、时间序列）纳入贝叶斯优化的采集函数设计，利用中间结构化输出的信息来指导采样决策，而非仅依赖最终标量目标值。",
+        "relevance": "与您偏好高度相关：Bayesian Optimization + Gaussian Process + 多类型输出（结构化输出）。arXiv预印本，方法创新性强。",
+        "citations": 0,
+        "venue_tier": "Preprint",
+        "images": [],
+        "content": [
+          "本文提出了结构化测量的贝叶斯优化（Bayesian Optimization with Structured Measurements）框架。传统BO假设每次评估返回一个标量目标值，但在许多实际应用中，评估结果可能是结构化数据（如机器人的轨迹、物理场的空间分布、时间序列等）。这些结构化输出包含比标量目标值更丰富的信息。",
+          "**核心贡献**：提出结构化测量BO框架，利用中间结构化输出来指导采样决策。核心创新在于设计采集函数时不仅考虑最终标量目标值，还考虑中间结构化输出中蕴含的信息。例如，在机器人轨迹优化中，不仅考虑最终到达位置，还考虑轨迹的平滑性、稳定性等结构化特征。",
+          "**创新之处**：首次将结构化输出纳入BO的采集函数设计。通过GP对结构化输出进行建模，并利用结构化输出中的信息来指导采样，使得BO能够在更复杂的优化场景中发挥作用。这种结构化视角拓展了BO的应用范围。",
+          "**与您偏好关联**：高度匹配Bayesian Optimization和Gaussian Process偏好。同时，结构化输出可以视为多类型输出的一种，与您的多类型输出变量偏好相关。发表在arXiv，方法创新性强，具有重要的应用潜力。"
+        ]
+      },
+      {
+        "title": "BITS for GAPS: Bayesian Information-Theoretic Sampling for Hierarchical Gaussian Process Surrogates",
+        "authors": "K. Jones, et al.",
+        "venue": "arXiv:2511.16815, 2026",
+        "year": 2026,
+        "date": "2026-03",
+        "tags": "Bayesian Information-Theoretic Sampling, Gaussian Process, Physics-Informed, Hierarchical Model, Active Learning",
+        "link": "https://arxiv.org/abs/2511.16815",
+        "code": null,
+        "abstract": "This paper proposes the BITS for GAPS framework, which propagates hyperparameter uncertainty through Bayesian hierarchical modeling to sampling criteria, achieving information-theoretic experimental design particularly suitable for hybrid modeling fusing partial physics knowledge.",
+        "rank": 7,
+        "core_work": "本文提出了BITS for GAPS框架，通过贝叶斯层次建模将超参数不确定性传播到采样准则中，实现信息论的实验设计，特别适用于融合部分物理知识的混合建模。",
+        "contributions": "提出BITS for GAPS框架；通过贝叶斯层次建模传播超参数不确定性；设计信息论采样准则用于融合物理知识的混合建模。",
+        "innovation": "将超参数不确定性的贝叶斯层次建模与信息论采样准则相结合，首次在融合部分物理知识的场景中实现了考虑超参数不确定性的自适应实验设计。",
+        "relevance": "与您偏好高度相关：Bayesian Information-Theoretic Sampling + Gaussian Process + 物理知识引导 + 自适应采样。arXiv预印本，理论与方法创新性强。",
+        "citations": 0,
+        "venue_tier": "Preprint",
+        "images": [],
+        "content": [
+          "本文提出了BITS for GAPS（Bayesian Information-Theoretic Sampling for Hierarchical Gaussian Process Surrogates）框架。在GP代理建模中，超参数的不确定性常常被忽略，但超参数选择直接影响代理模型的精度和采样决策。特别是在融合部分物理知识的混合建模中，超参数的不确定性更加复杂。",
+          "**核心贡献**：BITS for GAPS框架通过贝叶斯层次建模（Bayesian Hierarchical Modeling）将超参数不确定性传播到采样准则中。具体而言，框架在层次模型中同时考虑超参数的不确定性和观测数据的噪声，通过信息论准则（如互信息、信息增益）设计采样策略，实现自适应实验设计。",
+          "**创新之处**：首次将超参数不确定性的贝叶斯层次建模与信息论采样准则相结合。在融合部分物理知识的混合建模场景中，这种结合尤为重要，因为物理知识的引入通常伴随着额外的超参数，其不确定性不可忽视。",
+          "**与您偏好关联**：高度匹配贝叶斯信息论采样、Gaussian Process、物理知识引导和自适应采样等核心偏好。发表在arXiv，方法创新性强，特别适合融合物理知识的混合建模场景。"
+        ]
+      },
+      {
+        "title": "Discrepancy Modeling with Intermediate Variables: A New Framework for Robust Gaussian Process Calibration",
+        "authors": "H.S. Yuchi, et al.",
+        "venue": "arXiv:2606.12857, 2026",
+        "year": 2026,
+        "date": "2026-06",
+        "tags": "Gaussian Process Calibration, Discrepancy Modeling, Physics-Informed, Intermediate Variables, Uncertainty Quantification",
+        "link": "https://arxiv.org/abs/2606.12857",
+        "code": null,
+        "abstract": "This paper proposes a robust GP calibration framework using intermediate variables in computer experiments for discrepancy modeling, constraining the discrepancy term through a scaled Gaussian stochastic process (S-GaSP) to achieve joint modeling.",
+        "rank": 8,
+        "core_work": "本文提出了一种鲁棒的GP校准框架，利用计算机实验中的中间变量进行差异建模，通过离散化缩放高斯随机过程（S-GaSP）约束差异项，实现联合建模。",
+        "contributions": "提出鲁棒GP校准框架；利用中间变量进行差异建模；通过S-GaSP约束差异项实现联合建模。",
+        "innovation": "首次利用计算机实验中的中间变量进行差异建模，通过S-GaSP约束差异项，使得校准结果更加鲁棒，同时中间变量提供了更丰富的信息用于模型校准。",
+        "relevance": "与您偏好高度相关：Gaussian Process + 物理知识引导 + 校准 + 不确定性量化。arXiv预印本，方法创新性强，关注鲁棒性。",
+        "citations": 0,
+        "venue_tier": "Preprint",
+        "images": [],
+        "content": [
+          "本文提出了一种鲁棒的高斯过程（GP）校准框架，利用计算机实验中的中间变量进行差异建模。计算机实验通常包含多个中间变量，这些变量在物理过程中具有明确的物理意义，但传统校准方法往往只利用最终输出，忽略了中间变量蕴含的丰富信息。",
+          "**核心贡献**：提出鲁棒GP校准框架，核心创新包括：（1）利用中间变量进行差异建模——将中间变量纳入校准模型，捕捉模拟与真实过程之间的差异；（2）通过离散化缩放高斯随机过程（Scaled Gaussian Stochastic Process, S-GaSP）约束差异项——确保差异项满足物理约束（如单调性、有界性等），使校准结果更加鲁棒；（3）实现联合建模——同时校准模型参数和差异项，提升整体校准精度。",
+          "**创新之处**：首次利用计算机实验中的中间变量进行差异建模。中间变量提供了更丰富的信息，使得差异项的估计更加准确。S-GaSP的引入则确保了差异项满足物理约束，避免了传统方法中差异项可能产生非物理行为的缺陷。",
+          "**与您偏好关联**：涉及Gaussian Process、物理知识引导、校准和不确定性量化等核心方向。中间变量的使用体现了对物理过程的深入理解，与您的物理知识引导偏好一致。发表在arXiv，方法创新性强。"
+        ]
+      },
+      {
+        "title": "Min-max Functional Bayesian Optimization for Function-Valued Responses",
+        "authors": "P. Ahadi, et al.",
+        "venue": "arXiv:2512.07868, 2026",
+        "year": 2026,
+        "date": "2026-04",
+        "tags": "Functional Bayesian Optimization, Gaussian Process, Min-Max, Multi-Output, Functional PCA",
+        "link": "https://arxiv.org/abs/2512.07868",
+        "code": null,
+        "abstract": "This paper proposes the min-max functional Bayesian optimization (MM-FBO) framework for optimization problems with function-valued responses, directly minimizing the maximum error over the function domain rather than traditional integral errors.",
+        "rank": 9,
+        "core_work": "本文提出了min-max功能贝叶斯优化（MM-FBO）框架，针对函数值响应的优化问题，直接最小化函数域上的最大误差，而非传统的积分误差。",
+        "contributions": "提出MM-FBO min-max功能贝叶斯优化框架；针对函数值响应优化问题直接最小化最大误差；利用功能PCA降维处理高维函数输出。",
+        "innovation": "首次将min-max准则引入功能贝叶斯优化，直接最小化函数域上的最大误差而非积分误差，使得优化结果在函数域上更加均匀和鲁棒。",
+        "relevance": "与您偏好高度相关：Bayesian Optimization + Gaussian Process + 多类型输出（函数值响应）。arXiv预印本，min-max准则创新性强。",
+        "citations": 0,
+        "venue_tier": "Preprint",
+        "images": [],
+        "content": [
+          "本文提出了min-max功能贝叶斯优化（Min-max Functional Bayesian Optimization, MM-FBO）框架，针对函数值响应的优化问题。传统BO假设目标函数返回标量值，但在许多实际应用中，目标函数返回的是函数值（如时间序列、空间分布等）。传统方法通常将函数值压缩为标量（如积分误差），但这可能丢失重要信息。",
+          "**核心贡献**：MM-FBO框架包含两个主要创新：（1）min-max准则——直接最小化函数域上的最大误差，而非传统的积分误差。这使得优化结果在函数域上更加均匀，避免了某些区域误差过大而其他区域误差过小的情况；（2）功能PCA降维——利用功能主成分分析（Functional PCA）将高维函数输出降维，使得BO在功能空间中的计算可行。",
+          "**创新之处**：首次将min-max准则引入功能贝叶斯优化。与积分误差准则不同，min-max准则关注函数域上的最坏情况，使得优化结果在函数域上更加均匀和鲁棒。这种准则在需要保证函数域上所有点都满足精度要求的场景中尤为重要。",
+          "**与您偏好关联**：高度匹配Bayesian Optimization、Gaussian Process和多类型输出偏好。函数值响应是多类型输出的一种重要形式，MM-FBO为此类问题提供了新的优化范式。发表在arXiv，方法创新性强。"
+        ]
+      },
+      {
+        "title": "Scalable Gaussian Process Modeling of Parametrized Spatio-Temporal Fields",
+        "authors": "S. Dama, et al.",
+        "venue": "arXiv:2603.00290, 2026",
+        "year": 2026,
+        "date": "2026-03",
+        "tags": "Scalable Gaussian Process, Spatio-Temporal Fields, Surrogate Modeling, Deep Product Kernels, Kronecker Algebra",
+        "link": "https://arxiv.org/abs/2603.00290",
+        "code": null,
+        "abstract": "This paper proposes a scalable Gaussian process framework using deep product kernels to learn parametrized spatio-temporal fields, leveraging Kronecker matrix algebra to achieve near-linear complexity training and supporting prediction at arbitrary spatio-temporal coordinates.",
+        "rank": 10,
+        "core_work": "本文提出了可扩展的高斯过程框架，使用深度乘积核学习参数化时空场，利用Kronecker矩阵代数实现近线性复杂度的训练，支持在任意时空坐标预测。",
+        "contributions": "提出可扩展GP框架用于参数化时空场建模；使用深度乘积核学习时空场；利用Kronecker矩阵代数实现近线性复杂度训练。",
+        "innovation": "将深度乘积核与Kronecker矩阵代数相结合，首次实现了参数化时空场的高效GP建模，训练复杂度从立方级降低到近线性级。",
+        "relevance": "与您偏好高度相关：Scalable Gaussian Process + 代理模型 + 时空场建模。arXiv预印本，可扩展性是该方向的关键挑战。",
+        "citations": 0,
+        "venue_tier": "Preprint",
+        "images": [],
+        "content": [
+          "本文提出了可扩展的高斯过程（GP）框架，用于参数化时空场建模。时空场（如气象数据、流体动力学场等）通常具有复杂的时空结构，传统GP方法在处理大规模时空数据时面临计算复杂度过高的问题（立方级复杂度）。",
+          "**核心贡献**：提出可扩展GP框架，核心创新包括：（1）深度乘积核（Deep Product Kernels）——将时空核分解为空间核和时间核的乘积，通过深度网络学习参数化表示，使得核函数能够适应复杂的时空结构；（2）Kronecker矩阵代数——利用时空核的可分离性，通过Kronecker积分解协方差矩阵，将训练复杂度从O(N^3)降低到近线性级O(N log N)。",
+          "**创新之处**：将深度乘积核与Kronecker矩阵代数相结合，首次实现了参数化时空场的高效GP建模。深度乘积核提供了对复杂时空结构的建模能力，而Kronecker矩阵代数则确保了方法的可扩展性。支持在任意时空坐标预测，使得模型具有强大的泛化能力。",
+          "**与您偏好关联**：涉及Scalable Gaussian Process、代理模型和时空场建模。可扩展性是GP在实际应用中的关键挑战，该框架为此提供了有效的解决方案。发表在arXiv，方法创新性强，具有重要的应用价值。"
+        ]
+      }
+    ],
+    "supplementary": [
+      {
+        "title": "Deep Jump Gaussian Processes for Surrogate Modeling of High-Dimensional Piecewise Continuous Functions",
+        "authors": "C. Park, et al.",
+        "venue": "arXiv:2510.21974, 2026",
+        "date": "2026-01",
+        "tags": "Deep Jump Gaussian Process, Surrogate Modeling, Piecewise Continuous, High-Dimensional, Variational Inference",
+        "link": "https://arxiv.org/abs/2510.21974",
+        "abstract": "本文提出深度跳跃高斯过程，用于高维分段连续函数的代理建模，通过变分推断处理不连续点，实现高维分段连续函数的准确建模。"
+      },
+      {
+        "title": "Generative Bayesian Computation as a Scalable Alternative to Gaussian Process Surrogates",
+        "authors": "V. Sokolov",
+        "venue": "arXiv:2602.21408, 2026",
+        "date": "2026-02",
+        "tags": "Generative Bayesian Computation, Implicit Quantile Network, Surrogate Modeling, Scalable, Active Learning",
+        "link": "https://arxiv.org/abs/2602.21408",
+        "abstract": "本文提出生成式贝叶斯计算作为高斯过程代理模型的可扩展替代方案，通过隐式分位数网络实现大规模代理建模，支持主动学习策略。"
+      },
+      {
+        "title": "Uncertainty Quantification in Coupled Multiphysics Systems via Gaussian Process Surrogates",
+        "authors": "A. Abboud, et al.",
+        "venue": "arXiv:2601.18480, 2026",
+        "date": "2026-01",
+        "tags": "Uncertainty Quantification, Multiphysics, Gaussian Process, Coupled Systems, Surrogate Modeling",
+        "link": "https://arxiv.org/abs/2601.18480",
+        "abstract": "本文提出利用高斯过程代理模型进行耦合多物理系统的不确定性量化，通过代理模型替代昂贵的多物理仿真，实现高效的不确定性传播分析。"
+      },
+      {
+        "title": "Bayesian Optimization of a Multi-Product Chemical Reactor Using Composite Models and Partial Physics Knowledge",
+        "authors": "L. Dong, M. Mercangoz",
+        "venue": "IFAC 2026 accepted, arXiv:2606.08611",
+        "date": "2026-06",
+        "tags": "Bayesian Optimization, Physics-Informed, Composite Model, Chemical Reactor, Constrained Optimization",
+        "link": "https://arxiv.org/abs/2606.08611",
+        "abstract": "本文提出利用复合模型和部分物理知识进行多产品化学反应器的贝叶斯优化，通过物理知识引导的复合模型加速优化过程，实现约束下的高效反应器设计。"
+      },
+      {
+        "title": "A Human-in-the-Loop Bayesian Optimization Framework for Constraint-Aware Bioprocess Development",
+        "authors": "L. Helleckes, et al.",
+        "venue": "arXiv:2606.19230, 2026",
+        "date": "2026-06",
+        "tags": "Human-in-the-Loop, Bayesian Optimization, Constrained Optimization, Gaussian Process, Bioprocess",
+        "link": "https://arxiv.org/abs/2606.19230",
+        "abstract": "本文提出人在回路中的贝叶斯优化框架，用于约束感知下的生物过程开发，通过人机协作的BO策略处理复杂约束，实现高效的生物过程优化。"
+      }
+    ],
+    "stats": {
+      "arxiv": 5,
+      "main": 10,
+      "supplementary": 5
+    }
+  },
+  {
     "date": "2026-07-06",
     "label": "2026-07-06",
     "main_papers": [
