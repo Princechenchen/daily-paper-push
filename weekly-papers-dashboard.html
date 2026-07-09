@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每周学术论文跟踪</title>
+<style>
+* { box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; background: #f8fafc; margin: 0; padding: 0; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 16px; }
+.header { background: #fff; border-bottom: 1px solid #e2e8f0; position: sticky; top: 0; z-index: 50; padding: 16px 0; }
+.header-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+.header-left { display: flex; align-items: center; gap: 12px; }
+.header-icon { width: 40px; height: 40px; background: linear-gradient(135deg, #0ea5e9, #0284c7); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 18px; }
+.header-title { font-size: 20px; font-weight: 700; color: #0f172a; margin: 0; }
+.header-subtitle { font-size: 12px; color: #64748b; margin: 0; }
+.header-right { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; position: relative; }
+.btn { padding: 8px 16px; border-radius: 10px; border: none; cursor: pointer; font-size: 14px; font-weight: 500; transition: all 0.2s; }
+.btn-purple { background: linear-gradient(135deg, #d946ef, #a21caf); color: #fff; }
+.btn-gray { background: #f1f5f9; color: #475569; }
+.btn-gray:hover { background: #e2e8f0; }
+.search-box { position: relative; }
+.search-input { padding: 8px 16px 8px 36px; border: 1px solid #e2e8f0; border-radius: 10px; width: 220px; font-size: 14px; }
+.search-input:focus { outline: none; border-color: #0ea5e9; box-shadow: 0 0 0 3px rgba(14,165,233,0.2); }
+.search-icon { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: #94a3b8; }
+.history-panel { display: none; position: absolute; right: 0; top: 100%; margin-top: 8px; background: #fff; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.15); border: 1px solid #e2e8f0; width: 260px; z-index: 50; overflow: hidden; }
+.history-panel.open { display: block; }
+.history-item { padding: 12px 16px; border-bottom: 1px solid #f1f5f9; cursor: pointer; transition: background 0.2s; }
+.history-item:hover { background: #f8fafc; }
+.history-item.active { background: linear-gradient(135deg, #0ea5e9, #0284c7); color: #fff; }
+.history-item.active .history-stats { color: #bae6fd; }
+.history-stats { font-size: 12px; color: #64748b; }
+.timeline-bar { display: flex; align-items: center; gap: 8px; margin: 24px 0; }
+.timeline-dot { width: 10px; height: 10px; border-radius: 50%; background: #0ea5e9; border: 2px solid #fff; box-shadow: 0 0 0 3px #bae6fd; }
+.timeline-line { flex: 1; height: 1px; background: linear-gradient(90deg, #bae6fd, #f5d0fe); }
+.stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 24px; }
+@media (min-width: 768px) { .stats-grid { grid-template-columns: repeat(4, 1fr); } }
+.stat-card { background: linear-gradient(135deg, #fff, #f8fafc); border: 1px solid #e2e8f0; border-radius: 16px; padding: 16px; }
+.stat-num { font-size: 24px; font-weight: 700; }
+.stat-label { font-size: 12px; color: #64748b; margin-top: 4px; }
+.stat-blue { color: #0284c7; }
+.stat-purple { color: #9333ea; }
+.stat-amber { color: #d97706; }
+.stat-emerald { color: #059669; }
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; align-items: center; }
+.filter-label { font-size: 14px; font-weight: 500; color: #475569; margin-right: 4px; }
+.filter-chip { padding: 6px 14px; border-radius: 999px; border: 1px solid #e2e8f0; background: #fff; font-size: 14px; cursor: pointer; transition: all 0.2s; }
+.filter-chip:hover { background: #f1f5f9; }
+.filter-chip.active { background: linear-gradient(135deg, #0ea5e9, #0284c7); color: #fff; border-color: transparent; }
+.section-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+.section-title { display: flex; align-items: center; gap: 8px; font-size: 18px; font-weight: 700; color: #0f172a; margin: 0; }
+.section-icon { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; }
+.icon-blue { background: linear-gradient(135deg, #dbeafe, #bfdbfe); color: #1d4ed8; }
+.icon-purple { background: linear-gradient(135deg, #f3e8ff, #e9d5ff); color: #7e22ce; }
+.paper-count { font-size: 13px; color: #64748b; font-weight: 500; }
+.paper-list { display: flex; flex-direction: column; gap: 16px; }
+.paper-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 20px; transition: all 0.2s; }
+.paper-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.05); border-color: #cbd5e1; }
+.paper-title-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 10px; }
+.paper-title { font-size: 16px; font-weight: 600; color: #0f172a; margin: 0; line-height: 1.4; flex: 1; }
+.expand-btn { background: none; border: none; cursor: pointer; font-size: 16px; color: #94a3b8; transition: transform 0.2s; padding: 4px; }
+.expand-btn.rotated { transform: rotate(180deg); }
+.paper-meta { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 10px; }
+.paper-meta-item { font-size: 13px; color: #64748b; }
+.paper-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; align-items: center; }
+.tag { padding: 4px 10px; border-radius: 6px; font-size: 12px; font-weight: 500; }
+.tag-blue { background: #dbeafe; color: #1d4ed8; }
+.tag-purple { background: #f3e8ff; color: #7e22ce; }
+.tag-emerald { background: #d1fae5; color: #047857; }
+.tag-amber { background: #fef3c7; color: #b45309; }
+.tag-gray { background: #f1f5f9; color: #475569; }
+.tag-red { background: #fee2e2; color: #b91c1c; }
+.tag-cyan { background: #cffafe; color: #0e7490; }
+.btn-link { padding: 4px 10px; border-radius: 6px; font-size: 12px; text-decoration: none; border: none; cursor: pointer; font-weight: 500; }
+.btn-gray-link { background: #f1f5f9; color: #475569; }
+.btn-gray-link:hover { background: #e2e8f0; }
+.btn-orange { background: #fff7ed; color: #c2410c; }
+.btn-orange:hover { background: #ffedd5; }
+.paper-summary { font-size: 14px; color: #475569; line-height: 1.6; margin-bottom: 12px; }
+.detail-content { display: none; overflow: hidden; transition: all 0.3s; }
+.detail-content.open { display: block; }
+.detail-inner { background: #f8fafc; border-radius: 12px; padding: 16px; border: 1px solid #e2e8f0; }
+.detail-text { font-size: 14px; color: #334155; line-height: 1.7; }
+.detail-text h3 { font-size: 15px; font-weight: 600; color: #0f172a; margin: 16px 0 8px; }
+.detail-text h4 { font-size: 14px; font-weight: 600; color: #1e293b; margin: 12px 0 6px; }
+.detail-text p { margin: 8px 0; }
+.detail-text ul { margin: 8px 0; padding-left: 20px; }
+.detail-text li { margin: 4px 0; }
+.detail-text code { background: #e2e8f0; padding: 2px 6px; border-radius: 4px; font-size: 13px; font-family: monospace; }
+.detail-text pre { background: #1e293b; color: #e2e8f0; padding: 16px; border-radius: 8px; overflow-x: auto; font-size: 13px; margin: 10px 0; }
+.detail-text pre code { background: transparent; padding: 0; color: inherit; }
+.detail-text .formula-block { background: #f1f5f9; padding: 16px 20px; border-radius: 8px; margin: 10px 0; font-family: "Times New Roman", "Cambria Math", "Latin Modern Math", serif; font-size: 16px; overflow-x: auto; border-left: 3px solid #0ea5e9; text-align: center; color: #0f172a; font-style: italic; letter-spacing: 0.5px; }
+.detail-text .formula-block sub { font-size: 12px; vertical-align: sub; }
+.detail-text .formula-block sup { font-size: 12px; vertical-align: super; }
+.detail-text blockquote { border-left: 3px solid #0ea5e9; padding-left: 12px; margin: 10px 0; color: #475569; }
+.detail-text hr { border: none; border-top: 1px solid #e2e8f0; margin: 16px 0; }
+.detail-text table { border-collapse: collapse; width: 100%; margin: 10px 0; font-size: 13px; }
+.detail-text th, .detail-text td { border: 1px solid #e2e8f0; padding: 8px 12px; text-align: left; }
+.detail-text th { background: #f8fafc; font-weight: 600; }
+.toggle-btn { background: linear-gradient(135deg, #f0f9ff, #e0f2fe); color: #0284c7; border: 1px solid #bae6fd; padding: 8px 16px; border-radius: 8px; cursor: pointer; font-size: 13px; font-weight: 500; transition: all 0.2s; width: 100%; }
+.toggle-btn:hover { background: linear-gradient(135deg, #e0f2fe, #bae6fd); }
+.supp-grid { display: grid; grid-template-columns: repeat(1, 1fr); gap: 12px; }
+@media (min-width: 768px) { .supp-grid { grid-template-columns: repeat(2, 1fr); } }
+.supp-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px; transition: all 0.2s; }
+.supp-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+.supp-title { font-size: 14px; font-weight: 600; color: #0f172a; margin: 0 0 8px; line-height: 1.4; }
+.supp-meta { font-size: 12px; color: #64748b; margin-bottom: 8px; }
+.supp-tags { display: flex; flex-wrap: wrap; gap: 4px; }
+.supp-tag { padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 500; background: #f1f5f9; color: #475569; }
+.loading { text-align: center; padding: 60px 20px; color: #94a3b8; }
+.spinner { width: 40px; height: 40px; border: 3px solid #e2e8f0; border-top-color: #0ea5e9; border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 16px; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.pdf-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 100; justify-content: center; align-items: center; }
+.pdf-modal.active { display: flex; }
+.pdf-modal-box { background: #fff; border-radius: 16px; width: 90%; max-width: 900px; height: 85%; display: flex; flex-direction: column; overflow: hidden; }
+.pdf-modal-header { display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; border-bottom: 1px solid #e2e8f0; }
+.pdf-modal-title { font-size: 16px; font-weight: 600; color: #0f172a; margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 80%; }
+.pdf-close { background: none; border: none; font-size: 24px; cursor: pointer; color: #64748b; line-height: 1; }
+.pdf-close:hover { color: #0f172a; }
+.pdf-modal-frame { flex: 1; border: none; width: 100%; background: #f8fafc; }
+.pdf-modal-link { padding: 10px 20px; border-top: 1px solid #e2e8f0; text-align: center; }
+.pdf-modal-link a { color: #0284c7; text-decoration: none; font-size: 14px; font-weight: 500; }
+.footer { text-align: center; padding: 40px 20px; color: #94a3b8; font-size: 13px; border-top: 1px solid #e2e8f0; margin-top: 40px; }
+.paper-gallery { display: flex; flex-wrap: wrap; gap: 12px; margin: 12px 0; }
+.paper-gallery-thumb { width: 260px; height: auto; max-height: 220px; object-fit: contain; border-radius: 10px; border: 1px solid #e2e8f0; cursor: pointer; transition: all 0.2s; background: #f8fafc; padding: 4px; }
+.paper-gallery-thumb:hover { transform: scale(1.02); box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-color: #0ea5e9; }
+.img-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 200; justify-content: center; align-items: center; cursor: pointer; }
+.img-modal.active { display: flex; }
+.img-modal img { max-width: 90%; max-height: 90%; border-radius: 8px; box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
+.img-modal-caption { position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%); color: #fff; font-size: 14px; background: rgba(0,0,0,0.6); padding: 8px 16px; border-radius: 20px; }
+.formula-inline { display: inline; font-family: "Times New Roman", "Cambria Math", serif; font-style: italic; }
+.formula-display { display: block; text-align: center; margin: 12px 0; padding: 12px; background: #f8fafc; border-radius: 8px; overflow-x: auto; }
+.math-error { color: #b91c1c; background: #fee2e2; padding: 2px 6px; border-radius: 4px; font-size: 12px; }
+.paper-card { position: relative; }
+.paper-card.no-images { border-left: 3px solid #f59e0b; }
+.paper-gallery-empty { padding: 16px; background: #fef3c7; border-radius: 10px; border: 1px dashed #f59e0b; color: #92400e; font-size: 13px; text-align: center; margin: 12px 0; }
+.img-skeleton { width: 280px; height: 180px; background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%); background-size: 200% 100%; animation: skeleton-loading 1.5s infinite; border-radius: 10px; }
+@keyframes skeleton-loading { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+.detail-text .section-heading { color: #0f172a; font-size: 15px; font-weight: 700; margin: 20px 0 10px; padding-bottom: 6px; border-bottom: 2px solid #e2e8f0; }
+</style>
+<script>
+window.MathJax = {
+    tex: {
+        inlineMath: [['$', '$'], ['\(', '\)')],
+        displayMath: [['$$', '$$'], ['\[', '\]']],
+        processEscapes: true,
+        processEnvironments: true
+    },
+    options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+};
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body>
+<div class="header">
+    <div class="container">
+        <div class="header-inner">
+            <div class="header-left">
+                <div class="header-icon">&#128214;</div>
+                <div>
+                    <div class="header-title">每周学术论文跟踪</div>
+                    <div class="header-subtitle">历史看板</div>
+                </div>
+            </div>
+            <div class="header-right">
+                <button class="btn btn-purple" onclick="toggleHistory()">&#128197; <span id="currentWeekLabel">选择周次</span> &#9660;</button>
+                <div class="history-panel" id="historyPanel"></div>
+                <div class="search-box">
+                    <span class="search-icon">&#128269;</span>
+                    <input type="text" id="searchInput" class="search-input" placeholder="搜索论文...">
+                </div>
+                <button class="btn btn-gray" onclick="toggleAll(true)">&#9660; 展开</button>
+                <button class="btn btn-gray" onclick="toggleAll(false)">&#9650; 折叠</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="timeline-bar">
+        <div class="timeline-dot"></div>
+        <div class="timeline-line"></div>
+        <div id="timelineLabel" style="font-size:13px;color:#64748b;white-space:nowrap;">加载中...</div>
+        <div class="timeline-line"></div>
+        <div class="timeline-dot" style="background:#d946ef;box-shadow:0 0 0 3px #f5d0fe;"></div>
+    </div>
+    <div class="stats-grid" id="statsGrid"></div>
+    <div class="filters" id="filters"></div>
+    <div id="mainSection">
+        <div class="section-header">
+            <div class="section-title">
+                <div class="section-icon icon-blue">1</div>
+                <span>重点关注论文</span>
+            </div>
+            <span class="paper-count" id="mainCount"></span>
+        </div>
+        <div id="mainContainer" class="paper-list">
+            <div class="loading"><div class="spinner"></div>正在加载数据...</div>
+        </div>
+    </div>
+    <div id="suppSection" style="margin-top:40px;">
+        <div class="section-header">
+            <div class="section-title">
+                <div class="section-icon icon-purple">2</div>
+                <span>补充推荐</span>
+            </div>
+            <span class="paper-count" id="suppCount"></span>
+        </div>
+        <div id="supplementaryContainer" class="supp-grid">
+            <div class="loading"><div class="spinner"></div>正在加载数据...</div>
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <div>每周学术论文跟踪报告</div>
+    <div style="margin-top:8px;">检索来源: arXiv + Google Scholar</div>
+</div>
+<div class="pdf-modal" id="pdfModal">
+    <div class="pdf-modal-box">
+        <div class="pdf-modal-header">
+            <h3 class="pdf-modal-title" id="pdfModalTitle">PDF预览</h3>
+            <button class="pdf-close" onclick="closePdfModal()">&#215;</button>
+        </div>
+        <iframe class="pdf-modal-frame" id="pdfModalFrame"></iframe>
+        <div class="pdf-modal-link" id="pdfModalLink"></div>
+    </div>
+</div>
+<script src="papers-data.js"></script>
+<script>
+function esc(s) {
+    if (!s) return "";
+    const d = document.createElement("div");
+    d.textContent = s;
+    return d.innerHTML;
+}
+
+function renderWeek(idx) {
+    if (!PAPERS_DATA || !PAPERS_DATA.weeks || !PAPERS_DATA.weeks[idx]) {
+        document.getElementById("mainContainer").innerHTML = '<p style="color:#94a3b8;">无数据</p>';
+        document.getElementById("supplementaryContainer").innerHTML = "";
+        return;
+    }
+    const w = PAPERS_DATA.weeks[idx];
+    document.getElementById("currentWeekLabel").textContent = w.label || w.date;
+    document.getElementById("timelineLabel").textContent = w.label || w.date;
+    renderStats(w.stats);
+    renderFilters(w.main_papers || []);
+    renderMain(w.main_papers || []);
+    renderSupp(w.supplementary || []);
+    renderHistory(idx);
+    if (window.MathJax && window.MathJax.typesetPromise) {
+        setTimeout(function() { window.MathJax.typesetPromise(); }, 100);
+    }
+}
+
+function renderStats(s) {
+    const items = [
+        { num: s.arxiv, label: "arXiv 论文", color: "stat-blue" },
+        { num: s.scholar, label: "Scholar 论文", color: "stat-purple" },
+        { num: s.main, label: "重点关注", color: "stat-amber" },
+        { num: s.supplementary, label: "补充推荐", color: "stat-emerald" }
+    ];
+    document.getElementById("statsGrid").innerHTML = items.map(i =>
+        '<div class="stat-card">' +
+            '<div class="stat-num ' + esc(i.color) + '">' + (i.num || 0) + '</div>' +
+            '<div class="stat-label">' + esc(i.label) + '</div>' +
+        '</div>'
+    ).join("");
+}
+
+function renderFilters(papers) {
+    const allTags = papers.flatMap(p => (p.tags || "").split(/[,;]/).map(t => t.trim()).filter(Boolean));
+    const tagSet = [...new Set(allTags)].slice(0, 10);
+    const container = document.getElementById("filters");
+    if (!tagSet.length) { container.innerHTML = ""; return; }
+    let html = '<span class="filter-label">&#128269; 筛选:</span>' +
+        '<button class="filter-chip active" onclick="filterPapers(\'all\',this)">全部</button>';
+    tagSet.forEach(tag => {
+        html += '<button class="filter-chip" onclick="filterPapers(' + JSON.stringify(esc(tag)).replace(/"/g, "'") + ',this)">' + esc(tag) + '</button>';
+    });
+    container.innerHTML = html;
+}
+
+function filterPapers(cat, btn) {
+    document.querySelectorAll(".filter-chip").forEach(c => c.classList.remove("active"));
+    if (btn) btn.classList.add("active");
+    document.querySelectorAll(".paper-card").forEach(c => {
+        const tags = c.dataset.tags || "";
+        c.style.display = (cat === "all" || tags.includes(cat)) ? "" : "none";
+    });
+}
+
+function renderMain(papers) {
+    const el = document.getElementById("mainContainer");
+    document.getElementById("mainCount").textContent = (papers.length || 0) + " 篇";
+    if (!papers.length) { el.innerHTML = '<p style="color:#94a3b8;">无</p>'; return; }
+    el.innerHTML = papers.map((p, i) => {
+        const tags = (p.tags || "").split(/[,;]/).map(t => t.trim()).filter(Boolean);
+        const tagHtml = tags.map(t => '<span class="tag tag-blue">' + esc(t) + '</span>').join("");
+        const codeHtml = p.code ? '<span class="tag tag-emerald">&#128187; 代码</span>' : "";
+        const summary = p.content && p.content[0] ? p.content[0] : (p.summary || p.core_work || "");
+        const content = p.content ? processContent(p.content) : "";
+        const chart = generateChart(p);
+        return '<div class="paper-card' + (p.images && p.images.length ? '' : ' no-images') + '" data-tags="' + esc(tags.join(",")) + '" data-search="' + esc((p.title + " " + (p.authors || "") + " " + (p.tags || "")).toLowerCase()) + '">' +
+            '<div class="paper-title-row">' +
+                '<h3 class="paper-title">' + esc(p.title || "") + '</h3>' +
+                '<button class="expand-btn" onclick="toggleDetail(' + i + ')" id="btn-' + i + '">&#9660;</button>' +
+            '</div>' +
+            '<div class="paper-meta">' +
+                '<span class="paper-meta-item">&#128100; ' + esc(p.authors || "") + '</span>' +
+                '<span class="paper-meta-item">&#128218; ' + esc(p.venue || "") + '</span>' +
+                '<span class="paper-meta-item">&#128197; ' + esc(p.date || "") + '</span>' +
+            '</div>' +
+            '<div class="paper-tags">' + tagHtml + codeHtml +
+                '<a href="' + (p.link || "#") + '" target="_blank" class="btn-link btn-gray-link">&#128279; PDF</a>' +
+                '<button class="btn-link btn-orange" onclick="openPdf(' + JSON.stringify(p.link || "") + ',' + JSON.stringify(p.title || "") + ')">&#128196; 嵌入</button>' +
+            '</div>' +
+            '<div class="paper-summary">' + esc(summary) + '</div>' +
+            '<div id="detail-' + i + '" class="detail-content">' +
+                '<div class="detail-inner"><div class="detail-text">' + content + '</div>' + chart + '</div>' +
+            '</div>' +
+            '<button class="toggle-btn" onclick="toggleDetail(' + i + ')" id="tbtn-' + i + '">&#9654; 查看完整分析</button>' +
+        '</div>';
+    }).join("");
+}
+
+function generateChart(paper) {
+    var chart = '';
+    var images = paper.images || [];
+    chart += '<div style="margin-top:16px;padding:16px;background:#f8fafc;border-radius:12px;border:1px solid #e2e8f0;">' +
+        '<h4 style="margin:0 0 12px 0;font-size:14px;color:#0f172a;">&#128200; 论文代表性图表</h4>';
+    if (images && images.length > 0) {
+        chart += '<div class="paper-gallery">';
+        for (var j = 0; j < images.length; j++) {
+            var imgPath = 'paper_images/' + images[j];
+            chart += '<img src="' + imgPath + '" class="paper-gallery-thumb" onclick="openImageModal(this.src, ' + JSON.stringify(esc(images[j])) + ')" alt="' + esc(images[j]) + '" onerror="this.style.display=\'none\'">';
+        }
+        chart += '</div>';
+    } else {
+        chart += '<div class="paper-gallery-empty">' +
+            '&#128221; 暂无图表提取（论文PDF可查看）<br>' +
+            '<a href="' + (paper.link || '#') + '" target="_blank" style="color:#0ea5e9;text-decoration:none;font-weight:500;">查看原始PDF &rarr;</a>' +
+            '</div>';
+    }
+    chart += '</div>';
+    return chart;
+}
+
+function openImageModal(src, caption) {
+    var modal = document.getElementById('imageModal');
+    var img = document.getElementById('imageModalImg');
+    var cap = document.getElementById('imageModalCaption');
+    img.src = src;
+    cap.textContent = caption || '';
+    modal.classList.add('active');
+}
+
+function closeImageModal() {
+    document.getElementById('imageModal').classList.remove('active');
+}
+
+function renderSupp(supplementary) {
+    const el = document.getElementById("supplementaryContainer");
+    document.getElementById("suppCount").textContent = (supplementary.length || 0) + " 篇";
+    if (!supplementary.length) { el.innerHTML = '<p style="color:#94a3b8;">无</p>'; return; }
+    el.innerHTML = supplementary.map(s => {
+        const tags = (s.tags || "").split(/[,;]/).map(t => t.trim()).filter(Boolean);
+        const tagHtml = tags.map(t => '<span class="supp-tag">' + esc(t) + '</span>').join("");
+        return '<div class="supp-card">' +
+            '<div class="supp-title">' + esc(s.title || "") + '</div>' +
+            '<div class="supp-meta">' + esc(s.authors || "") + ' | ' + esc(s.venue || "") + ' | ' + esc(s.date || "") + '</div>' +
+            '<div class="supp-tags">' + tagHtml + '</div>' +
+        '</div>';
+    }).join("");
+}
+
+function renderHistory(activeIdx) {
+    const el = document.getElementById("historyPanel");
+    if (!PAPERS_DATA || !PAPERS_DATA.weeks) { el.innerHTML = ""; return; }
+    el.innerHTML = PAPERS_DATA.weeks.map((w, i) => {
+        const stats = w.stats || {};
+        const active = i === activeIdx ? " active" : "";
+        return '<div class="history-item' + active + '" onclick="renderWeek(' + i + '); toggleHistory()">' +
+            '<div style="font-weight:600;">' + esc(w.label || w.date) + '</div>' +
+            '<div class="history-stats">arXiv: ' + (stats.arxiv || 0) + ' | 重点: ' + (stats.main || 0) + ' | 补充: ' + (stats.supplementary || 0) + '</div>' +
+        '</div>';
+    }).join("");
+}
+
+function toggleDetail(i) {
+    const detail = document.getElementById("detail-" + i);
+    const btn = document.getElementById("btn-" + i);
+    const tbtn = document.getElementById("tbtn-" + i);
+    if (!detail) return;
+    const isOpen = detail.classList.contains("open");
+    if (isOpen) {
+        detail.classList.remove("open");
+        if (btn) btn.classList.remove("rotated");
+        if (tbtn) tbtn.innerHTML = "&#9654; 查看完整分析";
+    } else {
+        detail.classList.add("open");
+        if (btn) btn.classList.add("rotated");
+        if (tbtn) tbtn.innerHTML = "&#9660; 收起分析";
+        if (window.MathJax && window.MathJax.typesetPromise) {
+            setTimeout(function() { window.MathJax.typesetPromise([detail]); }, 50);
+        }
+    }
+}
+
+function toggleAll(expand) {
+    document.querySelectorAll(".detail-content").forEach(d => {
+        if (expand) d.classList.add("open"); else d.classList.remove("open");
+    });
+    document.querySelectorAll(".expand-btn").forEach(b => {
+        if (expand) b.classList.add("rotated"); else b.classList.remove("rotated");
+    });
+    document.querySelectorAll(".toggle-btn").forEach(b => {
+        b.innerHTML = expand ? "&#9660; 收起分析" : "&#9654; 查看完整分析";
+    });
+}
+
+function toggleHistory() {
+    const p = document.getElementById("historyPanel");
+    if (p) p.classList.toggle("open");
+}
+
+function openPdf(url, title) {
+    if (!url) { alert("无PDF链接"); return; }
+    const modal = document.getElementById("pdfModal");
+    const frame = document.getElementById("pdfModalFrame");
+    const titleEl = document.getElementById("pdfModalTitle");
+    const linkEl = document.getElementById("pdfModalLink");
+    titleEl.textContent = title || "PDF预览";
+    frame.src = url;
+    linkEl.innerHTML = '<a href="' + esc(url) + '" target="_blank">&#128279; 在新窗口打开PDF</a>';
+    modal.classList.add("active");
+}
+
+function closePdfModal() {
+    const modal = document.getElementById("pdfModal");
+    const frame = document.getElementById("pdfModalFrame");
+    modal.classList.remove("active");
+    frame.src = "";
+}
+
+function processContent(content) {
+    if (!content || !content.length) return "";
+    let out = [];
+    let buf = [];
+    let inCode = false;
+    for (let line of content) {
+        if (line.match(/^\$[^$]+\$$/)) {
+            out.push('<span class="formula-inline">' + esc(line) + '</span>');
+            continue;
+        }
+        if (line.match(/^\$\$[^$]+\$\$$/)) {
+            out.push('<div class="formula-display">' + esc(line) + '</div>');
+            continue;
+        }
+        if (!line) { out.push("<br>"); continue; }
+        if (line.startsWith("```")) {
+            if (!inCode) { inCode = true; buf = []; }
+            else { out.push('<div class="formula-block">' + renderFormula(buf) + '</div>'); inCode = false; buf = []; }
+            continue;
+        }
+        if (inCode) { buf.push(line); continue; }
+        if (line.startsWith("$$")) {
+            out.push('<div class="formula-block">' + renderFormula([line]) + '</div>');
+        } else if (line.startsWith("#")) {
+            let level = 0; while (line[level] === "#") level++;
+            const tag = "h" + Math.min(level + 2, 6);
+            out.push("<" + tag + ">" + esc(line.slice(level).trim()) + "</" + tag + ">");
+        } else if (line.startsWith("> ")) {
+            out.push("<blockquote>" + esc(line.slice(2)) + "</blockquote>");
+        } else if (line.startsWith("- ") || line.startsWith("* ")) {
+            out.push("<li>" + esc(line.slice(2)) + "</li>");
+        } else if (line.startsWith("|")) {
+            if (!out.length || !out[out.length - 1].startsWith("<table")) {
+                out.push("<table>");
+            }
+            out.push("<tr>" + line.split("|").filter(c => c.trim()).map(c => "<td>" + esc(c.trim()) + "</td>").join("") + "</tr>");
+        } else if (line.startsWith("![")) {
+            const m = line.match(/!\[(.*?)\]\((.*?)\)/);
+            if (m) out.push('<img src="' + esc(m[2]) + '" alt="' + esc(m[1]) + '" style="max-width:100%;border-radius:8px;margin:10px 0;">');
+            else out.push("<p>" + esc(line) + "</p>");
+        } else {
+            out.push("<p>" + esc(line) + "</p>");
+        }
+    }
+    return out.join("");
+}
+
+function renderFormula(lines) {
+    return lines.map(line => {
+        let html = esc(line);
+        html = html.replace(/_\{([^}]+)\}/g, '<sub>$1</sub>');
+        html = html.replace(/_([a-zA-Z0-9])/g, '<sub>$1</sub>');
+        html = html.replace(/\^\{([^}]+)\}/g, '<sup>$1</sup>');
+        html = html.replace(/\^([a-zA-Z0-9])/g, '<sup>$1</sup>');
+        html = html.replace(/\\cdot/g, '·');
+        html = html.replace(/\\times/g, '×');
+        html = html.replace(/\\alpha/g, 'α');
+        html = html.replace(/\\beta/g, 'β');
+        html = html.replace(/\\gamma/g, 'γ');
+        html = html.replace(/\\delta/g, 'δ');
+        html = html.replace(/\\epsilon/g, 'ε');
+        html = html.replace(/\\sigma/g, 'σ');
+        html = html.replace(/\\mu/g, 'μ');
+        html = html.replace(/\\lambda/g, 'λ');
+        html = html.replace(/\\theta/g, 'θ');
+        html = html.replace(/\\omega/g, 'ω');
+        html = html.replace(/\\pi/g, 'π');
+        html = html.replace(/\\nabla/g, '∇');
+        html = html.replace(/\\Delta/g, 'Δ');
+        html = html.replace(/\\Sigma/g, 'Σ');
+        html = html.replace(/\\partial/g, '∂');
+        html = html.replace(/\\infty/g, '∞');
+        html = html.replace(/\\to/g, '→');
+        html = html.replace(/\\in/g, '∈');
+        html = html.replace(/\\sim/g, '~');
+        html = html.replace(/\\approx/g, '≈');
+        html = html.replace(/\\propto/g, '∝');
+        html = html.replace(/\\geq/g, '≥');
+        html = html.replace(/\\leq/g, '≤');
+        html = html.replace(/\\neq/g, '≠');
+        html = html.replace(/\\frac\{([^}]+)\}\{([^}]+)\}/g, '($1)/($2)');
+        html = html.replace(/\\left/g, '');
+        html = html.replace(/\\right/g, '');
+        html = html.replace(/\{/g, '');
+        html = html.replace(/\}/g, '');
+        html = html.replace(/\\/g, '');
+        return html;
+    }).join('<br>');
+}
+
+document.getElementById("searchInput").addEventListener("input", function() {
+    const q = this.value.toLowerCase();
+    document.querySelectorAll(".paper-card").forEach(c => {
+        c.style.display = c.dataset.search.includes(q) ? "" : "none";
+    });
+});
+
+document.addEventListener("click", (e) => {
+    const p = document.getElementById("historyPanel");
+    const b = document.querySelector(".btn-purple");
+    if (p && b && !p.contains(e.target) && !b.contains(e.target)) p.classList.remove("open");
+});
+
+if (typeof PAPERS_DATA !== "undefined" && PAPERS_DATA) {
+    renderWeek(PAPERS_DATA.weeks.length - 1);
+} else {
+    document.getElementById("mainContainer").innerHTML = '<p style="color:red;padding:20px;">数据加载失败: papers-data.js 未能加载</p>';
+}
+</script>
+<div class="img-modal" id="imageModal" onclick="closeImageModal()">
+    <img id="imageModalImg" src="" alt="论文图片">
+    <div class="img-modal-caption" id="imageModalCaption"></div>
+</div>
+</body>
+</html>
