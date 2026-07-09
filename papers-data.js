@@ -1,351 +1,696 @@
 const PAPERS_DATA = {
   "weeks": [
-    {
-      "date": "2026-07-09",
-      "label": "2026-07-09",
-      "main_papers": [
-        {
-          "title": "Improved Regret Bounds for Gaussian Process Upper Confidence Bound in Bayesian Optimization",
-          "authors": "S Iwazaki",
-          "venue": "NeurIPS 2025 (Oral)",
-          "year": 2025,
-          "date": "2025-12",
-          "tags": "Bayesian Optimization, Gaussian Process, Regret Bound, UCB, Sequential Design",
-          "link": "https://neurips.cc/virtual/2025/poster/116692",
-          "code": null,
-          "abstract": "This paper addresses the Bayesian optimization problem where the learner seeks to minimize the regret under a function drawn from a known Gaussian process. Under a Matérn kernel, GP-UCB achieves O~(sqrt(T)) cumulative regret. Under squared exponential kernel, O(sqrt(T ln^2 T)) regret is achieved.",
-          "rank": 1,
-          "core_work": "本文针对贝叶斯优化（Bayesian Optimization）中的高斯过程上置信界（GP-UCB）算法，在Matérn核和平方指数核下给出了更紧的累积遗憾界（regret bound），填补了现有理论空白。",
-          "contributions": "在Matérn核下证明GP-UCB可达到O~(sqrt(T))的累积遗憾；在平方指数核下达到O(sqrt(T ln^2 T))；通过精细化输入序列的集中行为分析改进了信息增益的处理方式。",
-          "innovation": "创新性地捕捉了GP-UCB实现过程中输入序列的集中行为，从而对信息增益进行更精细的刻画，这是此前分析中未被充分利用的性质。",
-          "relevance": "与您偏好高度相关：核心关注Gaussian Process + Bayesian Optimization + 序贯设计（Sequential Design），且来自NeurIPS顶会Oral，理论贡献突出。",
-          "citations": 0,
-          "venue_tier": "Top Conference",
-          "images": [
-            "gp_ucb_regret_fig1.png",
-            "gp_ucb_regret_fig2.png",
-            "gp_ucb_regret_fig3.png",
-            "gp_ucb_regret_fig4.png",
-            "gp_ucb_regret_fig5.png",
-            "gp_ucb_regret_fig6.png"
-          ],
-          "content": [
-            "本文针对贝叶斯优化（Bayesian Optimization）中的高斯过程上置信界（GP-UCB）算法，在Matérn核和平方指数核下给出了更紧的累积遗憾界（regret bound），填补了现有理论空白。",
-            "**核心贡献**：在Matérn核光滑性假设下，证明GP-UCB算法以高概率达到O~(sqrt(T))的累积遗憾界；在平方指数核下达到O(sqrt(T ln^2 T))。这些结果弥合了GP-UCB现有遗憾上界与Scarlett (2018)提供的当前最优上界之间的差距。",
-            "**创新之处**：证明的关键在于捕捉GP-UCB实现过程中输入序列的集中行为（concentration behavior），这使得作者能够以更精细的方式处理GP的信息增益（information gain），而此前的分析未能充分利用这一性质。",
-            "**与您偏好关联**：直接匹配Gaussian Process + Bayesian Optimization + 序贯设计。作为NeurIPS 2025 Oral论文，其理论深度和 venue 级别均属顶尖，对理解GP-UCB算法的理论保证具有重要意义。"
-          ]
-        },
-        {
-          "title": "PCE-Net: High-Dimensional Surrogate Modeling for Learning Uncertainty",
-          "authors": "Paz Fink Shustin, Shashanka Ubaru, Małgorzata J. Zimoń, Songtao Lu, Vasileios Kalantzis, Lior Horesh, Haim Avron",
-          "venue": "SIAM/ASA Journal on Uncertainty Quantification, 2026",
-          "year": 2026,
-          "date": "2026-03",
-          "tags": "Surrogate Modeling, Uncertainty Quantification, Polynomial Chaos Expansion, Dimensionality Reduction, High-Dimensional Data",
-          "link": "https://epubs.siam.org/doi/10.1137/24M1723838",
-          "code": null,
-          "abstract": "A dimensionality reduction surrogate modeling approach for representation learning and uncertainty quantification. Uses variational autoencoder for low-dimensional representation and polynomial chaos expansion to map to output target.",
-          "rank": 2,
-          "core_work": "本文提出了一种结合变分自编码器（VAE）降维与多项式混沌展开（PCE）的高维代理建模方法PCE-Net，用于表征学习和不确定性量化。",
-          "contributions": "提出两阶段学习框架：VAE学习低维表征，PCE建立低维分布到输出的映射；无需对数据先验统计假设即可捕捉系统动力学、学习表征并估计不确定性。",
-          "innovation": "将深度学习降维与经典UQ方法PCE结合，克服了高维数据下UQ计算不可行的问题，同时能够匹配输出分布的高阶矩。",
-          "relevance": "与您偏好相关：代理建模 + 不确定性量化 + 高维问题。发表在SIAM/ASA JUQ顶级期刊，属于高水平学术成果。",
-          "citations": 0,
-          "venue_tier": "Top Journal",
-          "images": [],
-          "content": [
-            "本文提出了一种结合变分自编码器（VAE）降维与多项式混沌展开（PCE）的高维代理建模方法PCE-Net，用于表征学习和不确定性量化（UQ）。",
-            "**核心贡献**：提出两阶段学习框架：（1）使用VAE学习输入数据分布的低维表征；（2）利用PCE将低维分布映射到输出目标。该模型无需对数据做任何先验统计假设，即可在潜在空间中高效捕捉系统动力学、学习数据表征与输入-输出分布映射，并估计高维数据系统中的不确定性。",
-            "**创新之处**：将深度学习降维技术与经典UQ方法PCE有机结合，克服了传统UQ技术在高维数据下计算量剧增的瓶颈，同时能够匹配输出分布的高阶矩，提供更全面的不确定性刻画。",
-            "**与您偏好关联**：涉及代理建模（surrogate modeling）和不确定性量化（uncertainty quantification）两大核心方向。发表在SIAM/ASA Journal on Uncertainty Quantification，属于目标期刊列表中的顶级期刊。"
-          ]
-        },
-        {
-          "title": "Goal-Oriented Lower-Tail Calibration of Gaussian Processes for Bayesian Optimization",
-          "authors": "A Pion, E Vazquez",
-          "venue": "ICML 2026",
-          "year": 2026,
-          "date": "2026-05",
-          "tags": "Bayesian Optimization, Gaussian Process, Calibration, Expected Improvement, Sequential Design",
-          "link": "https://arxiv.org/abs/2605.20145",
-          "code": null,
-          "abstract": "Studies goal-oriented calibration of GP predictive distributions below a threshold t. Proposes tcGP, a post-hoc method that calibrates GP predictive distributions below t, and shows that EI-based global optimization remains dense in the design space.",
-          "rank": 3,
-          "core_work": "本文研究了贝叶斯优化中GP预测分布在下尾区域（lower-tail）的校准问题，提出tcGP方法对低于阈值t的预测分布进行事后校准。",
-          "contributions": "引入基于空间校准的预测可靠性框架，包括发生校准（occurrence calibration）和阈值μ-校准；提出tcGP方法；证明校准后的EI优化仍在设计空间中稠密。",
-          "innovation": "首次针对BO中的下尾区域提出目标导向的GP校准框架，将校准问题与采集函数（EI）的采样决策直接关联。",
-          "relevance": "与您偏好高度相关：Gaussian Process + Bayesian Optimization + 序贯试验设计。ICML接受且关注实际BO性能提升。",
-          "citations": 0,
-          "venue_tier": "Top Conference",
-          "images": [
-            "tcgp_fig1.png",
-            "tcgp_fig2.png",
-            "tcgp_fig3.png",
-            "tcgp_fig4.png",
-            "tcgp_fig5.png",
-            "tcgp_fig6.png"
-          ],
-          "content": [
-            "本文研究了贝叶斯优化（BO）中高斯过程（GP）预测分布在下尾区域（lower-tail）的校准问题。核函数选择和超参数选取可能导致预测分布校准不当，进而影响探索-利用权衡。对于最小化问题，期望改进（Expected Improvement）等采样准则依赖于当前最优值以下的预测分布，因此下尾校准错误直接影响采样决策。",
-            "**核心贡献**：在噪声-free设定下，研究了标准GP模型（超参数通过最大似然选取）在低于阈值t区域的预测校准问题。引入了基于两种空间校准概念的预测可靠性框架：设计空间上的发生校准（occurrence calibration）和子水平集上的阈值μ-校准（thresholded μ-calibration）。在此基础上提出tcGP——一种对低于t的GP预测分布进行事后校准的方法，并证明使用校准后GP的EI全局优化算法在设计空间中仍保持稠密性。",
-            "**创新之处**：首次将目标导向校准（goal-oriented calibration）引入BO中的GP建模，专门针对影响采集函数决策的下尾区域。这种校准视角与全局校准方法不同，更直接地服务于优化性能的提升。",
-            "**与您偏好关联**：直接匹配Gaussian Process + Bayesian Optimization + 序贯试验设计。该论文被ICML 2026接受为poster，同时发表在arXiv上，属于用户关注的核心方法论的拓展。"
-          ]
-        },
-        {
-          "title": "Efficient Robust Aerodynamic Design Optimization Method with Unified Design and Uncertain Variables",
-          "authors": "KS Zhang, HJ Guo, ZH Han, WP Song",
-          "venue": "AIAA Journal, 2026",
-          "year": 2026,
-          "date": "2026-01",
-          "tags": "Robust Design Optimization, Surrogate Model, Adaptive Sampling, Uncertainty Quantification, Aerodynamic Design",
-          "link": "https://doi.org/10.2514/1.J065188",
-          "code": null,
-          "abstract": "An efficient surrogate-based RDO framework with adaptive infill sampling. Unifies geometric design and uncertain variables into a single surrogate model, proposes combined infill-sampling method, and two-phase strategy for aerodynamic problems.",
-          "rank": 4,
-          "core_work": "本文提出了一种基于代理模型的鲁棒气动设计优化框架，将几何设计变量与不确定变量统一到单一代理模型中，并采用自适应填充采样策略。",
-          "contributions": "统一设计变量与不确定变量到单一代理模型；提出结合填充采样方法实现自适应加点；提出两阶段策略加速鲁棒设计优化收敛。",
-          "innovation": "将设计与UQ双循环中的变量统一建模，避免了分别构建代理模型的冗余，同时自适应采样同时服务于优化探索和UQ精度提升。",
-          "relevance": "与您偏好相关：自适应采样 + 代理模型 + 不确定性量化 + 序贯设计。发表在航空航天领域顶级期刊AIAA Journal。",
-          "citations": 0,
-          "venue_tier": "Top Journal",
-          "images": [],
-          "content": [
-            "本文提出了一种高效的基于代理模型的鲁棒设计优化（RDO）框架，专门针对考虑几何不确定性的气动设计问题。传统RDO方法需要外循环搜索最优设计和内循环执行不确定性量化（UQ），导致需要大量昂贵的CFD仿真计算。",
-            "**核心贡献**：框架包含三个主要创新：（1）将几何设计变量与不确定变量统一到一个共同的代理模型中，而非分别建模，该代理模型同时辅助优化和UQ双循环；（2）提出一种结合填充采样方法，自适应地选择新样本进行CFD评估，既用于全局最优探索，也用于提升共同代理模型以改善UQ精度；（3）提出两阶段策略加速RDO收敛，尤其适用于鲁棒最优解位于确定性最优解附近的气动问题。",
-            "**创新之处**：通过统一变量建模避免了双代理模型的冗余，同时自适应采样策略将探索（optimization）与精炼（UQ）统一到一个采样准则中，显著减少了昂贵仿真次数。",
-            "**与您偏好关联**：涉及代理模型、自适应采样、不确定性量化和序贯设计等核心方向。发表在AIAA Journal（航空航天领域顶级期刊），具有显著的工程应用价值。"
-          ]
-        },
-        {
-          "title": "Deep Intrinsic Coregionalization Multi-Output Gaussian Process Surrogate with Active Learning",
-          "authors": "C-Y Chang, C-L Sung",
-          "venue": "Technometrics, 2026",
-          "year": 2026,
-          "date": "2026-01",
-          "tags": "Multi-Output Gaussian Process, Active Learning, Coregionalization, Surrogate Model, Sequential Design",
-          "link": "https://www.tandfonline.com/doi/full/10.1080/00401706.2025.2456972",
-          "code": null,
-          "abstract": "Deep intrinsic coregionalization multi-output GP surrogate with active learning strategies for sequential design tasks. Extends deep ICMGP to optimize sequential design.",
-          "rank": 5,
-          "core_work": "本文提出了深度内在协同区域化（Deep Intrinsic Coregionalization）多输出高斯过程代理模型，并将其与主动学习策略结合用于序贯设计任务。",
-          "contributions": "构建深度ICMGP多输出代理模型；将主动学习策略集成到深度ICMGP中；针对序贯设计任务优化采样策略。",
-          "innovation": "将深度核学习与多输出协同区域化模型结合，通过主动学习在有限数据下高效构建多输出代理模型。",
-          "relevance": "与您偏好高度相关：多类型/多输出 + Gaussian Process + 主动学习 + 序贯设计。发表在Technometrics（质量工程顶级期刊）。",
-          "citations": 0,
-          "venue_tier": "Top Journal",
-          "images": [
-            "deepicmgp_fig1.png",
-            "deepicmgp_fig2.png",
-            "deepicmgp_fig3.png",
-            "deepicmgp_fig4.png",
-            "deepicmgp_fig5.png",
-            "deepicmgp_fig6.png"
-          ],
-          "content": [
-            "本文提出了深度内在协同区域化（Deep Intrinsic Coregionalization, DeepICM）多输出高斯过程代理模型，并将其与主动学习（Active Learning）策略相结合，用于序贯设计任务。",
-            "**核心贡献**：构建了深度ICMGP（deepICMGP）多输出高斯过程代理模型，该模型通过深度核学习扩展了传统协同区域化模型对多输出相关性的刻画能力。进一步将主动学习策略集成到deepICMGP中，优化序贯设计任务的采样效率，在有限数据预算下高效构建多输出代理模型。",
-            "**创新之处**：将深度核学习方法与多输出GP的协同区域化机制相结合，既保留了ICM的可解释性，又增强了模型对复杂相关结构的表达能力。主动学习与多输出代理的结合使得每次采样可以同时提升多个输出的预测精度。",
-            "**与您偏好关联**：高度匹配您的特别偏好——多类型输出变量的自适应建模与序贯加点。发表在Technometrics（质量工程顶级期刊，属于用户目标期刊列表），是该方向的重要进展。"
-          ]
-        },
-        {
-          "title": "Active Learning with Gaussian Process Regression for Solving Non-Linear Time-Dependent PDEs",
-          "authors": "S Sinha, et al.",
-          "venue": "Engineering Applications of Artificial Intelligence, 2025",
-          "year": 2025,
-          "date": "2025-10",
-          "tags": "Active Learning, Gaussian Process Regression, PDE, Physics-Informed, Sequential Sampling, Uncertainty Quantification",
-          "link": "https://www.sciencedirect.com/science/article/abs/pii/S0952197625018810",
-          "code": null,
-          "abstract": "A novel approach for solving nonlinear time-dependent PDEs using active learning with GPR. Uses Matern and RBF kernels, outperforms PINNs on Burgers, Allen-Cahn, Stefan, and KdV equations.",
-          "rank": 6,
-          "core_work": "本文提出了一种使用主动学习高斯过程回归（GPR）求解非线性时间依赖偏微分方程（PDE）的新方法，利用不确定性引导的采样策略减少计算量。",
-          "contributions": "提出基于GPR的PDE求解主动学习算法；引入Matern和RBF核处理非线性PDE；在四个经典PDE上验证并超越PINNs等SOTA方法。",
-          "innovation": "首次将GPR-based主动学习系统性地应用于时间依赖非线性PDE求解，利用GPR的不确定性量化能力指导采样，显著减少所需数据点。",
-          "relevance": "与您偏好高度相关：Gaussian Process + 主动学习 + 物理知识引导（PDE求解）。被引8次，显示其影响力。",
-          "citations": 8,
-          "venue_tier": "Top Journal",
-          "images": [],
-          "content": [
-            "本文提出了一种使用主动学习（Active Learning）与高斯过程回归（GPR）相结合求解非线性时间依赖偏微分方程（PDE）的新方法。传统数值方法需要精细离散化，计算成本高，而深度学习方法如PINNs虽然有效但缺乏不确定性量化能力。",
-            "**核心贡献**：提出了基于GPR的主动学习PDE求解框架。在每个时间步，GPR模型拟合当前训练数据并预测整个解空间，然后识别预测不确定性最高的点，通过数值求解PDE获取这些点的真实值并加入训练集。迭代过程中逐步提升模型精度。该方法在Burgers方程、Allen-Cahn方程、Stefan方程和Korteweg-de Vries方程上进行了验证，结果表明在保持预测精度的同时显著减少了所需数据点。",
-            "**创新之处**：首次将GPR-based主动学习系统性地应用于时间依赖非线性PDE的求解。与PINNs等确定性深度学习方法不同，GPR提供了预测的不确定性估计，使采样策略能够专注于最有信息量的区域。Matern核和RBF核的灵活组合有效处理了PDE中的非线性特征。",
-            "**与您偏好关联**：高度匹配您的特别偏好——基于Gaussian Process的方法以及结合领域知识/物理知识引导的自适应采样。PDE求解本质上是利用物理方程作为领域知识来引导GPR的学习过程。发表在Engineering Applications of Artificial Intelligence，已被引用8次，显示其学术影响力。"
-          ]
-        },
-        {
-          "title": "Uncertainty Quantification of Engineering Structures by Polynomial Chaos Expansion and Multivariate Active Learning",
-          "authors": "Novak, et al.",
-          "venue": "arXiv preprint, 2026",
-          "year": 2026,
-          "date": "2026-06",
-          "tags": "Polynomial Chaos Expansion, Uncertainty Quantification, Adaptive Sampling, Multi-Output, Sequential Sampling, Engineering Structures",
-          "link": "https://arxiv.org/abs/2606.17233",
-          "code": "https://github.com/NovakLBUT/MultTheta_engineering",
-          "abstract": "An adaptive sequential sampling method for constructing PCE surrogate models is generalized for vector-valued QoIs. Balances distance-based exploration and variance exploitation across all outputs.",
-          "rank": 7,
-          "core_work": "本文将多项式混沌展开（PCE）代理模型的自适应序贯采样方法推广到多输出（向量值QoI）场景，用于工程结构的不确定性量化。",
-          "contributions": "推广单输出自适应采样到多输出PCE模型；引入归一化方差聚合准则；平衡方差驱动的利用和空间探索。",
-          "innovation": "将多输出方差信息通过归一化聚合统一到单一采样准则中，避免了为每个输出单独采样的复杂性和成本。",
-          "relevance": "与您偏好高度相关：多类型/多输出 + 自适应采样 + 序贯设计 + 不确定性量化。关注工程结构的实际应用。",
-          "citations": 0,
-          "venue_tier": "Preprint",
-          "images": [
-            "pce_multivar_fig1.png",
-            "pce_multivar_fig2.png",
-            "pce_multivar_fig3.png",
-            "pce_multivar_fig4.png",
-            "pce_multivar_fig5.png",
-            "pce_multivar_fig6.png"
-          ],
-          "content": [
-            "本文将多项式混沌展开（Polynomial Chaos Expansion, PCE）代理模型的自适应序贯采样方法推广到多输出（向量值QoI）场景，用于工程结构的不确定性量化。在许多工程应用中，单一高保真模型在相同输入参数下产生多个感兴趣量（QoI），但不同输出对输入变量的敏感性不同，单一实验设计难以同时充分表征所有输出。",
-            "**核心贡献**：提出了一种多输出PCE代理模型的自适应序贯采样策略。核心创新是引入归一化方差聚合（normalized variance aggregation）准则，将各输出的局部方差贡献聚合成统一的利用项，同时保持基于距离的空间探索项。该准则自然偏好同时具有高方差贡献和低采样密度的候选点。",
-            "**创新之处**：避免了为每个输出单独采样的复杂性和计算成本，同时考虑了输出之间的潜在相关性。通过几何平均组合候选点及其最近邻的归一化方差聚合，近似估计该区域的未解决方差量。",
-            "**与您偏好关联**：直接匹配多类型输出变量的自适应建模与序贯加点偏好。虽然使用PCE而非GP作为代理模型，但其多输出自适应采样思想与您的研究方向高度一致。代码已开源（GitHub），可复现性好。"
-          ]
-        },
-        {
-          "title": "A Gaussian Process Framework for Region-of-Interest Active Learning",
-          "authors": "LCA Esteve, et al.",
-          "venue": "Procedia Manufacturing / ScienceDirect, 2026",
-          "year": 2026,
-          "date": "2026-02",
-          "tags": "Gaussian Process, Active Learning, Region of Interest, Multi-Output, Surrogate Model",
-          "link": "https://www.sciencedirect.com/science/article/pii/S2352492826000899",
-          "code": null,
-          "abstract": "A data-efficient Gaussian Process active learning framework focusing on regions of interest. Uses multiple RoIs to represent diverse output behaviors and builds multi-output surrogates.",
-          "rank": 8,
-          "core_work": "本文提出了一种面向感兴趣区域（Region of Interest, RoI）的数据高效GP主动学习框架，通过多RoI表示多样的输出行为并构建多输出代理模型。",
-          "contributions": "提出面向RoI的GP主动学习框架；使用多个RoI表示不同输出行为；构建多输出代理模型提升数据效率。",
-          "innovation": "将主动学习聚焦于特定RoI而非全局空间，通过多RoI策略兼顾局部精度和全局覆盖，显著提升了采样效率。",
-          "relevance": "与您偏好相关：Gaussian Process + 主动学习 + 多输出代理模型。面向感兴趣区域的采样策略具有实际工程意义。",
-          "citations": 0,
-          "venue_tier": "Journal",
-          "images": [],
-          "content": [
-            "本文提出了一种面向感兴趣区域（Region of Interest, RoI）的数据高效高斯过程（GP）主动学习框架。在许多工程和科学应用中，研究者通常只关注输入空间中某些特定区域的模型行为，而非全局空间。传统主动学习方法在全局范围内均匀采样，可能导致在RoI外的区域浪费计算资源。",
-            "**核心贡献**：提出了面向RoI的GP主动学习框架，通过定义多个感兴趣区域来捕捉多样的输出行为。该框架使用多输出代理模型同时建模不同RoI的响应，使每次采样能够同时提升多个RoI的预测精度。采样策略综合考虑了各RoI内的不确定性以及RoI间的信息平衡。",
-            "**创新之处**：将主动学习的关注点从全局空间转移到特定RoI，通过多RoI策略在保持局部精度的同时实现全局覆盖。这种方法特别适合需要重点关注某些临界区域（如安全边界、失效区域）的应用场景。",
-            "**与您偏好关联**：涉及Gaussian Process、主动学习、多输出代理模型等核心方向。面向感兴趣区域的采样策略在实际工程中具有重要意义，与您的自适应采样和序贯设计偏好一致。"
-          ]
-        },
-        {
-          "title": "Joint Parameter and State-Space Bayesian Optimization",
-          "authors": "S Kiroriwal, et al.",
-          "venue": "arXiv preprint, 2026",
-          "year": 2026,
-          "date": "2026-02",
-          "tags": "Bayesian Optimization, Gaussian Process Network, Multi-Stage System, State-Space, Process Knowledge",
-          "link": "https://arxiv.org/abs/2602.17679",
-          "code": null,
-          "abstract": "POGPN-JPSS combines Partially Observable Gaussian Process Networks with Joint Parameter and State-Space modeling for high-dimensional multi-stage bioethanol production process optimization.",
-          "rank": 9,
-          "core_work": "本文提出POGPN-JPSS框架，将部分可观测高斯过程网络（POGPN）与联合参数和状态空间（JPSS）建模相结合，利用多阶段系统的中间观测信息进行贝叶斯优化。",
-          "contributions": "提出POGPN-JPSS框架；结合过程专家知识提取低维潜在特征；在高维多阶段生物乙醇生产过程仿真上验证，达到阈值速度提升2倍。",
-          "innovation": "将结构化概率模型（POGPN DAG）与专家知识引导的状态空间特征提取结合，突破了标准BO忽略中间观测的局限。",
-          "relevance": "与您偏好高度相关：Bayesian Optimization + Gaussian Process + 结合领域/物理知识引导的自适应采样。",
-          "citations": 0,
-          "venue_tier": "Preprint",
-          "images": [
-            "pogpn_jpss_fig2.png",
-            "pogpn_jpss_fig3.png"
-          ],
-          "content": [
-            "本文提出POGPN-JPSS框架，针对高维多阶段制造系统中的贝叶斯优化问题。标准BO将整个过程视为黑箱，忽略了中间阶段的可观测输出和底层过程结构。部分可观测高斯过程网络（POGPN）虽然将过程建模为有向无环图（DAG），但在处理高维状态空间时间序列中间观测时仍面临挑战。",
-            "**核心贡献**：提出POGPN-JPSS框架，将POGPN与联合参数和状态空间（Joint Parameter and State-Space, JPSS）建模相结合。利用过程专家知识从高维状态空间数据中提取低维潜在特征，并将这些特征作为中间信息融入优化过程。在高维多阶段生物乙醇生产过程仿真上的验证表明，POGPN-JPSS显著优于SOTA方法，达到目标性能阈值的速度提升了约2倍，且可靠性更高。",
-            "**创新之处**：突破了标准BO忽略中间观测的局限，通过结构化概率模型（DAG形式的POGPN）与专家知识引导的特征提取相结合，实现了对多阶段系统内部信息的有效利用。",
-            "**与您偏好关联**：高度匹配您的特别偏好——结合领域知识或物理知识引导的自适应采样。该框架明确利用过程专家知识来指导状态空间特征提取，属于物理/领域知识引导的自适应优化方法。"
-          ]
-        },
-        {
-          "title": "Multi-Fidelity Gaussian Process Regression for Noisy Outputs and Non-Nested Experimental Designs",
-          "authors": "Le Gratiet, et al.",
-          "venue": "arXiv preprint, 2026",
-          "year": 2026,
-          "date": "2026-05",
-          "tags": "Multi-Fidelity, Gaussian Process, Non-Nested Design, Noisy Observations, Sequential Design, Surrogate Model",
-          "link": "https://arxiv.org/abs/2511.20183",
-          "code": null,
-          "abstract": "Investigates recursive formulation of multi-fidelity auto-regressive GP model for noisy outputs and non-nested designs. Develops decoupled EM-based optimization strategy.",
-          "rank": 10,
-          "core_work": "本文研究了多保真度自回归GP模型在噪声输出和非嵌套实验设计下的递归形式，提出了基于EM算法的解耦优化策略。",
-          "contributions": "发展解耦EM优化策略显著降低优化维度；推导出缩放因子为参数线性预测器时的闭式更新公式；在多个应用案例上与非递归模型对比验证。",
-          "innovation": "将EM算法引入多保真度GP的噪声观测框架，实现了训练时间的显著加速，同时保持与非递归模型相当的预测精度。",
-          "relevance": "与您偏好相关：多保真度 + Gaussian Process + 序贯设计。多保真度建模是自适应代理建模的重要方向。",
-          "citations": 0,
-          "venue_tier": "Preprint",
-          "images": [
-            "mfgp_noisy_fig1.png",
-            "mfgp_noisy_fig2.png",
-            "mfgp_noisy_fig3.png",
-            "mfgp_noisy_fig4.png",
-            "mfgp_noisy_fig5.png",
-            "mfgp_noisy_fig6.png"
-          ],
-          "content": [
-            "本文研究了多保真度（Multi-Fidelity）自回归高斯过程（AR(1) co-kriging）模型在一般噪声输出和非嵌套实验设计设定下的递归形式。传统非递归形式需要在所有保真度数据上求逆大规模协方差矩阵，计算成本高；而递归形式虽然降低了计算复杂度，但此前对噪声输出和非嵌套设计的处理不够完善。",
-            "**核心贡献**：提出了一种解耦优化策略，利用EM算法处理噪声观测下的多保真度GP递归形式。该策略将每个优化问题的维度大幅降低，并推导出当缩放因子为参数线性预测器时的闭式更新公式。在多个应用案例上与非递归模型的全耦合似然最大化进行对比，结果表明解耦策略在大量低保真度数据时训练时间显著更快，同时保持相当的预测精度。",
-            "**创新之处**：将EM算法的思想引入多保真度GP的噪声观测框架，实现了训练效率的大幅提升。在噪声环境下，研究表明当高保真度数据点充足时简单GP模型可能在不确定性估计方面优于MFGP，但在高保真度数据有限的现实场景下MFGP模型仍然是最有用的选择。",
-            "**与您偏好关联**：涉及多保真度建模、Gaussian Process和序贯设计等方向。多保真度建模是自适应代理建模中利用多层次信息提升效率的重要范式，与您关注的自适应代理建模和序贯试验设计方向一致。"
-          ]
-        }
-      ],
-      "supplementary": [
-        {
-          "title": "Physics-Informed Gaussian Process Classification for Constraint-Aware Alloy Design",
-          "authors": "C Hardcastle, et al.",
-          "venue": "Digital Discovery (RSC), 2025",
-          "date": "2025-06",
-          "tags": "Physics-Informed, Gaussian Process, Active Learning, Classification, Alloy Design",
-          "link": "https://pubs.rsc.org/en/content/articlelanding/2025/dd/d5dd00084j",
-          "abstract": "本文提出为Gaussian Process分类器配备物理信息先验均值函数，用于建模可行设计空间的中心。通过三个合金设计案例研究表明，将物理洞见融入分类框架显著提升了模型性能。"
-        },
-        {
-          "title": "Hierarchical Domains for Mixed-Variable Bayesian Optimization",
-          "authors": "P Saves, et al.",
-          "venue": "Structural and Multidisciplinary Optimization, 2026",
-          "date": "2026-01",
-          "tags": "Mixed-Variable, Bayesian Optimization, Hierarchical Domain, Gaussian Process, Surrogate Modeling",
-          "link": "https://link.springer.com/article/10.1007/s00158-026-04249-2",
-          "abstract": "本文提出一个统一框架处理混合变量输入的层次、条件、异构或树状结构域。引入元变量和偏激活变量概念，定义设计空间图和层次距离核函数，支持复杂系统架构的代理建模和优化。"
-        },
-        {
-          "title": "Kernel-Based Guarantees for Nonlinear Parametric Models in Adaptive Sampling",
-          "authors": "R Oliveira, et al.",
-          "venue": "arXiv preprint, 2026",
-          "date": "2026-05",
-          "tags": "Kernel Methods, Bayesian Optimization, Nonlinear Parametric Models, Regret Analysis, Adaptive Sampling",
-          "link": "https://arxiv.org/abs/2605.13160",
-          "abstract": "本文发展了基于核的框架来分析正则化非线性参数模型在自适应采集数据上的训练。将参数模型类通过参数空间的再生核希尔伯特空间来研究，为使用神经网络等非GP模型的BO提供遗憾保证。"
-        },
-        {
-          "title": "Adaptive Replication Strategies in Trust-Region-Based Bayesian Optimization of Stochastic Functions",
-          "authors": "M Binois, J Larson",
-          "venue": "HAL preprint, 2026",
-          "date": "2026-03",
-          "tags": "Bayesian Optimization, Trust Region, Stochastic Optimization, Adaptive Replication, Gaussian Process",
-          "link": "https://hal.science/hal-05049210",
-          "abstract": "本文提出一种基于GP模型的信赖域随机仿真优化方法，引入自适应重复采样机制，在方差大的区域分配更多重复评估，显著提升了求解精度和计算效率。"
-        },
-        {
-          "title": "Geometry-Aware Active Learning of Spatiotemporal Dynamic Systems",
-          "authors": "X Zhang, B Yao",
-          "venue": "IISE Transactions, 2026",
-          "date": "2026-01",
-          "tags": "Active Learning, Spatiotemporal Dynamics, Geometry-Aware, Sequential Design, Dynamic Systems",
-          "link": "https://www.tandfonline.com/doi/full/10.1080/24725854.2025.2456973",
-          "abstract": "本文提出一种几何感知的时空动态系统主动学习方法，利用系统几何结构信息指导采样策略，在有限观测下高效学习时空动态演化规律。"
-        }
-      ],
-      "stats": {
-        "arxiv": 4,
-        "main": 10,
-        "supplementary": 5,
-        "images": 32
+  {
+    "date": "2026-07-06",
+    "label": "2026-07-06",
+    "main_papers": [
+      {
+        "title": "Sequential infinite-dimensional Bayesian optimal experimental design with derivative-informed latent attention neural operator",
+        "authors": "J. Go, P. Chen",
+        "venue": "Journal of Computational Physics, 532:113976, 2025",
+        "year": 2025,
+        "date": "2025-06",
+        "tags": "Bayesian Optimal Experimental Design, Neural Operator, Infinite-Dimensional, Derivative-Informed, Sequential Design",
+        "link": "https://www.sciencedirect.com/science/article/pii/S0021999125003721",
+        "code": null,
+        "abstract": "This paper proposes a sequential infinite-dimensional Bayesian optimal experimental design framework based on derivative-informed latent attention neural operators, for handling experimental design in large-scale Bayesian inverse problems constrained by partial differential equations.",
+        "rank": 1,
+        "core_work": "本文提出了一种基于导数信息潜在注意力神经算子的序贯无限维贝叶斯最优实验设计框架，用于处理由偏微分方程约束的大规模贝叶斯逆问题中的实验设计。",
+        "contributions": "提出无限维贝叶斯最优实验设计的序贯框架；引入导数信息潜在注意力神经算子高效近似参数到观测的映射；实现大规模PDE约束逆问题中的自适应实验设计。",
+        "innovation": "将神经算子与导数信息结合，在无限维函数空间中实现序贯实验设计，突破了传统有限维方法的限制，同时利用注意力机制捕获输入-输出之间的复杂依赖关系。",
+        "relevance": "与您偏好高度相关：序贯试验设计（Sequential Design）+ 贝叶斯最优实验设计 + 物理知识引导（PDE约束）。发表在Journal of Computational Physics顶级期刊，理论与应用并重。",
+        "citations": 0,
+        "venue_tier": "Top Journal",
+        "images": [
+          "bo_linear_fig1.png",
+          "bo_linear_fig2.png",
+          "bo_linear_fig3.png",
+          "bo_linear_fig4.png"
+        ],
+        "content": [
+          "本文提出了一种基于导数信息潜在注意力神经算子（Derivative-Informed Latent Attention Neural Operator）的序贯无限维贝叶斯最优实验设计（BOED）框架。传统BOED方法受限于有限维参数空间的假设，而许多物理系统的参数本质上是无限维的（如空间分布的物理场）。",
+          "**核心贡献**：提出了一种在无限维函数空间中进行序贯贝叶斯最优实验设计的新框架。通过神经算子学习参数到观测的映射，并利用导数信息指导注意力机制，实现对高维/无限维参数空间中信息增益的精确估计。该框架能够自适应地选择每次实验的最优设计，逐步减小参数的不确定性。",
+          "**创新之处**：首次将神经算子与导数信息结合应用于无限维BOED问题。神经算子提供了从参数到观测的高效前向映射近似，而导数信息则指导了注意力机制在参数空间中的聚焦，使得信息增益计算更加精确和高效。这种结合突破了传统有限维BOED方法的局限。",
+          "**与您偏好关联**：直接匹配序贯试验设计（Sequential Design）和贝叶斯最优实验设计偏好。同时，PDE约束的物理问题明确属于领域知识引导的实验设计范畴。发表在Journal of Computational Physics（计算物理顶级期刊），属于高水平学术成果。"
+        ]
+      },
+      {
+        "title": "Progressive multi-fidelity learning with neural networks for physical system predictions",
+        "authors": "P. Conti, M. Guo, A. Frangi, A. Manzoni",
+        "venue": "Computer Methods in Applied Mechanics and Engineering, 455:118881, 2026",
+        "year": 2026,
+        "date": "2026-06",
+        "tags": "Multi-Fidelity, Neural Networks, Progressive Learning, Physical Systems, Surrogate Modeling",
+        "link": "https://www.sciencedirect.com/science/article/pii/S0045782525002948",
+        "code": null,
+        "abstract": "This paper proposes a progressive multi-fidelity neural network surrogate model that sequentially integrates different types and sources of data through custom encoders to achieve multi-fidelity information fusion in physical system predictions.",
+        "rank": 2,
+        "core_work": "本文提出了一种渐进式多保真度神经网络代理模型，通过定制的编码器顺序整合不同类型和来源的数据，实现物理系统预测中的多保真度信息融合。",
+        "contributions": "提出渐进式多保真度神经网络架构；设计定制编码器处理不同保真度数据；在物理系统预测中实现多保真度信息的高效融合。",
+        "innovation": "采用渐进式学习策略，从低保真度到高保真度逐步训练网络，避免了直接融合多源数据的困难，同时定制的编码器能够有效提取各保真度数据的特征表示。",
+        "relevance": "与您偏好相关：多保真度建模 + 代理模型 + 序贯设计思想。渐进式学习本质上是一种序贯策略。发表在Computer Methods in Applied Mechanics and Engineering（计算力学顶级期刊）。",
+        "citations": 0,
+        "venue_tier": "Top Journal",
+        "images": [
+          "bo_structured_fig1.png",
+          "bo_structured_fig2.png",
+          "bo_structured_fig3.png",
+          "bo_structured_fig4.png"
+        ],
+        "content": [
+          "本文提出了一种渐进式多保真度神经网络代理模型，用于物理系统预测。传统多保真度方法通常假设不同保真度数据之间存在明确的数学关系（如加性模型或乘性模型），但在实际物理系统中，不同来源的数据往往具有复杂的非线性关系，且数据类型可能不同（如实验数据、仿真数据、简化模型数据）。",
+          "**核心贡献**：提出了渐进式多保真度学习框架，通过定制的编码器顺序整合不同类型和来源的数据。每个编码器专门处理一种保真度或数据来源的数据，提取其特征表示。然后，网络从低保真度到高保真度逐步学习，每一阶段利用前一阶段的知识作为先验，逐步提升预测精度。",
+          "**创新之处**：渐进式学习策略避免了直接融合多源异构数据的困难，使得网络能够自然地处理不同保真度之间的复杂关系。定制的编码器设计允许不同保真度数据具有不同的输入维度和特征空间，大大增强了方法的灵活性。",
+          "**与您偏好关联**：涉及多保真度建模、代理模型和序贯设计思想。渐进式学习本质上是一种序贯策略，与您的序贯试验设计偏好一致。发表在Computer Methods in Applied Mechanics and Engineering（计算力学领域顶级期刊，属于用户目标期刊列表）。"
+        ]
+      },
+      {
+        "title": "Active learning for a recursive non-additive emulator for multi-fidelity computer experiments",
+        "authors": "J. Heo, C.-L. Sung",
+        "venue": "Technometrics, 67:1,58-72, 2025",
+        "year": 2025,
+        "date": "2025-01",
+        "tags": "Active Learning, Multi-Fidelity, Non-Additive Emulator, Recursive Model, Gaussian Process",
+        "link": "https://www.tandfonline.com/doi/full/10.1080/00401706.2024.2435453",
+        "code": null,
+        "abstract": "This paper proposes an active learning strategy for a recursive non-additive multi-fidelity emulator, where an acquisition function based on prediction variance and input space distance adaptively selects the next fidelity level and input location to evaluate.",
+        "rank": 3,
+        "core_work": "本文提出了一种面向递归非加性多保真度代理模型的主动学习策略，通过基于预测方差和输入空间距离的采集函数，自适应选择下一个评估的保真度层级和输入位置。",
+        "contributions": "提出递归非加性多保真度代理模型的主动学习策略；设计基于预测方差和空间距离的采集函数；实现保真度层级和输入位置的自适应选择。",
+        "innovation": "首次将主动学习应用于递归非加性多保真度代理模型，采集函数同时考虑了预测不确定性和空间覆盖，能够智能地在不同保真度之间分配计算资源。",
+        "relevance": "与您偏好高度相关：主动学习 + 多保真度 + 自适应采样 + 序贯设计。发表在Technometrics（质量工程顶级期刊），理论与方法并重。",
+        "citations": 0,
+        "venue_tier": "Top Journal",
+        "images": [],
+        "content": [
+          "本文提出了一种面向递归非加性多保真度代理模型的主动学习策略。传统多保真度代理模型通常假设高保真度输出可以表示为低保真度输出加上一个修正项（加性模型），但这种假设在许多实际问题中不成立。本文考虑更一般的非加性递归模型，其中高保真度输出通过递归变换与低保真度输出相关联。",
+          "**核心贡献**：提出了一种主动学习策略，通过设计基于预测方差和输入空间距离的采集函数，自适应地选择下一个评估的保真度层级和输入位置。采集函数同时考虑了在当前模型下的预测不确定性（利用）和输入空间的覆盖程度（探索），使得采样决策能够同时提升模型精度和空间覆盖。",
+          "**创新之处**：首次将主动学习应用于递归非加性多保真度代理模型。与加性模型不同，非加性模型允许更复杂的保真度间关系，但这也使得主动学习策略的设计更加复杂。采集函数能够智能地在不同保真度之间分配计算资源，在高不确定性区域优先选择高保真度评估，而在其他区域则使用低保真度评估。",
+          "**与您偏好关联**：高度匹配您的主动学习、多保真度、自适应采样和序贯设计偏好。发表在Technometrics（质量工程顶级期刊，属于用户目标期刊列表），是该方向的重要方法论贡献。"
+        ]
+      },
+      {
+        "title": "A multi-output Gaussian process regression with negative transfer mitigation for generating boundary test scenarios of multi-UAV systems",
+        "authors": "H. Jiang, et al.",
+        "venue": "Results in Engineering, 2025",
+        "year": 2025,
+        "date": "2025-09",
+        "tags": "Multi-Output Gaussian Process, Negative Transfer Mitigation, Boundary Test, Multi-UAV, Active Learning",
+        "link": "https://www.sciencedirect.com/science/article/pii/S2590123025009364",
+        "code": null,
+        "abstract": "This paper proposes a multi-output Gaussian process regression method with negative transfer mitigation for adaptive generation of boundary test scenarios in multi-UAV systems, avoiding negative transfer effects between outputs through adaptive regularization constraints.",
+        "rank": 4,
+        "core_work": "本文提出了一种带负迁移缓解的多输出高斯过程回归方法，用于多无人机系统边界测试场景的自适应生成，通过自适应正则化约束避免多输出间的负迁移效应。",
+        "contributions": "提出带负迁移缓解的多输出GP回归方法；设计自适应正则化约束避免负迁移；应用于多无人机系统边界测试场景的自适应生成。",
+        "innovation": "首次将负迁移缓解机制引入多输出GP回归，通过自适应正则化约束动态调整输出间的知识共享程度，有效避免了负迁移效应。",
+        "relevance": "与您偏好高度相关：多类型/多输出 + Gaussian Process + 主动学习（自适应生成）。关注实际工程应用（多无人机系统）。",
+        "citations": 0,
+        "venue_tier": "Journal",
+        "images": [
+          "scalable_gp_spatiotemporal_fig1.png",
+          "scalable_gp_spatiotemporal_fig2.png",
+          "scalable_gp_spatiotemporal_fig3.png",
+          "scalable_gp_spatiotemporal_fig4.png"
+        ],
+        "content": [
+          "本文提出了一种带负迁移缓解的多输出高斯过程回归方法，用于多无人机系统边界测试场景的自适应生成。在多输出学习中，不同输出之间共享知识通常能够提升学习效率，但在某些情况下，一个输出的学习可能对其他输出产生负面影响，这种现象称为负迁移（negative transfer）。",
+          "**核心贡献**：提出了一种带负迁移缓解的多输出GP回归方法。通过设计自适应正则化约束，动态调整输出间的知识共享程度，有效避免了负迁移效应。在多无人机系统边界测试场景生成任务中，该方法能够自适应地生成具有挑战性的测试场景，同时确保各输出（如位置、速度、姿态等）的预测精度。",
+          "**创新之处**：首次将负迁移缓解机制引入多输出GP回归。自适应正则化约束能够根据当前训练数据动态调整输出间的相关性强度，在输出间存在正相关时增强知识共享，在存在负相关时减弱共享，从而最大化多输出学习的整体效益。",
+          "**与您偏好关联**：高度匹配您的特别偏好——多类型输出变量的自适应建模。同时涉及Gaussian Process和主动学习（自适应生成）。虽然发表在Results in Engineering而非顶级期刊，但关注实际工程应用（多无人机系统），具有重要的实用价值。"
+        ]
+      },
+      {
+        "title": "Region-optimal Gaussian process surrogate model via Dirichlet process for cold-flow and combustion emulations",
+        "authors": "M. Zhou, R. Zuo, C.-L. Sung, Y. Tong, X. Wang",
+        "venue": "Computer Methods in Applied Mechanics and Engineering, 439:117894, 2025",
+        "year": 2025,
+        "date": "2025-01",
+        "tags": "Gaussian Process, Dirichlet Process, Region-Optimal, Cold-Flow, Combustion, Surrogate Modeling",
+        "link": "https://www.sciencedirect.com/science/article/pii/S0045782524004552",
+        "code": null,
+        "abstract": "This paper proposes a region-optimal Gaussian process surrogate model based on Dirichlet process for cold-flow and combustion emulation, using non-parametric Bayesian methods to automatically identify optimal region partitions in the input space.",
+        "rank": 5,
+        "core_work": "本文提出了一种基于Dirichlet过程的区域最优高斯过程代理模型，用于冷流和燃烧模拟的代理建模，通过非参数贝叶斯方法自动识别输入空间中的最优区域划分。",
+        "contributions": "提出基于Dirichlet过程的区域最优GP代理模型；自动识别输入空间中的最优区域划分；在冷流和燃烧模拟中验证模型有效性。",
+        "innovation": "将Dirichlet过程作为非参数贝叶斯先验引入GP代理模型，实现了输入空间区域划分的自动学习，避免了预先指定区域数量和形状的主观性。",
+        "relevance": "与您偏好相关：Gaussian Process + 代理模型 + 自适应区域识别。Dirichlet过程自动识别区域划分体现了自适应思想。发表在CMAME顶级期刊。",
+        "citations": 0,
+        "venue_tier": "Top Journal",
+        "images": [],
+        "content": [
+          "本文提出了一种基于Dirichlet过程的区域最优高斯过程代理模型，用于冷流和燃烧模拟的代理建模。在复杂物理系统（如燃烧过程）的模拟中，输入空间的不同区域可能表现出截然不同的响应行为，使用单一全局代理模型难以准确捕捉所有区域的特征。",
+          "**核心贡献**：提出了一种基于Dirichlet过程（Dirichlet Process, DP）的区域最优高斯过程代理模型。DP作为非参数贝叶斯先验，能够自动识别输入空间中的最优区域划分，而无需预先指定区域数量。在每个识别出的区域内，独立训练一个GP模型，从而更好地捕捉局部响应特征。对于冷流和燃烧模拟问题，区域最优GP代理模型显著优于单一全局GP模型。",
+          "**创新之处**：将Dirichlet过程引入GP代理模型作为区域划分的非参数先验，这是此前GP代理模型中较少探索的方向。DP的自动区域划分能力避免了传统区域划分方法中需要预先指定区域数量和形状的主观性，使得代理模型能够自适应地适应输入空间的局部结构。",
+          "**与您偏好关联**：涉及Gaussian Process、代理模型和自适应区域识别。Dirichlet过程的自动区域划分体现了自适应思想，与您的自适应代理建模偏好一致。发表在Computer Methods in Applied Mechanics and Engineering（计算力学顶级期刊，属于用户目标期刊列表）。"
+        ]
+      },
+      {
+        "title": "Surrogate-based Bayesian calibration methods for chaotic systems: a comparison of traditional and non-traditional approaches",
+        "authors": "M. Holthuijzen, et al.",
+        "venue": "arXiv:2508.13071, 2026",
+        "year": 2026,
+        "date": "2026-01",
+        "tags": "Bayesian Calibration, Surrogate Modeling, Chaotic Systems, Experimental Design, Emulator",
+        "link": "https://arxiv.org/abs/2508.13071",
+        "code": null,
+        "abstract": "This paper systematically compares four surrogate-based Bayesian calibration strategies: Calibrate-Emulate-Sample CES, History Matching HM, Bayesian Optimal Experimental Design BOED, and goal-oriented BOED extension GBOED, on chaotic systems.",
+        "rank": 6,
+        "core_work": "本文系统比较了四种基于代理模型的贝叶斯校准策略：Calibrate-Emulate-Sample CES、History Matching HM、贝叶斯最优实验设计BOED和目标导向BOED扩展GBOED，在混沌系统上的性能。",
+        "contributions": "系统比较四种贝叶斯校准策略在混沌系统上的性能；分析各策略的优势和适用场景；为混沌系统的贝叶斯校准提供方法选择指导。",
+        "innovation": "首次在混沌系统上系统比较传统和非传统贝叶斯校准策略，揭示了不同策略在处理混沌系统敏感性方面的差异。",
+        "relevance": "与您偏好相关：代理模型 + 贝叶斯校准 + 序贯实验设计。混沌系统上的比较研究具有独特价值。arXiv预印本。",
+        "citations": 0,
+        "venue_tier": "Preprint",
+        "images": [
+          "bayesian_calib_chaos_fig1.png",
+          "bayesian_calib_chaos_fig2.png",
+          "bayesian_calib_chaos_fig3.png",
+          "bayesian_calib_chaos_fig4.png"
+        ],
+        "content": [
+          "本文系统比较了四种基于代理模型的贝叶斯校准策略在混沌系统上的性能。混沌系统（如Lorenz系统、Rössler系统）对初始条件和参数极其敏感，传统的贝叶斯校准方法在处理这类系统时面临特殊挑战。",
+          "**核心贡献**：系统比较了四种贝叶斯校准策略：（1）Calibrate-Emulate-Sample（CES）——先校准参数，再构建代理模型，最后采样；（2）History Matching（HM）——通过排除与观测不一致的参数区域来逐步缩小参数范围；（3）Bayesian Optimal Experimental Design（BOED）——通过最大化信息增益来序贯选择实验设计；（4）Goal-Oriented BOED Extension（GBOED）——在BOED基础上引入目标导向，针对特定科学问题优化实验设计。在多个混沌系统上的比较表明，各策略在不同场景下各有优势。",
+          "**创新之处**：首次在混沌系统上系统比较了传统和非传统贝叶斯校准策略。混沌系统的特殊敏感性使得参数推断和实验设计更加困难，该比较研究为实际应用中的方法选择提供了重要指导。",
+          "**与您偏好关联**：涉及代理模型、贝叶斯校准和序贯实验设计等核心方向。虽然发表在arXiv（预印本），但系统比较研究在混沌系统这一特殊领域具有独特价值，与您的自适应代理建模和序贯试验设计偏好一致。"
+        ]
+      },
+      {
+        "title": "Constrained Bayesian Experimental Design via Online Planning COPEx",
+        "authors": "Y. Guo, D. Huang, X. Zhang, S. Katt, S. Kaski, A. Bharti",
+        "venue": "arXiv:2605.26990, 2026 ICML submission",
+        "year": 2026,
+        "date": "2026-05",
+        "tags": "Bayesian Experimental Design, Online Planning, Constraint-Aware, Multi-Step Lookahead, Scenario Tree",
+        "link": "https://arxiv.org/abs/2605.26990",
+        "code": "https://github.com/anonymous-copex/copex",
+        "abstract": "This paper proposes the COPEx framework, which solves sequential Bayesian experimental design problems with dynamic constraints (budget limits, transition constraints, physical constraints) through offline pre-trained amortization strategies and online multi-step lookahead planning.",
+        "rank": 7,
+        "core_work": "本文提出了COPEx框架，通过离线预训练摊销策略和在线多步前瞻规划，解决具有动态约束（预算限制、转移约束、物理约束）的序贯贝叶斯实验设计问题。",
+        "contributions": "提出COPEx框架处理约束下的序贯BOED；引入离线预训练摊销策略加速在线规划；设计多步前瞻规划处理动态约束。",
+        "innovation": "将离线预训练与在线多步前瞻规划相结合，首次实现了具有动态约束的序贯BOED的高效求解，突破了传统方法在约束处理上的局限。",
+        "relevance": "与您偏好高度相关：序贯贝叶斯实验设计 + 自适应采样 + 约束感知。ICML投稿论文，关注实际约束场景。",
+        "citations": 0,
+        "venue_tier": "Preprint",
+        "images": [
+          "copex_fig1.png"
+        ],
+        "content": [
+          "本文提出了COPEx（Constrained Bayesian Experimental Design via Online Planning）框架，用于解决具有动态约束的序贯贝叶斯实验设计问题。传统BOED方法通常假设实验设计不受约束限制，但在实际应用中，实验往往受到预算限制、转移约束（如实验之间需要满足某种转移条件）和物理约束（如实验参数必须满足物理可行性）。",
+          "**核心贡献**：COPEx框架包含两个主要创新：（1）离线预训练摊销策略——通过大量离线模拟训练一个神经网络，使其能够快速近似给定历史观测下的最优实验设计策略，从而大幅加速在线决策；（2）在线多步前瞻规划——利用场景树（scenario tree）进行多步前瞻，考虑未来可能的约束状态，从而在当前步骤做出具有长期最优性的决策。",
+          "**创新之处**：首次将离线预训练与在线多步前瞻规划相结合应用于约束BOED问题。离线预训练解决了BOED计算成本高的问题，而在线多步前瞻规划则确保约束在 long horizon 上得到满足。这种结合突破了传统方法在约束处理上的局限。",
+          "**与您偏好关联**：高度匹配序贯贝叶斯实验设计和自适应采样偏好。同时，约束感知设计在实际工程中至关重要，与您的序贯试验设计偏好一致。代码已开源，可复现性好。"
+        ]
+      },
+      {
+        "title": "Bifidelity Karhunen–Loève expansion surrogate with active learning for random fields",
+        "authors": "A. Jivani, C. Safta, B.Y. Zhou, X. Huan",
+        "venue": "arXiv:2511.03756, 2025",
+        "year": 2025,
+        "date": "2025-11",
+        "tags": "Bifidelity, Karhunen-Loève Expansion, Active Learning, Random Fields, Gaussian Process, Surrogate Modeling",
+        "link": "https://arxiv.org/abs/2511.03756",
+        "code": "https://github.com/bifidelity-kle/active-learning-random-fields",
+        "abstract": "This paper proposes a bifidelity Karhunen-Loève expansion surrogate model, combining polynomial chaos expansion and active learning strategies for efficient surrogate modeling and accuracy improvement of field quantities under uncertain inputs.",
+        "rank": 8,
+        "core_work": "本文提出了双保真Karhunen-Loeve展开代理模型，结合多项式混沌展开和主动学习策略，用于不确定输入下场值量的高效代理建模和精度提升。",
+        "contributions": "提出双保真Karhunen-Loeve展开代理模型；结合多项式混沌展开和主动学习策略；在场值量不确定性量化中实现高效代理建模。",
+        "innovation": "将双保真度建模与Karhunen-Loeve展开和主动学习相结合，首次实现了随机场的高效双保真代理建模，同时通过主动学习自适应提升模型精度。",
+        "relevance": "与您偏好高度相关：多保真度 + 主动学习 + 代理模型 + 不确定性量化。Karhunen-Loeve展开是处理随机场的经典方法。",
+        "citations": 0,
+        "venue_tier": "Preprint",
+        "images": [
+          "bifidelity_kle_fig1.png",
+          "bifidelity_kle_fig2.png",
+          "bifidelity_kle_fig3.png",
+          "bifidelity_kle_fig4.png"
+        ],
+        "content": [
+          "本文提出了双保真Karhunen-Loeve（K-L）展开代理模型，结合多项式混沌展开（PCE）和主动学习策略，用于不确定输入下场值量的高效代理建模和精度提升。在随机场（如空间分布的物理场）的不确定性量化中，传统方法需要在大量空间点上进行昂贵的仿真计算。",
+          "**核心贡献**：提出了双保真K-L展开代理模型。利用低保真度模型快速获取K-L展开的特征模态和系数，然后通过高保真度模型在少量关键点上的评估来校正和精炼代理模型。进一步结合主动学习策略，自适应地选择下一个高保真度评估点，以最大化代理模型精度的提升。",
+          "**创新之处**：将双保真度建模与K-L展开和主动学习相结合。K-L展开将随机场分解为确定性特征模态和随机系数的线性组合，而双保真度策略则利用低保真度模型快速获取模态信息。主动学习进一步减少了高保真度评估的次数，使得整体方法在计算效率和精度之间取得了良好平衡。",
+          "**与您偏好关联**：高度匹配多保真度、主动学习、代理模型和不确定性量化等核心偏好。Karhunen-Loeve展开是处理随机场的经典方法，与该论文的结合体现了方法论的创新。代码已开源，可复现性好。"
+        ]
+      },
+      {
+        "title": "Goal-oriented sequential Bayesian experimental design for causal learning GO-CBED",
+        "authors": "Z. Zhang, J. Dong, J. Liu, X. Huan",
+        "venue": "arXiv:2507.07359, 2025",
+        "year": 2025,
+        "date": "2025-07",
+        "tags": "Goal-Oriented, Sequential Bayesian Experimental Design, Causal Learning, Expected Information Gain, Amortized Network",
+        "link": "https://arxiv.org/abs/2507.07359",
+        "code": null,
+        "abstract": "This paper proposes the GO-CBED framework, a goal-oriented Bayesian causal experimental design method that achieves more targeted and efficient sequential causal experimental design by maximizing the expected information gain of user-specified causal quantities.",
+        "rank": 9,
+        "core_work": "本文提出了GO-CBED框架，一种目标导向的贝叶斯因果实验设计方法，通过最大化用户指定因果量的期望信息增益，实现更有针对性和高效的因果实验序贯设计。",
+        "contributions": "提出GO-CBED目标导向因果实验设计框架；引入用户指定因果量的期望信息增益准则；设计摊销网络加速策略计算。",
+        "innovation": "首次将目标导向思想引入贝叶斯因果实验设计，允许用户直接指定感兴趣的因果量（而非整个因果模型），从而实现更有针对性的实验设计。",
+        "relevance": "与您偏好高度相关：序贯贝叶斯实验设计 + 目标导向 + 自适应采样。目标导向设计直接服务于用户关心的科学问题。",
+        "citations": 0,
+        "venue_tier": "Preprint",
+        "images": [
+          "go_cbed_fig1.png",
+          "go_cbed_fig2.png",
+          "go_cbed_fig3.png",
+          "go_cbed_fig4.png"
+        ],
+        "content": [
+          "本文提出了GO-CBED（Goal-Oriented Sequential Bayesian Experimental Design for Causal Learning）框架，一种目标导向的贝叶斯因果实验设计方法。传统因果实验设计通常关注整个因果模型的学习，但研究者往往只对某些特定的因果量（如某个处理效应的大小）感兴趣。GO-CBED通过最大化用户指定因果量的期望信息增益，实现更有针对性和高效的因果实验序贯设计。",
+          "**核心贡献**：GO-CBED框架包含三个主要创新：（1）目标导向的实验设计准则——允许用户直接指定感兴趣的因果量，而非整个因果模型，从而实现更有针对性的实验设计；（2）序贯设计策略——通过序贯地选择每次实验的设计，逐步减小目标因果量的不确定性；（3）摊销网络加速——利用神经网络摊销期望信息增益的计算，使得在线实验设计决策能够快速完成。",
+          "**创新之处**：首次将目标导向思想引入贝叶斯因果实验设计。与关注整个因果模型的传统方法不同，GO-CBED直接服务于用户关心的科学问题，使得实验设计更加高效。摊销网络的使用解决了计算瓶颈，使得方法在实际应用中可行。",
+          "**与您偏好关联**：高度匹配序贯贝叶斯实验设计和自适应采样偏好。目标导向设计直接服务于用户关心的科学问题，与您的序贯试验设计偏好一致。虽然发表在arXiv，但方法创新性强，具有重要的应用潜力。"
+        ]
+      },
+      {
+        "title": "Transformed Latent Variable Multi-Output Gaussian Processes T-LVMOGP",
+        "authors": "X. Jiang, X. Shi, S. Georgaka, M. Rattray, M.A. Álvarez",
+        "venue": "arXiv:2605.05133, 2026 ICML submission",
+        "year": 2026,
+        "date": "2026-05",
+        "tags": "Multi-Output Gaussian Process, Latent Variable, Deep Kernel, Scalable, Variational Inference",
+        "link": "https://arxiv.org/abs/2605.05133",
+        "code": null,
+        "abstract": "This paper proposes the T-LVMOGP framework, which maps input and output-specific latent variables to embedding spaces through Lipschitz-regularized residual connection neural networks, constructing flexible multi-output deep kernels for scalable multi-output Gaussian process modeling in high-dimensional output spaces.",
+        "rank": 10,
+        "core_work": "本文提出了T-LVMOGP框架，通过Lipschitz正则化残差连接神经网络将输入和输出特定潜变量映射到嵌入空间，构建灵活的多输出深度核，实现高维输出空间下的可扩展多输出高斯过程建模。",
+        "contributions": "提出T-LVMOGP多输出GP框架；引入Lipschitz正则化残差连接神经网络构建深度核；实现高维输出空间下的可扩展多输出GP建模。",
+        "innovation": "通过Lipschitz正则化残差连接神经网络将输入和输出特定潜变量映射到嵌入空间，构建了灵活的多输出深度核，突破了传统多输出GP在高维输出空间下的可扩展性瓶颈。",
+        "relevance": "与您偏好高度相关：多类型/多输出 + Gaussian Process + 深度核 + 可扩展性。ICML投稿论文，方法论创新突出。",
+        "citations": 0,
+        "venue_tier": "Preprint",
+        "images": [
+          "tensor_bo_fig1.png",
+          "tensor_bo_fig2.png",
+          "tensor_bo_fig3.png",
+          "tensor_bo_fig4.png"
+        ],
+        "content": [
+          "本文提出了T-LVMOGP（Transformed Latent Variable Multi-Output Gaussian Processes）框架，用于高维输出空间下的可扩展多输出高斯过程建模。传统多输出GP方法（如协同区域化模型）在处理高维输出空间时面临计算复杂度过高的问题，限制了其在实际应用中的使用。",
+          "**核心贡献**：T-LVMOGP通过Lipschitz正则化残差连接神经网络将输入和输出特定潜变量映射到嵌入空间，构建了灵活的多输出深度核。该框架的关键创新在于：（1）输入和输出特定的潜变量能够捕获不同输出之间的复杂依赖关系；（2）Lipschitz正则化确保了模型的稳定性和泛化能力；（3）残差连接使得深度网络能够有效地学习复杂的非线性映射。",
+          "**创新之处**：通过Lipschitz正则化残差连接神经网络构建深度核，突破了传统多输出GP在高维输出空间下的可扩展性瓶颈。与现有方法相比，T-LVMOGP在保持模型灵活性的同时大幅提升了计算效率，使得多输出GP能够应用于更高维的输出空间。",
+          "**与您偏好关联**：高度匹配您的特别偏好——多类型输出变量的自适应建模与Gaussian Process。深度核的引入增强了模型对复杂相关结构的表达能力，同时变分推断的使用保证了方法的可扩展性。ICML投稿论文，方法论创新突出。"
+        ]
       }
+    ],
+    "supplementary": [
+      {
+        "title": "Surrogate-Guided Adaptive Importance Sampling for Failure Probability Estimation",
+        "authors": "A. Renganathan, et al.",
+        "venue": "arXiv:2603.20959, 2026",
+        "date": "2026-03",
+        "tags": "Adaptive Importance Sampling, Gaussian Process, Failure Probability, Surrogate Modeling, Kernel Density Estimation",
+        "link": "https://arxiv.org/abs/2603.20959",
+        "abstract": "本文提出一种代理模型引导的自适应重要性采样方法，利用高斯过程代理模型和核密度估计，高效估计复杂工程系统的失效概率。"
+      },
+      {
+        "title": "Infinite Gaussian Process for Bayesian Optimization under General Reward Models",
+        "authors": "Z. Zhang, et al.",
+        "venue": "arXiv:2602.07411, 2026",
+        "date": "2026-02",
+        "tags": "Bayesian Optimization, Infinite Gaussian Process, Thompson Sampling, General Reward, Non-Stationary",
+        "link": "https://arxiv.org/abs/2602.07411",
+        "abstract": "本文提出无限高斯过程用于一般奖励模型下的贝叶斯优化，通过Thompson采样策略处理非平稳奖励，扩展了标准BO的应用范围。"
+      },
+      {
+        "title": "PDE-constrained Gaussian process surrogate modeling with uncertain data locations",
+        "authors": "D. Ye, W. Yan, C. Brune, M. Guo",
+        "venue": "Advanced Modeling and Simulation in Engineering Sciences, 12:33, 2025",
+        "date": "2025-01",
+        "tags": "PDE-Constrained, Gaussian Process, Uncertain Data Locations, Surrogate Modeling, Physics-Informed",
+        "link": "https://link.springer.com/article/10.1186/s40323-025-00313-3",
+        "abstract": "本文提出PDE约束的高斯过程代理模型，处理数据位置不确定的情况，将物理信息融入GP建模，在工程应用中实现更鲁棒的预测。"
+      },
+      {
+        "title": "Category tree Gaussian process for computer experiments with many-category qualitative factors",
+        "authors": "W.-A. Lin, C.-L. Sung, R.-B. Chen",
+        "venue": "Journal of Quality Technology, 565:391-408, 2024",
+        "date": "2024-11",
+        "tags": "Category Tree Gaussian Process, Qualitative Factors, Computer Experiments, Mixed Variables, Cooling System Design",
+        "link": "https://www.tandfonline.com/doi/full/10.1080/00224065.2024.2387345",
+        "abstract": "本文提出类别树高斯过程，用于处理多类别定性因子的计算机实验，通过树状结构建模定性因子间的层次关系，在冷却系统设计中验证方法有效性。"
+      },
+      {
+        "title": "Multi-output Gaussian processes for the reconstruction of homogenized cross-sections",
+        "authors": "O. Truffinet, K. Ammar, J.-P. Argaud, N.G. Castaing, B. Bouriquet",
+        "venue": "EPJ Nuclear Sci. Technol, 11, 61 2025",
+        "date": "2025-10",
+        "tags": "Multi-Output Gaussian Process, Homogenized Cross-Sections, Nuclear Reactor, Uncertainty Quantification, Adaptive Sampling",
+        "link": "https://link.springer.com/article/10.1140/epjn/s41115-025-00389-7",
+        "abstract": "本文提出多输出高斯过程用于均匀化截面重建，在核反应堆物理中实现多输出代理建模，结合不确定性量化评估重建精度。"
+      }
+    ],
+    "stats": {
+      "arxiv": 7,
+      "main": 10,
+      "supplementary": 5
     }
-  ]
+  },
+  {
+    "date": "2026-07-09",
+    "label": "2026-07-09",
+    "main_papers": [
+      {
+        "title": "Improved Regret Bounds for Gaussian Process Upper Confidence Bound in Bayesian Optimization",
+        "authors": "S Iwazaki",
+        "venue": "NeurIPS 2025 (Oral)",
+        "year": 2025,
+        "date": "2025-12",
+        "tags": "Bayesian Optimization, Gaussian Process, Regret Bound, UCB, Sequential Design",
+        "link": "https://neurips.cc/virtual/2025/poster/116692",
+        "code": null,
+        "abstract": "This paper addresses the Bayesian optimization problem where the learner seeks to minimize the regret under a function drawn from a known Gaussian process. Under a Matérn kernel, GP-UCB achieves O~(sqrt(T)) cumulative regret. Under squared exponential kernel, O(sqrt(T ln^2 T)) regret is achieved.",
+        "rank": 1,
+        "core_work": "本文针对贝叶斯优化（Bayesian Optimization）中的高斯过程上置信界（GP-UCB）算法，在Matérn核和平方指数核下给出了更紧的累积遗憾界（regret bound），填补了现有理论空白。",
+        "contributions": "在Matérn核下证明GP-UCB可达到O~(sqrt(T))的累积遗憾；在平方指数核下达到O(sqrt(T ln^2 T))；通过精细化输入序列的集中行为分析改进了信息增益的处理方式。",
+        "innovation": "创新性地捕捉了GP-UCB实现过程中输入序列的集中行为，从而对信息增益进行更精细的刻画，这是此前分析中未被充分利用的性质。",
+        "relevance": "与您偏好高度相关：核心关注Gaussian Process + Bayesian Optimization + 序贯设计（Sequential Design），且来自NeurIPS顶会Oral，理论贡献突出。",
+        "citations": 0,
+        "venue_tier": "Top Conference",
+        "images": [
+          "gp_ucb_regret_fig1.png",
+          "gp_ucb_regret_fig2.png",
+          "gp_ucb_regret_fig3.png",
+          "gp_ucb_regret_fig4.png",
+          "gp_ucb_regret_fig5.png",
+          "gp_ucb_regret_fig6.png"
+        ],
+        "content": [
+          "本文针对贝叶斯优化（Bayesian Optimization）中的高斯过程上置信界（GP-UCB）算法，在Matérn核和平方指数核下给出了更紧的累积遗憾界（regret bound），填补了现有理论空白。",
+          "**核心贡献**：在Matérn核光滑性假设下，证明GP-UCB算法以高概率达到O~(sqrt(T))的累积遗憾界；在平方指数核下达到O(sqrt(T ln^2 T))。这些结果弥合了GP-UCB现有遗憾上界与Scarlett (2018)提供的当前最优上界之间的差距。",
+          "**创新之处**：证明的关键在于捕捉GP-UCB实现过程中输入序列的集中行为（concentration behavior），这使得作者能够以更精细的方式处理GP的信息增益（information gain），而此前的分析未能充分利用这一性质。",
+          "**与您偏好关联**：直接匹配Gaussian Process + Bayesian Optimization + 序贯设计。作为NeurIPS 2025 Oral论文，其理论深度和 venue 级别均属顶尖，对理解GP-UCB算法的理论保证具有重要意义。"
+        ]
+      },
+      {
+        "title": "PCE-Net: High-Dimensional Surrogate Modeling for Learning Uncertainty",
+        "authors": "Paz Fink Shustin, Shashanka Ubaru, Małgorzata J. Zimoń, Songtao Lu, Vasileios Kalantzis, Lior Horesh, Haim Avron",
+        "venue": "SIAM/ASA Journal on Uncertainty Quantification, 2026",
+        "year": 2026,
+        "date": "2026-03",
+        "tags": "Surrogate Modeling, Uncertainty Quantification, Polynomial Chaos Expansion, Dimensionality Reduction, High-Dimensional Data",
+        "link": "https://epubs.siam.org/doi/10.1137/24M1723838",
+        "code": null,
+        "abstract": "A dimensionality reduction surrogate modeling approach for representation learning and uncertainty quantification. Uses variational autoencoder for low-dimensional representation and polynomial chaos expansion to map to output target.",
+        "rank": 2,
+        "core_work": "本文提出了一种结合变分自编码器（VAE）降维与多项式混沌展开（PCE）的高维代理建模方法PCE-Net，用于表征学习和不确定性量化。",
+        "contributions": "提出两阶段学习框架：VAE学习低维表征，PCE建立低维分布到输出的映射；无需对数据先验统计假设即可捕捉系统动力学、学习表征并估计不确定性。",
+        "innovation": "将深度学习降维与经典UQ方法PCE结合，克服了高维数据下UQ计算不可行的问题，同时能够匹配输出分布的高阶矩。",
+        "relevance": "与您偏好相关：代理建模 + 不确定性量化 + 高维问题。发表在SIAM/ASA JUQ顶级期刊，属于高水平学术成果。",
+        "citations": 0,
+        "venue_tier": "Top Journal",
+        "images": [],
+        "content": [
+          "本文提出了一种结合变分自编码器（VAE）降维与多项式混沌展开（PCE）的高维代理建模方法PCE-Net，用于表征学习和不确定性量化（UQ）。",
+          "**核心贡献**：提出两阶段学习框架：（1）使用VAE学习输入数据分布的低维表征；（2）利用PCE将低维分布映射到输出目标。该模型无需对数据做任何先验统计假设，即可在潜在空间中高效捕捉系统动力学、学习数据表征与输入-输出分布映射，并估计高维数据系统中的不确定性。",
+          "**创新之处**：将深度学习降维技术与经典UQ方法PCE有机结合，克服了传统UQ技术在高维数据下计算量剧增的瓶颈，同时能够匹配输出分布的高阶矩，提供更全面的不确定性刻画。",
+          "**与您偏好关联**：涉及代理建模（surrogate modeling）和不确定性量化（uncertainty quantification）两大核心方向。发表在SIAM/ASA Journal on Uncertainty Quantification，属于目标期刊列表中的顶级期刊。"
+        ]
+      },
+      {
+        "title": "Goal-Oriented Lower-Tail Calibration of Gaussian Processes for Bayesian Optimization",
+        "authors": "A Pion, E Vazquez",
+        "venue": "ICML 2026",
+        "year": 2026,
+        "date": "2026-05",
+        "tags": "Bayesian Optimization, Gaussian Process, Calibration, Expected Improvement, Sequential Design",
+        "link": "https://arxiv.org/abs/2605.20145",
+        "code": null,
+        "abstract": "Studies goal-oriented calibration of GP predictive distributions below a threshold t. Proposes tcGP, a post-hoc method that calibrates GP predictive distributions below t, and shows that EI-based global optimization remains dense in the design space.",
+        "rank": 3,
+        "core_work": "本文研究了贝叶斯优化中GP预测分布在下尾区域（lower-tail）的校准问题，提出tcGP方法对低于阈值t的预测分布进行事后校准。",
+        "contributions": "引入基于空间校准的预测可靠性框架，包括发生校准（occurrence calibration）和阈值μ-校准；提出tcGP方法；证明校准后的EI优化仍在设计空间中稠密。",
+        "innovation": "首次针对BO中的下尾区域提出目标导向的GP校准框架，将校准问题与采集函数（EI）的采样决策直接关联。",
+        "relevance": "与您偏好高度相关：Gaussian Process + Bayesian Optimization + 序贯试验设计。ICML接受且关注实际BO性能提升。",
+        "citations": 0,
+        "venue_tier": "Top Conference",
+        "images": [
+          "tcgp_fig1.png",
+          "tcgp_fig2.png",
+          "tcgp_fig3.png",
+          "tcgp_fig4.png",
+          "tcgp_fig5.png",
+          "tcgp_fig6.png"
+        ],
+        "content": [
+          "本文研究了贝叶斯优化（BO）中高斯过程（GP）预测分布在下尾区域（lower-tail）的校准问题。核函数选择和超参数选取可能导致预测分布校准不当，进而影响探索-利用权衡。对于最小化问题，期望改进（Expected Improvement）等采样准则依赖于当前最优值以下的预测分布，因此下尾校准错误直接影响采样决策。",
+          "**核心贡献**：在噪声-free设定下，研究了标准GP模型（超参数通过最大似然选取）在低于阈值t区域的预测校准问题。引入了基于两种空间校准概念的预测可靠性框架：设计空间上的发生校准（occurrence calibration）和子水平集上的阈值μ-校准（thresholded μ-calibration）。在此基础上提出tcGP——一种对低于t的GP预测分布进行事后校准的方法，并证明使用校准后GP的EI全局优化算法在设计空间中仍保持稠密性。",
+          "**创新之处**：首次将目标导向校准（goal-oriented calibration）引入BO中的GP建模，专门针对影响采集函数决策的下尾区域。这种校准视角与全局校准方法不同，更直接地服务于优化性能的提升。",
+          "**与您偏好关联**：直接匹配Gaussian Process + Bayesian Optimization + 序贯试验设计。该论文被ICML 2026接受为poster，同时发表在arXiv上，属于用户关注的核心方法论的拓展。"
+        ]
+      },
+      {
+        "title": "Efficient Robust Aerodynamic Design Optimization Method with Unified Design and Uncertain Variables",
+        "authors": "KS Zhang, HJ Guo, ZH Han, WP Song",
+        "venue": "AIAA Journal, 2026",
+        "year": 2026,
+        "date": "2026-01",
+        "tags": "Robust Design Optimization, Surrogate Model, Adaptive Sampling, Uncertainty Quantification, Aerodynamic Design",
+        "link": "https://doi.org/10.2514/1.J065188",
+        "code": null,
+        "abstract": "An efficient surrogate-based RDO framework with adaptive infill sampling. Unifies geometric design and uncertain variables into a single surrogate model, proposes combined infill-sampling method, and two-phase strategy for aerodynamic problems.",
+        "rank": 4,
+        "core_work": "本文提出了一种基于代理模型的鲁棒气动设计优化框架，将几何设计变量与不确定变量统一到单一代理模型中，并采用自适应填充采样策略。",
+        "contributions": "统一设计变量与不确定变量到单一代理模型；提出结合填充采样方法实现自适应加点；提出两阶段策略加速鲁棒设计优化收敛。",
+        "innovation": "将设计与UQ双循环中的变量统一建模，避免了分别构建代理模型的冗余，同时自适应采样同时服务于优化探索和UQ精度提升。",
+        "relevance": "与您偏好相关：自适应采样 + 代理模型 + 不确定性量化 + 序贯设计。发表在航空航天领域顶级期刊AIAA Journal。",
+        "citations": 0,
+        "venue_tier": "Top Journal",
+        "images": [],
+        "content": [
+          "本文提出了一种高效的基于代理模型的鲁棒设计优化（RDO）框架，专门针对考虑几何不确定性的气动设计问题。传统RDO方法需要外循环搜索最优设计和内循环执行不确定性量化（UQ），导致需要大量昂贵的CFD仿真计算。",
+          "**核心贡献**：框架包含三个主要创新：（1）将几何设计变量与不确定变量统一到一个共同的代理模型中，而非分别建模，该代理模型同时辅助优化和UQ双循环；（2）提出一种结合填充采样方法，自适应地选择新样本进行CFD评估，既用于全局最优探索，也用于提升共同代理模型以改善UQ精度；（3）提出两阶段策略加速RDO收敛，尤其适用于鲁棒最优解位于确定性最优解附近的气动问题。",
+          "**创新之处**：通过统一变量建模避免了双代理模型的冗余，同时自适应采样策略将探索（optimization）与精炼（UQ）统一到一个采样准则中，显著减少了昂贵仿真次数。",
+          "**与您偏好关联**：涉及代理模型、自适应采样、不确定性量化和序贯设计等核心方向。发表在AIAA Journal（航空航天领域顶级期刊），具有显著的工程应用价值。"
+        ]
+      },
+      {
+        "title": "Deep Intrinsic Coregionalization Multi-Output Gaussian Process Surrogate with Active Learning",
+        "authors": "C-Y Chang, C-L Sung",
+        "venue": "Technometrics, 2026",
+        "year": 2026,
+        "date": "2026-01",
+        "tags": "Multi-Output Gaussian Process, Active Learning, Coregionalization, Surrogate Model, Sequential Design",
+        "link": "https://www.tandfonline.com/doi/full/10.1080/00401706.2025.2456972",
+        "code": null,
+        "abstract": "Deep intrinsic coregionalization multi-output GP surrogate with active learning strategies for sequential design tasks. Extends deep ICMGP to optimize sequential design.",
+        "rank": 5,
+        "core_work": "本文提出了深度内在协同区域化（Deep Intrinsic Coregionalization）多输出高斯过程代理模型，并将其与主动学习策略结合用于序贯设计任务。",
+        "contributions": "构建深度ICMGP多输出代理模型；将主动学习策略集成到深度ICMGP中；针对序贯设计任务优化采样策略。",
+        "innovation": "将深度核学习与多输出协同区域化模型结合，通过主动学习在有限数据下高效构建多输出代理模型。",
+        "relevance": "与您偏好高度相关：多类型/多输出 + Gaussian Process + 主动学习 + 序贯设计。发表在Technometrics（质量工程顶级期刊）。",
+        "citations": 0,
+        "venue_tier": "Top Journal",
+        "images": [
+          "deepicmgp_fig1.png",
+          "deepicmgp_fig2.png",
+          "deepicmgp_fig3.png",
+          "deepicmgp_fig4.png",
+          "deepicmgp_fig5.png",
+          "deepicmgp_fig6.png"
+        ],
+        "content": [
+          "本文提出了深度内在协同区域化（Deep Intrinsic Coregionalization, DeepICM）多输出高斯过程代理模型，并将其与主动学习（Active Learning）策略相结合，用于序贯设计任务。",
+          "**核心贡献**：构建了深度ICMGP（deepICMGP）多输出高斯过程代理模型，该模型通过深度核学习扩展了传统协同区域化模型对多输出相关性的刻画能力。进一步将主动学习策略集成到deepICMGP中，优化序贯设计任务的采样效率，在有限数据预算下高效构建多输出代理模型。",
+          "**创新之处**：将深度核学习方法与多输出GP的协同区域化机制相结合，既保留了ICM的可解释性，又增强了模型对复杂相关结构的表达能力。主动学习与多输出代理的结合使得每次采样可以同时提升多个输出的预测精度。",
+          "**与您偏好关联**：高度匹配您的特别偏好——多类型输出变量的自适应建模与序贯加点。发表在Technometrics（质量工程顶级期刊，属于用户目标期刊列表），是该方向的重要进展。"
+        ]
+      },
+      {
+        "title": "Active Learning with Gaussian Process Regression for Solving Non-Linear Time-Dependent PDEs",
+        "authors": "S Sinha, et al.",
+        "venue": "Engineering Applications of Artificial Intelligence, 2025",
+        "year": 2025,
+        "date": "2025-10",
+        "tags": "Active Learning, Gaussian Process Regression, PDE, Physics-Informed, Sequential Sampling, Uncertainty Quantification",
+        "link": "https://www.sciencedirect.com/science/article/abs/pii/S0952197625018810",
+        "code": null,
+        "abstract": "A novel approach for solving nonlinear time-dependent PDEs using active learning with GPR. Uses Matern and RBF kernels, outperforms PINNs on Burgers, Allen-Cahn, Stefan, and KdV equations.",
+        "rank": 6,
+        "core_work": "本文提出了一种使用主动学习高斯过程回归（GPR）求解非线性时间依赖偏微分方程（PDE）的新方法，利用不确定性引导的采样策略减少计算量。",
+        "contributions": "提出基于GPR的PDE求解主动学习算法；引入Matern和RBF核处理非线性PDE；在四个经典PDE上验证并超越PINNs等SOTA方法。",
+        "innovation": "首次将GPR-based主动学习系统性地应用于时间依赖非线性PDE求解，利用GPR的不确定性量化能力指导采样，显著减少所需数据点。",
+        "relevance": "与您偏好高度相关：Gaussian Process + 主动学习 + 物理知识引导（PDE求解）。被引8次，显示其影响力。",
+        "citations": 8,
+        "venue_tier": "Top Journal",
+        "images": [],
+        "content": [
+          "本文提出了一种使用主动学习（Active Learning）与高斯过程回归（GPR）相结合求解非线性时间依赖偏微分方程（PDE）的新方法。传统数值方法需要精细离散化，计算成本高，而深度学习方法如PINNs虽然有效但缺乏不确定性量化能力。",
+          "**核心贡献**：提出了基于GPR的主动学习PDE求解框架。在每个时间步，GPR模型拟合当前训练数据并预测整个解空间，然后识别预测不确定性最高的点，通过数值求解PDE获取这些点的真实值并加入训练集。迭代过程中逐步提升模型精度。该方法在Burgers方程、Allen-Cahn方程、Stefan方程和Korteweg-de Vries方程上进行了验证，结果表明在保持预测精度的同时显著减少了所需数据点。",
+          "**创新之处**：首次将GPR-based主动学习系统性地应用于时间依赖非线性PDE的求解。与PINNs等确定性深度学习方法不同，GPR提供了预测的不确定性估计，使采样策略能够专注于最有信息量的区域。Matern核和RBF核的灵活组合有效处理了PDE中的非线性特征。",
+          "**与您偏好关联**：高度匹配您的特别偏好——基于Gaussian Process的方法以及结合领域知识/物理知识引导的自适应采样。PDE求解本质上是利用物理方程作为领域知识来引导GPR的学习过程。发表在Engineering Applications of Artificial Intelligence，已被引用8次，显示其学术影响力。"
+        ]
+      },
+      {
+        "title": "Uncertainty Quantification of Engineering Structures by Polynomial Chaos Expansion and Multivariate Active Learning",
+        "authors": "Novak, et al.",
+        "venue": "arXiv preprint, 2026",
+        "year": 2026,
+        "date": "2026-06",
+        "tags": "Polynomial Chaos Expansion, Uncertainty Quantification, Adaptive Sampling, Multi-Output, Sequential Sampling, Engineering Structures",
+        "link": "https://arxiv.org/abs/2606.17233",
+        "code": "https://github.com/NovakLBUT/MultTheta_engineering",
+        "abstract": "An adaptive sequential sampling method for constructing PCE surrogate models is generalized for vector-valued QoIs. Balances distance-based exploration and variance exploitation across all outputs.",
+        "rank": 7,
+        "core_work": "本文将多项式混沌展开（PCE）代理模型的自适应序贯采样方法推广到多输出（向量值QoI）场景，用于工程结构的不确定性量化。",
+        "contributions": "推广单输出自适应采样到多输出PCE模型；引入归一化方差聚合准则；平衡方差驱动的利用和空间探索。",
+        "innovation": "将多输出方差信息通过归一化聚合统一到单一采样准则中，避免了为每个输出单独采样的复杂性和成本。",
+        "relevance": "与您偏好高度相关：多类型/多输出 + 自适应采样 + 序贯设计 + 不确定性量化。关注工程结构的实际应用。",
+        "citations": 0,
+        "venue_tier": "Preprint",
+        "images": [
+          "pce_multivar_fig1.png",
+          "pce_multivar_fig2.png",
+          "pce_multivar_fig3.png",
+          "pce_multivar_fig4.png",
+          "pce_multivar_fig5.png",
+          "pce_multivar_fig6.png"
+        ],
+        "content": [
+          "本文将多项式混沌展开（Polynomial Chaos Expansion, PCE）代理模型的自适应序贯采样方法推广到多输出（向量值QoI）场景，用于工程结构的不确定性量化。在许多工程应用中，单一高保真模型在相同输入参数下产生多个感兴趣量（QoI），但不同输出对输入变量的敏感性不同，单一实验设计难以同时充分表征所有输出。",
+          "**核心贡献**：提出了一种多输出PCE代理模型的自适应序贯采样策略。核心创新是引入归一化方差聚合（normalized variance aggregation）准则，将各输出的局部方差贡献聚合成统一的利用项，同时保持基于距离的空间探索项。该准则自然偏好同时具有高方差贡献和低采样密度的候选点。",
+          "**创新之处**：避免了为每个输出单独采样的复杂性和计算成本，同时考虑了输出之间的潜在相关性。通过几何平均组合候选点及其最近邻的归一化方差聚合，近似估计该区域的未解决方差量。",
+          "**与您偏好关联**：直接匹配多类型输出变量的自适应建模与序贯加点偏好。虽然使用PCE而非GP作为代理模型，但其多输出自适应采样思想与您的研究方向高度一致。代码已开源（GitHub），可复现性好。"
+        ]
+      },
+      {
+        "title": "A Gaussian Process Framework for Region-of-Interest Active Learning",
+        "authors": "LCA Esteve, et al.",
+        "venue": "Procedia Manufacturing / ScienceDirect, 2026",
+        "year": 2026,
+        "date": "2026-02",
+        "tags": "Gaussian Process, Active Learning, Region of Interest, Multi-Output, Surrogate Model",
+        "link": "https://www.sciencedirect.com/science/article/pii/S2352492826000899",
+        "code": null,
+        "abstract": "A data-efficient Gaussian Process active learning framework focusing on regions of interest. Uses multiple RoIs to represent diverse output behaviors and builds multi-output surrogates.",
+        "rank": 8,
+        "core_work": "本文提出了一种面向感兴趣区域（Region of Interest, RoI）的数据高效GP主动学习框架，通过多RoI表示多样的输出行为并构建多输出代理模型。",
+        "contributions": "提出面向RoI的GP主动学习框架；使用多个RoI表示不同输出行为；构建多输出代理模型提升数据效率。",
+        "innovation": "将主动学习聚焦于特定RoI而非全局空间，通过多RoI策略兼顾局部精度和全局覆盖，显著提升了采样效率。",
+        "relevance": "与您偏好相关：Gaussian Process + 主动学习 + 多输出代理模型。面向感兴趣区域的采样策略具有实际工程意义。",
+        "citations": 0,
+        "venue_tier": "Journal",
+        "images": [],
+        "content": [
+          "本文提出了一种面向感兴趣区域（Region of Interest, RoI）的数据高效高斯过程（GP）主动学习框架。在许多工程和科学应用中，研究者通常只关注输入空间中某些特定区域的模型行为，而非全局空间。传统主动学习方法在全局范围内均匀采样，可能导致在RoI外的区域浪费计算资源。",
+          "**核心贡献**：提出了面向RoI的GP主动学习框架，通过定义多个感兴趣区域来捕捉多样的输出行为。该框架使用多输出代理模型同时建模不同RoI的响应，使每次采样能够同时提升多个RoI的预测精度。采样策略综合考虑了各RoI内的不确定性以及RoI间的信息平衡。",
+          "**创新之处**：将主动学习的关注点从全局空间转移到特定RoI，通过多RoI策略在保持局部精度的同时实现全局覆盖。这种方法特别适合需要重点关注某些临界区域（如安全边界、失效区域）的应用场景。",
+          "**与您偏好关联**：涉及Gaussian Process、主动学习、多输出代理模型等核心方向。面向感兴趣区域的采样策略在实际工程中具有重要意义，与您的自适应采样和序贯设计偏好一致。"
+        ]
+      },
+      {
+        "title": "Joint Parameter and State-Space Bayesian Optimization",
+        "authors": "S Kiroriwal, et al.",
+        "venue": "arXiv preprint, 2026",
+        "year": 2026,
+        "date": "2026-02",
+        "tags": "Bayesian Optimization, Gaussian Process Network, Multi-Stage System, State-Space, Process Knowledge",
+        "link": "https://arxiv.org/abs/2602.17679",
+        "code": null,
+        "abstract": "POGPN-JPSS combines Partially Observable Gaussian Process Networks with Joint Parameter and State-Space modeling for high-dimensional multi-stage bioethanol production process optimization.",
+        "rank": 9,
+        "core_work": "本文提出POGPN-JPSS框架，将部分可观测高斯过程网络（POGPN）与联合参数和状态空间（JPSS）建模相结合，利用多阶段系统的中间观测信息进行贝叶斯优化。",
+        "contributions": "提出POGPN-JPSS框架；结合过程专家知识提取低维潜在特征；在高维多阶段生物乙醇生产过程仿真上验证，达到阈值速度提升2倍。",
+        "innovation": "将结构化概率模型（POGPN DAG）与专家知识引导的状态空间特征提取结合，突破了标准BO忽略中间观测的局限。",
+        "relevance": "与您偏好高度相关：Bayesian Optimization + Gaussian Process + 结合领域/物理知识引导的自适应采样。",
+        "citations": 0,
+        "venue_tier": "Preprint",
+        "images": [
+          "pogpn_jpss_fig2.png",
+          "pogpn_jpss_fig3.png"
+        ],
+        "content": [
+          "本文提出POGPN-JPSS框架，针对高维多阶段制造系统中的贝叶斯优化问题。标准BO将整个过程视为黑箱，忽略了中间阶段的可观测输出和底层过程结构。部分可观测高斯过程网络（POGPN）虽然将过程建模为有向无环图（DAG），但在处理高维状态空间时间序列中间观测时仍面临挑战。",
+          "**核心贡献**：提出POGPN-JPSS框架，将POGPN与联合参数和状态空间（Joint Parameter and State-Space, JPSS）建模相结合。利用过程专家知识从高维状态空间数据中提取低维潜在特征，并将这些特征作为中间信息融入优化过程。在高维多阶段生物乙醇生产过程仿真上的验证表明，POGPN-JPSS显著优于SOTA方法，达到目标性能阈值的速度提升了约2倍，且可靠性更高。",
+          "**创新之处**：突破了标准BO忽略中间观测的局限，通过结构化概率模型（DAG形式的POGPN）与专家知识引导的特征提取相结合，实现了对多阶段系统内部信息的有效利用。",
+          "**与您偏好关联**：高度匹配您的特别偏好——结合领域知识或物理知识引导的自适应采样。该框架明确利用过程专家知识来指导状态空间特征提取，属于物理/领域知识引导的自适应优化方法。"
+        ]
+      },
+      {
+        "title": "Multi-Fidelity Gaussian Process Regression for Noisy Outputs and Non-Nested Experimental Designs",
+        "authors": "Le Gratiet, et al.",
+        "venue": "arXiv preprint, 2026",
+        "year": 2026,
+        "date": "2026-05",
+        "tags": "Multi-Fidelity, Gaussian Process, Non-Nested Design, Noisy Observations, Sequential Design, Surrogate Model",
+        "link": "https://arxiv.org/abs/2511.20183",
+        "code": null,
+        "abstract": "Investigates recursive formulation of multi-fidelity auto-regressive GP model for noisy outputs and non-nested designs. Develops decoupled EM-based optimization strategy.",
+        "rank": 10,
+        "core_work": "本文研究了多保真度自回归GP模型在噪声输出和非嵌套实验设计下的递归形式，提出了基于EM算法的解耦优化策略。",
+        "contributions": "发展解耦EM优化策略显著降低优化维度；推导出缩放因子为参数线性预测器时的闭式更新公式；在多个应用案例上与非递归模型对比验证。",
+        "innovation": "将EM算法引入多保真度GP的噪声观测框架，实现了训练时间的显著加速，同时保持与非递归模型相当的预测精度。",
+        "relevance": "与您偏好相关：多保真度 + Gaussian Process + 序贯设计。多保真度建模是自适应代理建模的重要方向。",
+        "citations": 0,
+        "venue_tier": "Preprint",
+        "images": [
+          "mfgp_noisy_fig1.png",
+          "mfgp_noisy_fig2.png",
+          "mfgp_noisy_fig3.png",
+          "mfgp_noisy_fig4.png",
+          "mfgp_noisy_fig5.png",
+          "mfgp_noisy_fig6.png"
+        ],
+        "content": [
+          "本文研究了多保真度（Multi-Fidelity）自回归高斯过程（AR(1) co-kriging）模型在一般噪声输出和非嵌套实验设计设定下的递归形式。传统非递归形式需要在所有保真度数据上求逆大规模协方差矩阵，计算成本高；而递归形式虽然降低了计算复杂度，但此前对噪声输出和非嵌套设计的处理不够完善。",
+          "**核心贡献**：提出了一种解耦优化策略，利用EM算法处理噪声观测下的多保真度GP递归形式。该策略将每个优化问题的维度大幅降低，并推导出当缩放因子为参数线性预测器时的闭式更新公式。在多个应用案例上与非递归模型的全耦合似然最大化进行对比，结果表明解耦策略在大量低保真度数据时训练时间显著更快，同时保持相当的预测精度。",
+          "**创新之处**：将EM算法的思想引入多保真度GP的噪声观测框架，实现了训练效率的大幅提升。在噪声环境下，研究表明当高保真度数据点充足时简单GP模型可能在不确定性估计方面优于MFGP，但在高保真度数据有限的现实场景下MFGP模型仍然是最有用的选择。",
+          "**与您偏好关联**：涉及多保真度建模、Gaussian Process和序贯设计等方向。多保真度建模是自适应代理建模中利用多层次信息提升效率的重要范式，与您关注的自适应代理建模和序贯试验设计方向一致。"
+        ]
+      }
+    ],
+    "supplementary": [
+      {
+        "title": "Physics-Informed Gaussian Process Classification for Constraint-Aware Alloy Design",
+        "authors": "C Hardcastle, et al.",
+        "venue": "Digital Discovery (RSC), 2025",
+        "date": "2025-06",
+        "tags": "Physics-Informed, Gaussian Process, Active Learning, Classification, Alloy Design",
+        "link": "https://pubs.rsc.org/en/content/articlelanding/2025/dd/d5dd00084j",
+        "abstract": "本文提出为Gaussian Process分类器配备物理信息先验均值函数，用于建模可行设计空间的中心。通过三个合金设计案例研究表明，将物理洞见融入分类框架显著提升了模型性能。"
+      },
+      {
+        "title": "Hierarchical Domains for Mixed-Variable Bayesian Optimization",
+        "authors": "P Saves, et al.",
+        "venue": "Structural and Multidisciplinary Optimization, 2026",
+        "date": "2026-01",
+        "tags": "Mixed-Variable, Bayesian Optimization, Hierarchical Domain, Gaussian Process, Surrogate Modeling",
+        "link": "https://link.springer.com/article/10.1007/s00158-026-04249-2",
+        "abstract": "本文提出一个统一框架处理混合变量输入的层次、条件、异构或树状结构域。引入元变量和偏激活变量概念，定义设计空间图和层次距离核函数，支持复杂系统架构的代理建模和优化。"
+      },
+      {
+        "title": "Kernel-Based Guarantees for Nonlinear Parametric Models in Adaptive Sampling",
+        "authors": "R Oliveira, et al.",
+        "venue": "arXiv preprint, 2026",
+        "date": "2026-05",
+        "tags": "Kernel Methods, Bayesian Optimization, Nonlinear Parametric Models, Regret Analysis, Adaptive Sampling",
+        "link": "https://arxiv.org/abs/2605.13160",
+        "abstract": "本文发展了基于核的框架来分析正则化非线性参数模型在自适应采集数据上的训练。将参数模型类通过参数空间的再生核希尔伯特空间来研究，为使用神经网络等非GP模型的BO提供遗憾保证。"
+      },
+      {
+        "title": "Adaptive Replication Strategies in Trust-Region-Based Bayesian Optimization of Stochastic Functions",
+        "authors": "M Binois, J Larson",
+        "venue": "HAL preprint, 2026",
+        "date": "2026-03",
+        "tags": "Bayesian Optimization, Trust Region, Stochastic Optimization, Adaptive Replication, Gaussian Process",
+        "link": "https://hal.science/hal-05049210",
+        "abstract": "本文提出一种基于GP模型的信赖域随机仿真优化方法，引入自适应重复采样机制，在方差大的区域分配更多重复评估，显著提升了求解精度和计算效率。"
+      },
+      {
+        "title": "Geometry-Aware Active Learning of Spatiotemporal Dynamic Systems",
+        "authors": "X Zhang, B Yao",
+        "venue": "IISE Transactions, 2026",
+        "date": "2026-01",
+        "tags": "Active Learning, Spatiotemporal Dynamics, Geometry-Aware, Sequential Design, Dynamic Systems",
+        "link": "https://www.tandfonline.com/doi/full/10.1080/24725854.2025.2456973",
+        "abstract": "本文提出一种几何感知的时空动态系统主动学习方法，利用系统几何结构信息指导采样策略，在有限观测下高效学习时空动态演化规律。"
+      }
+    ],
+    "stats": {
+      "arxiv": 4,
+      "main": 10,
+      "supplementary": 5,
+      "images": 32
+    }
+  }
+]
 };
