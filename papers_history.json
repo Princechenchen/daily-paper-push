@@ -1614,5 +1614,326 @@
       "supplementary": 5,
       "images": 32
     }
+  },
+  {
+    "date": "2026-07-13",
+    "label": "2026-07-13",
+    "main_papers": [
+      {
+        "title": "Bayesian Optimization in Linear Time",
+        "authors": "J Schneider",
+        "venue": "arXiv preprint, 2026",
+        "year": 2026,
+        "date": "2026-04",
+        "tags": "Bayesian Optimization, Gaussian Process, Linear Time Complexity, Adaptive Partitioning, Sequential Design",
+        "link": "https://arxiv.org/abs/2605.00237",
+        "code": null,
+        "abstract": "Bayesian optimization is a sequential method for minimizing expensive objective functions. However, standard BO suffers from cubic computational complexity and globally modeling the objective is not optimal for local minimization. Using flexible recursive binary partitioning of the search space, this work adapts both modeling and acquisition to work with the partitioning, yielding linear computational complexity while achieving superior optimization performance on test functions from 6 to 124 dimensions.",
+        "rank": 1,
+        "core_work": "本文提出了一种基于递归二分搜索空间的贝叶斯优化方法，将建模和采集策略与空间划分协调一致，实现了线性时间复杂度，同时在高维测试函数上超越了标准BO。",
+        "contributions": "提出递归二分空间划分与BO的协同框架；实现训练集大小上线性计算复杂度；在6至124维的7个挑战性测试函数上验证超越标准BO库。",
+        "innovation": "将搜索空间的递归划分与BO的建模和采集策略深度融合，既解决了标准GP-BO的立方复杂度瓶颈，又通过局部建模改善了全局建模对局部优化不利的缺陷。",
+        "relevance": "与您偏好高度相关：Bayesian Optimization + Gaussian Process + 序贯设计。线性复杂度是BO领域的重要突破，对大规模昂贵优化问题具有重要意义。",
+        "citations": 0,
+        "venue_tier": "Preprint",
+        "images": [
+          "1_bayesian_optimization_linear_time_x1.png",
+          "1_bayesian_optimization_linear_time_x2.png"
+        ],
+        "content": [
+          "贝叶斯优化（BO）是一种序贯优化昂贵评估目标函数的方法，但标准BO存在两个关键问题：（1）训练集规模的立方计算复杂度导致大规模训练不可行；（2）全局建模目标函数对局部最小化并非最优。",
+          "**核心贡献**：本文提出了一种基于递归二分搜索空间的BO框架。通过灵活且递归的二分划分，同时调整建模和采集策略以适应划分方案，从而改善了两个标准缺陷。在7个挑战性测试函数（维度6至124）上，该方法在所有测试中均优于常用BO库，且计算复杂度为线性。",
+          "**创新之处**：将空间划分与BO的建模和采集深度融合，而非简单地在每个划分区域独立运行BO。这种协同设计使得模型可以在局部区域内进行更精细的建模，同时采集策略能够自适应地在全局探索和局部利用之间切换。",
+          "**与您偏好关联**：直接匹配Bayesian Optimization + Gaussian Process + 序贯设计核心方向。线性复杂度的突破对实际应用中的大规模BO问题具有重要意义。"
+        ]
+      },
+      {
+        "title": "MAGPI: Multifidelity-Augmented Gaussian Process Inputs for Surrogate Modeling from Scarce Data",
+        "authors": "A Rex, et al.",
+        "venue": "arXiv preprint, 2026",
+        "year": 2026,
+        "date": "2026-03",
+        "tags": "Multi-Fidelity, Gaussian Process, Surrogate Modeling, Feature Augmentation, Sequential Design",
+        "link": "https://arxiv.org/abs/2603.22050",
+        "code": null,
+        "abstract": "This work proposes a new multifidelity training approach for Gaussian process regression which uses low-fidelity data to define additional features that augment the input space of the learned model. Similarly to cokriging estimators, the proposed approach conditions the high-fidelity surrogate model on the predictions of all available low-fidelity surrogate models, while benefiting from the computational efficiency of autoregressive estimators. Numerical experiments demonstrate increased predictive accuracy and reduced computational cost relative to the state of the art.",
+        "rank": 2,
+        "core_work": "本文提出了一种新的多保真度GP训练方法，利用低保真度数据定义额外特征来增强学习模型的输入空间，兼具cokriging的精度和自回归估计器的计算效率。",
+        "contributions": "提出多保真度GP输入增强方法（MAGPI）；使用低保真度代理模型预测作为高保真度模型的输入特征；在多个测试问题上验证精度和计算效率的提升。",
+        "innovation": "将低保真度模型预测作为特征输入而非仅作为条件信息，这种输入增强策略提供了更灵活的特征交互机制，同时保持了自回归估计器的计算效率。",
+        "relevance": "与您偏好高度相关：Multi-Fidelity + Gaussian Process + 代理模型 + 序贯设计。多保真度建模是降低昂贵仿真成本的重要范式。",
+        "citations": 0,
+        "venue_tier": "Preprint",
+        "images": [],
+        "content": [
+          "监督机器学习方法在学习高效代理模型方面展现了潜力，但当训练数据必须通过昂贵模型或实验获取时，数据量往往受限。工程和科学中常可获取更便宜的低保真度模型数据。",
+          "**核心贡献**：提出MAGPI——一种新的多保真度GP训练方法。该方法利用低保真度数据定义额外特征来增强学习模型的输入空间。类似于cokriging估计器，该方法将高保真度代理模型条件于所有可用低保真度代理模型的预测，同时受益于自回归估计器的计算效率。数值实验表明在预测精度和计算成本上均优于SOTA。",
+          "**创新之处**：将低保真度预测作为输入特征增强而非仅用于条件推断，提供了更丰富的跨保真度信息交互方式。这种策略在保持计算效率的同时，能够更好地捕捉高保真度响应与低保真度预测之间的复杂非线性关系。",
+          "**与您偏好关联**：直接匹配多保真度建模 + Gaussian Process + 代理模型核心方向。多保真度方法是降低昂贵评估成本的关键策略，与您关注的自适应代理建模和序贯试验设计高度一致。"
+        ]
+      },
+      {
+        "title": "Transferring Information Across Interventions in Causal Bayesian Optimization",
+        "authors": "M-A Javidian, et al.",
+        "venue": "arXiv preprint, 2026",
+        "year": 2026,
+        "date": "2026-05",
+        "tags": "Bayesian Optimization, Causal Inference, Gaussian Process, Information Transfer, Sequential Design",
+        "link": "https://arxiv.org/abs/2606.01457",
+        "code": null,
+        "abstract": "Causal Bayesian optimization uses a known causal graph with observational data to decide which variables are worth intervening on. Existing methods learn the effect of each intervention almost in isolation. We propose graph-coupled causal BO, which ties different intervention effects together through uncertainty about a small set of shared causal parameters. For identifiable linear Gaussian causal models, the causal kernel has low rank bounded by the number of shared parameters, yielding an information-gain bound that grows only logarithmically in the optimization horizon, and a regret bound that cleanly separates optimization, causal estimation, and intervention choice errors.",
+        "rank": 3,
+        "core_work": "本文提出图耦合因果贝叶斯优化，通过共享因果参数的不确定性将不同干预效果联系起来，实现跨干预信息传递，在理论和实证上均显著优于现有因果BO方法。",
+        "contributions": "提出图耦合因果BO框架；设计因果核使得从一个干预收集的证据改善相关干预的估计；证明线性高斯因果模型中信息增益界仅对数增长；提供非线性和自适应扩展。",
+        "innovation": "首次通过共享因果参数的低秩因果核实现跨干预信息传递，打破了现有方法孤立学习每个干预效果的局限。",
+        "relevance": "与您偏好高度相关：Bayesian Optimization + Gaussian Process + 因果推断。因果BO是结合领域结构知识引导自适应优化的前沿方向。",
+        "citations": 0,
+        "venue_tier": "Preprint",
+        "images": [
+          "3_causal_bo_x1.png",
+          "3_causal_bo_x2.png"
+        ],
+        "content": [
+          "因果贝叶斯优化（Causal BO）利用已知因果图和观测数据来决定哪些变量值得干预。但现有方法几乎孤立地学习每个干预的效果，忽略了因果系统中干预效果通常共享底层机制的事实。",
+          "**核心贡献**：提出图耦合因果BO（Graph-Coupled Causal BO）。通过将不同干预效果与一小组共享因果参数的不确定性联系起来，设计了一种因果核，使得从一个干预收集的证据能够改善对相关干预的估计。对于可识别的线性高斯因果模型，证明该因果核具有低秩性（秩不超过共享参数数量），信息增益界仅随优化范围对数增长。",
+          "**创新之处**：突破了现有因果BO孤立学习每个干预效果的局限，通过共享因果参数实现了跨干预的信息传递。在直接干预目标变量父节点不可用、稀疏干预数据必须在大量候选干预中复用的场景下，收益最为明显。",
+          "**与您偏好关联**：高度匹配Bayesian Optimization + Gaussian Process + 序贯设计。因果BO是结合领域结构知识（因果图）引导自适应优化的前沿方向，与您关注的物理/领域知识引导自适应采样高度一致。"
+        ]
+      },
+      {
+        "title": "Bayesian Optimization of Partially Known Systems using Hybrid Models",
+        "authors": "E Cramer, et al.",
+        "venue": "arXiv preprint, 2026",
+        "year": 2026,
+        "date": "2026-03",
+        "tags": "Bayesian Optimization, Hybrid Model, Physics-Informed, Gaussian Process, Mechanistic Modeling, Sequential Design",
+        "link": "https://arxiv.org/abs/2603.11199",
+        "code": null,
+        "abstract": "Standard BO may require prohibitively many experiments for high-dimensional nonlinear systems. This work presents a hybrid model-based BO that combines iterative Bayesian learning with partially known mechanistic physical models. Instead of learning a direct input-to-objective mapping, all known physics equations are written and GP infers expressions for missing variables. The GP is included as a constraint in the hybrid model, yielding a constrained nonlinear stochastic program. In a single-stage distillation optimization, the hybrid BO converges in as few as one iteration while standard BO does not converge within 25 iterations for any seed.",
+        "rank": 4,
+        "core_work": "本文提出混合模型贝叶斯优化，将迭代贝叶斯学习与部分已知的机理物理模型相结合，用GP推断缺失方程的变量，在单级蒸馏优化中1次迭代即可收敛。",
+        "contributions": "提出混合模型BO框架；将已知物理方程与GP推断的缺失变量结合；GP作为约束嵌入混合模型；在单级蒸馏优化中验证显著优于标准BO。",
+        "innovation": "将物理模型的结构知识（已知方程）与数据驱动的GP结合，而非让GP学习整个输入-输出映射，充分利用了领域知识并减少了数据需求。",
+        "relevance": "与您偏好高度相关：Physics-Informed + Bayesian Optimization + Gaussian Process。充分利用已知物理机理来减少BO所需实验次数，是领域知识引导自适应采样的典范。",
+        "citations": 0,
+        "venue_tier": "Preprint",
+        "images": [
+          "4_hybrid_model_bo_x1.png",
+          "4_hybrid_model_bo_x2.png"
+        ],
+        "content": [
+          "标准贝叶斯优化（BO）对于高维非线性系统可能需要大量实验才能收敛到最优。本文提出了一种混合模型BO，将迭代贝叶斯学习与部分已知的机理物理模型相结合。",
+          "**核心贡献**：不再学习从输入到目标的直接映射，而是写出所有已知的物理方程，并用高斯过程（GP）推断缺失方程的变量表达式。然后将GP作为约束嵌入混合模型中，允许其他基于物理的非线性和隐式模型约束。这种混合模型公式化产生一个约束非线性随机规划，使用样本平均近似进行离散化。在单级蒸馏的in-silico优化中，基于质量守恒定律的混合BO模型产生了显著更好的设计，混合模型在仅1次迭代内即可收敛（取决于初始样本），而标准BO在任何种子下25次迭代内均未收敛。",
+          "**创新之处**：将物理模型的结构知识（已知方程）与数据驱动的GP推断相结合，而非让GP学习整个黑箱映射。这种混合方法充分利用了领域知识，显著减少了对昂贵实验的需求，是物理知识引导优化的重要范例。",
+          "**与您偏好关联**：高度匹配Physics-Informed + Bayesian Optimization + Gaussian Process + 结合领域知识引导的自适应采样。该框架明确利用已知物理机理来指导优化，与您关注的核心方向完美契合。"
+        ]
+      },
+      {
+        "title": "BALLAST: Bayesian Active Learning with Look-ahead Amendment for Sea-drifter Trajectories",
+        "authors": "R-Y Zhang, et al.",
+        "venue": "arXiv preprint, 2026",
+        "year": 2026,
+        "date": "2025-09",
+        "tags": "Bayesian Active Learning, Gaussian Process, Physics-Informed, Spatio-Temporal, Sequential Design, Look-ahead",
+        "link": "https://arxiv.org/abs/2509.26005",
+        "code": null,
+        "abstract": "We introduce BALLAST, a formal Bayesian active learning methodology for guiding the placement of Lagrangian observers using a physics-informed spatio-temporal Gaussian process surrogate. A key challenge is that observers are continuously advected through the vector field, making measurements at different locations and times. BALLAST considers likely future trajectories of placed observers to account for the utility of candidate placement locations. We also develop VaSE, a novel GP inference method to boost posterior sampling efficiency. Experiments on synthetic and high-fidelity ocean current models show noticeable benefits.",
+        "rank": 5,
+        "core_work": "本文提出BALLAST，一种面向拉格朗日观测器放置的贝叶斯主动学习方法，使用物理信息时空GP代理模型，并考虑观测器未来轨迹来评估候选放置位置的效用。",
+        "contributions": "提出BALLAST框架将前瞻修正引入贝叶斯主动学习；使用物理信息时空GP代理模型；开发VaSE新方法提升GP后验采样效率；在合成和高保真海洋流模型上验证。",
+        "innovation": "首次将前瞻（look-ahead）修正引入时空主动学习，考虑观测器随流场漂移的未来轨迹来评估当前放置决策的长期效用，而非仅考虑即时信息量。",
+        "relevance": "与您偏好高度相关：Bayesian Active Learning + Gaussian Process + Physics-Informed + 时空建模 + 序贯设计。前瞻修正是主动学习策略的重要创新。",
+        "citations": 0,
+        "venue_tier": "Preprint",
+        "images": [],
+        "content": [
+          "在海洋学、海洋科学和海洋工程中，推断时间依赖向量场是一个关键任务。现有观测器部署活动要么遵循标准的空间填充设计，要么依赖相对特设的专家意见。",
+          "**核心贡献**：提出BALLAST（Bayesian Active Learning with Look-ahead Amendment for Sea-drifter Trajectories），一种使用物理信息时空高斯过程代理模型的正式主动学习方法。关键挑战在于拉格朗日观测器持续被流场平流，在不同位置和时间进行测量。因此，考虑已放置观测器的未来轨迹来评估候选放置位置的效用至关重要。此外，开发了VaSE（Vanilla SPDE Exchange）新方法提升GP后验采样效率。在合成和高保真海洋流模型上验证了显著收益。",
+          "**创新之处**：首次将前瞻修正引入时空贝叶斯主动学习。与传统仅考虑当前信息量的采集策略不同，BALLAST通过模拟观测器未来轨迹来评估当前放置决策的长期信息效用，特别适用于观测器移动受环境动态驱动的场景。",
+          "**与您偏好关联**：高度匹配Bayesian Active Learning + Gaussian Process + Physics-Informed + 序贯设计。前瞻修正是主动学习策略设计的重要创新，与您关注的自适应采样方向一致。"
+        ]
+      },
+      {
+        "title": "How Low Can You Go? Active Learning for Sparse Model Discovery in the Ultra-Low-Data Limit",
+        "authors": "A Larranaga, et al.",
+        "venue": "arXiv preprint, 2026",
+        "year": 2026,
+        "date": "2026-06",
+        "tags": "Active Learning, Sparse Model Discovery, SINDy, Ultra-Low Data, Uncertainty Quantification, Sequential Design",
+        "link": "https://arxiv.org/abs/2606.12182",
+        "code": null,
+        "abstract": "Identifying governing equations of complex dynamical systems remains a fundamental challenge. This work introduces an active learning strategy for dynamics discovery in the ultra-low data limit. Building on Sparse Identification of Nonlinear Dynamics (SINDy), it utilizes an ensemble extension E-SINDy to estimate epistemic uncertainty and guide sampling for ODEs and PDEs. For ODEs, exhaustive analysis on Lorenz system across varying budgets and noise levels. For PDEs, Burgers' equation with sharp shock front and Kuramoto-Sivashinsky equation are examined. The method accurately identifies governing dynamics with significantly fewer samples than random sampling.",
+        "rank": 6,
+        "core_work": "本文提出一种超低数据极限下的主动学习策略用于动力学发现，基于SINDy和E-SINDy集成扩展估计认知不确定性来指导ODE和PDE的采样，显著优于随机采样。",
+        "contributions": "提出超低数据极限下的动力学发现主动学习策略；利用E-SINDy集成扩展估计认知不确定性；在Lorenz系统、Burgers方程和Kuramoto-Sivashinsky方程上系统验证。",
+        "innovation": "将认知不确定性估计与稀疏动力学发现相结合，在数据极其稀缺的场景下仍能准确识别控制方程，突破了传统方法对数据量的依赖。",
+        "relevance": "与您偏好高度相关：Active Learning + 不确定性量化 + 序贯设计 + 物理知识引导（动力学发现）。超低数据场景下的主动学习具有重要实际意义。",
+        "citations": 0,
+        "venue_tier": "Preprint",
+        "images": [
+          "6_ultra_low_data_x1.png",
+          "6_ultra_low_data_x2.png"
+        ],
+        "content": [
+          "识别复杂动力学系统的控制方程是科学和工程中的基本挑战。虽然数据驱动方法提供了更大的灵活性，但真实世界中的数据获取往往代价昂贵。",
+          "**核心贡献**：本文提出了一种超低数据极限下的主动学习策略用于动力学发现。基于稀疏非线性动力学识别（SINDy）方法，利用集成扩展E-SINDy来估计认知不确定性并指导ODE和PDE的采样。对于ODE，在Lorenz系统上进行了不同数据预算和噪声水平的详尽分析。对于PDE，考察了具有尖锐激波前沿的Burgers方程和呈现更复杂空间采样景观的Kuramoto-Sivashinsky方程。在所有场景中，所提方法均比随机采样用显著更少的样本准确识别了控制动力学。",
+          "**创新之处**：将认知不确定性量化与稀疏动力学发现相结合，通过主动学习在数据极其稀缺的场景下仍能准确识别控制方程。这种方法特别适用于数据获取昂贵但模型结构可稀疏表示的物理系统。",
+          "**与您偏好关联**：高度匹配Active Learning + 不确定性量化 + 序贯设计 + 物理知识引导。超低数据极限场景对实验设计尤为重要，与您关注的自适应采样和序贯试验设计方向一致。"
+        ]
+      },
+      {
+        "title": "Distribution-Free Uncertainty Quantification and Conformal Prediction for Time Series",
+        "authors": "S Gilda, et al.",
+        "venue": "arXiv preprint, 2026",
+        "year": 2026,
+        "date": "2026-07",
+        "tags": "Uncertainty Quantification, Conformal Prediction, Time Series, Adaptive Sampling, Bootstrap, Dependence-Aware",
+        "link": "https://arxiv.org/abs/2607.06690",
+        "code": "https://github.com/sktime/tsbootstrap",
+        "abstract": "Finance, sensing, and demand streams violate the exchangeability assumed by IID conformal prediction and bootstrap. tsbootstrap provides block, residual, sieve, and wild resampling, classical bootstrap confidence intervals, and adaptive conformal calibrators (EnbPI, ACI, NexCP, AgACI) through a single typed API. In controlled coverage studies, IID bootstrap undercovers sharply under dependence; dependence-aware methods reduce the coverage deficit. A compiled backend runs several times faster than arch, with streaming reduce limiting peak memory to O(B).",
+        "rank": 7,
+        "core_work": "本文提出tsbootstrap库，为时间序列提供无分布不确定性量化和自适应保形预测，通过依赖感知的重采样方法显著改善覆盖缺陷，且编译后端运行速度比arch快数倍。",
+        "contributions": "提出统一API整合多种重采样和自适应保形预测方法；系统比较依赖感知方法对覆盖缺陷的改善；编译后端实现高效计算；流式reduce将峰值内存限制为O(B)。",
+        "innovation": "首次将依赖感知重采样与自适应保形预测整合到统一库中，通过系统实验揭示了IID bootstrap在依赖数据下的严重覆盖不足问题。",
+        "relevance": "与您偏好相关：Uncertainty Quantification + Adaptive Sampling + 时间序列。自适应保形预测是时间序列UQ的重要工具。代码已开源。",
+        "citations": 0,
+        "venue_tier": "Preprint",
+        "images": [],
+        "content": [
+          "金融、传感和需求流数据违反IID保形预测和IID bootstrap所假设的可交换性。现有库要么实现通用重采样引擎，要么实现保形校准，但缺乏整合。",
+          "**核心贡献**：提出tsbootstrap库，通过单一类型化API提供块、残差、筛和wild重采样、经典bootstrap置信区间以及自适应保形预测校准器（EnbPI、ACI、NexCP、AgACI）。在受控覆盖研究中，IID bootstrap在依赖数据下严重覆盖不足；依赖感知方法减少了覆盖缺陷。编译后端比arch运行快数倍，流式reduce将峰值额外内存限制为O(B)。",
+          "**创新之处**：首次将多种依赖感知重采样方法与自适应保形预测整合到统一库中，通过系统实验量化了IID方法在依赖数据下的失效程度，并提供了实际可用的替代方案。",
+          "**与您偏好关联**：涉及Uncertainty Quantification和Adaptive Sampling方向。时间序列的不确定性量化是工程应用中的重要场景，代码已开源（GitHub），可复现性好。"
+        ]
+      },
+      {
+        "title": "From Co-Kriging to Multi-Fidelity Neural Networks: A Review for Composite Mechanics",
+        "authors": "H Wen, et al.",
+        "venue": "arXiv preprint, 2026",
+        "year": 2026,
+        "date": "2026-05",
+        "tags": "Multi-Fidelity, Gaussian Process, Co-Kriging, Neural Networks, Surrogate Modeling, Review, Composite Mechanics",
+        "link": "https://arxiv.org/abs/2605.02871",
+        "code": null,
+        "abstract": "This review presents a structured overview of multi-fidelity modeling for composite mechanics, covering GP or Kriging-based methods including co-Kriging, coregionalization models, autoregressive formulations, nonlinear autoregressive GPs, multi-fidelity deep GPs, and multi-fidelity neural networks. Distinctions are examined in terms of cross-fidelity correlation, discrepancy representation, uncertainty quantification, and scalability. Applications to composites include forward prediction, inverse optimization, and workflow integration. Open questions highlight challenges such as regime-dependent fidelity gaps, mismatches between simulations and experiments, and uncertainty propagation across multi-fidelity models.",
+        "rank": 8,
+        "core_work": "本文系统综述了复合材料力学中的多保真度建模方法，从co-Kriging到多保真度神经网络，全面比较了跨保真度相关、差异表示、不确定性量化和可扩展性。",
+        "contributions": "系统综述多保真度建模在复合材料力学中的应用；全面比较GP-based和多保真度神经网络方法；分析前向预测、逆优化和工作流集成三类应用；指出领域特有开放挑战。",
+        "innovation": "首次从复合材料力学角度系统比较多保真度方法，特别关注了该领域特有的制度依赖 fidelity gap、模拟与实验不匹配以及跨保真度不确定性传播等挑战。",
+        "relevance": "与您偏好相关：Multi-Fidelity + Gaussian Process + 代理模型 + 不确定性量化。全面综述了从经典co-Kriging到现代神经网络的演进。",
+        "citations": 0,
+        "venue_tier": "Preprint",
+        "images": [],
+        "content": [
+          "复合材料具有强烈的层次性和各向异性，预测建模昂贵，因为需要重复实验和高保真仿真来覆盖大型设计空间。多保真度代理建模通过结合丰富的低成本数据和有限的高精度数据来解决这一挑战。",
+          "**核心贡献**：本综述系统梳理了复合材料力学中的多保真度建模方法，涵盖基于GP或Kriging的方法（co-Kriging、协同区域化模型、自回归公式、非线性自回归GP、多保真度深度GP）以及多保真度神经网络。从跨保真度相关性、差异表示、不确定性量化和可扩展性等维度进行了比较。介绍了在复合材料中的三类应用：前向预测、逆优化和工作流集成。",
+          "**创新之处**：首次从复合材料力学角度系统比较多保真度方法，特别指出了该领域特有的开放挑战：与 nonlinear damage 和制造历史相关的制度依赖 fidelity gap、模拟与实验之间的不匹配、以及跨多保真度模型的不确定性传播。",
+          "**与您偏好关联**：涉及Multi-Fidelity、Gaussian Process、代理模型和不确定性量化等核心方向。多保真度建模是自适应代理建模中利用多层次信息提升效率的重要范式，与您关注的研究方向一致。"
+        ]
+      },
+      {
+        "title": "Physics-Informed Digital Twin Development with Active Learning for Thermal Energy Distribution Systems",
+        "authors": "UM Nabila, et al.",
+        "venue": "Applied Energy, 2026",
+        "year": 2026,
+        "date": "2026-01",
+        "tags": "Physics-Informed, Digital Twin, Active Learning, Modelica, Thermal Energy, Surrogate Modeling",
+        "link": "https://www.sciencedirect.com/science/article/pii/S0306261926005556",
+        "code": null,
+        "abstract": "This work proposes an active learning framework that couples system-level Modelica simulations with four simpler physics-informed and data-driven surrogate models. The framework iteratively selects the most informative simulation points to improve surrogate accuracy while reducing computational cost, demonstrating significant benefits for thermal energy distribution system digital twins.",
+        "rank": 9,
+        "core_work": "本文提出一种主动学习框架，将系统级Modelica仿真与四种更简单的物理信息和数据驱动代理模型相结合，迭代选择最信息丰富的仿真点来提升代理精度并降低计算成本。",
+        "contributions": "提出主动学习框架耦合Modelica仿真与物理信息代理模型；迭代选择信息量最大的仿真点；在热能分配系统数字孪生上验证显著降低计算成本。",
+        "innovation": "将系统级物理仿真与主动学习相结合，通过代理模型替代昂贵仿真，同时利用主动学习策略智能选择需要高保真仿真的关键场景。",
+        "relevance": "与您偏好高度相关：Physics-Informed + Active Learning + 代理模型 + 数字孪生。发表在Applied Energy顶级期刊，具有显著工程应用价值。",
+        "citations": 0,
+        "venue_tier": "Top Journal",
+        "images": [],
+        "content": [
+          "数字孪生技术需要高保真仿真来反映物理系统的动态行为，但系统级仿真计算成本高昂。本文提出一种主动学习框架来解决这一挑战。",
+          "**核心贡献**：提出一种主动学习框架，将系统级Modelica仿真与四种更简单的物理信息和数据驱动代理模型相结合。框架迭代选择最信息丰富的仿真点来改进代理模型精度，同时显著降低计算成本。在热能分配系统数字孪生上的应用表明，该方法能够在保持预测精度的同时大幅减少昂贵仿真的次数。",
+          "**创新之处**：将系统级物理仿真与主动学习策略相结合，通过多层代理模型替代昂贵仿真，同时利用主动学习智能选择需要高保真仿真的关键场景。这种方法特别适合需要实时响应的数字孪生应用。",
+          "**与您偏好关联**：高度匹配Physics-Informed + Active Learning + 代理模型。发表在Applied Energy（能源领域顶级期刊），具有显著的工程应用价值，与您关注的核心方向一致。"
+        ]
+      },
+      {
+        "title": "Tuning of Atomic Layer Deposition Pulse Time through Physics-Informed Bayesian Active Learning",
+        "authors": "P Navabi, et al.",
+        "venue": "arXiv preprint, 2026",
+        "year": 2026,
+        "date": "2026-02",
+        "tags": "Physics-Informed, Bayesian Active Learning, Gaussian Process, Langmuir Adsorption, Atomic Layer Deposition, Sequential Design",
+        "link": "https://arxiv.org/abs/2602.18565",
+        "code": null,
+        "abstract": "We introduce a physics-informed Bayesian active learning framework that autonomously tunes precursor pulse times by integrating a Langmuir adsorption model directly into the GP kernel. A key innovation is a two-stage parameter estimation strategy that decouples noise filtering from physical parameter extraction: the GP first smooths noisy data through standard prediction, then Langmuir parameters are fitted to the noise-filtered GP predictions. Convergence within five iterations, up to fourfold improvement in prediction accuracy, and two to fourfold reduction in precursor usage are demonstrated. Experimental validation using TiO2 deposition confirms accurate identification of saturation times for high-coverage targets.",
+        "rank": 10,
+        "core_work": "本文提出物理信息贝叶斯主动学习框架，将Langmuir吸附模型直接嵌入GP核函数中，自主调节ALD前驱体脉冲时间，在5次迭代内收敛，预测精度提升4倍，前驱体用量减少2-4倍。",
+        "contributions": "提出物理信息BAL框架将Langmuir模型嵌入GP核；提出两阶段参数估计策略解耦噪声过滤与物理参数提取；在模拟和实验上验证显著优于标准数据驱动GP。",
+        "innovation": "将Langmuir吸附物理模型直接嵌入GP协方差核，而非仅作为先验均值，使GP在保持非参数灵活性的同时编码了物理约束。",
+        "relevance": "与您偏好高度相关：Physics-Informed + Bayesian Active Learning + Gaussian Process。将物理模型嵌入GP核是物理信息机器学习的创新范式，实验验证充分。",
+        "citations": 0,
+        "venue_tier": "Preprint",
+        "images": [],
+        "content": [
+          "原子层沉积（ALD）工艺开发常因耗时的前驱体密集调谐周期而受阻。本文提出一种物理信息贝叶斯主动学习（BAL）框架，自主调节前驱体脉冲时间。",
+          "**核心贡献**：将Langmuir吸附模型直接嵌入高斯过程（GP）核函数中。关键创新是两阶段参数估计策略：GP首先通过标准预测平滑噪声数据，然后将Langmuir参数拟合到噪声过滤后的GP预测。在四个模拟工况下验证，在5次迭代内收敛，预测精度提升达4倍，前驱体用量减少2-4倍。使用TiO2沉积的实验验证确认了高覆盖率目标下饱和时间的准确识别。",
+          "**创新之处**：将Langmuir吸附物理模型直接嵌入GP协方差核，而非仅作为先验均值函数。这种核嵌入策略使GP在保持非参数灵活性的同时编码了物理约束，提供了更紧密的物理-数据融合方式。",
+          "**与您偏好关联**：高度匹配Physics-Informed + Bayesian Active Learning + Gaussian Process + 序贯设计。将物理模型嵌入GP核是物理信息机器学习的创新范式，与您关注的核心方向完美契合。"
+        ]
+      }
+    ],
+    "supplementary": [
+      {
+        "title": "Gaussian Process Bandit Optimization with Machine Learning Predictions and Application to Hypothesis Generation",
+        "authors": "XJ Chen, et al.",
+        "venue": "arXiv preprint, 2026",
+        "date": "2026-01",
+        "tags": "Bayesian Optimization, Gaussian Process, Bandit, Machine Learning Predictions, Offline Data",
+        "link": "https://arxiv.org/abs/2601.22315",
+        "abstract": "We propose Prediction-Augmented Gaussian Process Upper Confidence Bound (PA-GP-UCB), a novel Bayesian optimization algorithm that leverages both expensive ground-truth oracles and cheap low-fidelity prediction oracles, plus abundant offline data, to achieve provable gains in sample efficiency. PA-GP-UCB employs a control-variates estimator from a joint GP posterior to correct prediction bias and reduce uncertainty, preserving the standard regret rate while achieving a strictly smaller leading constant controlled by prediction quality and offline data coverage."
+      },
+      {
+        "title": "Meta-Learning for Sample-Efficient Bayesian Optimisation of Fed-Batch Processes",
+        "authors": "C Tsay, et al.",
+        "venue": "arXiv preprint, 2026",
+        "date": "2026-05",
+        "tags": "Meta-Learning, Bayesian Optimisation, Neural ODE, Gaussian Process, Fed-Batch Process",
+        "link": "https://arxiv.org/abs/2605.05382",
+        "abstract": "This work investigates System-Aware Neural ODE Processes (SANODEP) as a meta-learning model to overcome GP limitations in Bayesian optimisation of time-varying batch processes. Using a penicillin batch production case study, SANODEP outperforms GP-based BayesOpt in the low-data regime, showing improved objectives and generalisation across on- and off-distribution batches."
+      },
+      {
+        "title": "MAST: A Multi-Fidelity Augmented Surrogate Model via Spatial Trust-Weighting",
+        "authors": "HM Sheikh, et al.",
+        "venue": "arXiv preprint, 2026",
+        "date": "2026-02",
+        "tags": "Multi-Fidelity, Gaussian Process, Surrogate Model, Spatial Trust-Weighting, Discrepancy Modelling",
+        "link": "https://arxiv.org/abs/2602.20974",
+        "abstract": "MAST blends corrected low-fidelity observations with high-fidelity predictions through explicit discrepancy modelling and distance-based weighting with closed-form variance propagation, producing a single heteroscedastic GP. MAST shows marked improvement over state-of-the-art techniques and maintains robust performance across varying budget and fidelity gaps."
+      },
+      {
+        "title": "Active Causal Experimentalist: Learning Intervention Strategies via Direct Preference Optimization",
+        "authors": "P Cooper, et al.",
+        "venue": "arXiv preprint, 2026",
+        "date": "2026-02",
+        "tags": "Active Learning, Causal Discovery, Preference Optimization, Sequential Policy, Experimental Design",
+        "link": "https://arxiv.org/abs/2602.02451",
+        "abstract": "ACE learns experimental design as a sequential policy via Direct Preference Optimization, learning from pairwise intervention comparisons rather than non-stationary reward magnitudes. Across synthetic benchmarks, physics simulations, and economic data, ACE achieves 70-71% improvement over baselines at equal intervention budgets."
+      },
+      {
+        "title": "Uncertainty Quantification of Radio Wave Propagation over Irregular Terrains Using Adaptive Polynomial Chaos Expansion",
+        "authors": "H Qin, et al.",
+        "venue": "arXiv preprint, 2026",
+        "date": "2026-03",
+        "tags": "Uncertainty Quantification, Polynomial Chaos Expansion, Adaptive Sampling, Radio Wave Propagation, Conformal Prediction",
+        "link": "https://arxiv.org/abs/2603.02529",
+        "abstract": "An adaptive polynomial chaos expansion method is improved and coupled with a two-way parabolic wave equation method for uncertainty quantification of antenna configurations over irregular terrains. The polynomial basis is extended according to variance contributions and terminated by a composite criterion. Convergence analysis shows monotonic error decay, matching Monte Carlo references using only 30 simulations."
+      }
+    ],
+    "stats": {
+      "arxiv": 12,
+      "main": 10,
+      "supplementary": 5,
+      "images": 8
+    }
   }
 ]
