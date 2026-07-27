@@ -1935,5 +1935,643 @@
       "supplementary": 5,
       "images": 8
     }
+  },
+  {
+    "date": "2026-07-20",
+    "label": "2026-07-20",
+    "stats": {
+      "arxiv": 245,
+      "scholar": 34,
+      "main": 10,
+      "supplementary": 5,
+      "total": 274
+    },
+    "main_papers": [
+      {
+        "title": "Active Learning with Adaptive Non-Stationary Kernel for Continuous-Fidelity Surrogate Models",
+        "authors": "R Boutelet-Smith, CL Sung",
+        "venue": "Technometrics, 2026",
+        "year": 2026,
+        "date": "2026-07",
+        "tags": "Multi-Fidelity, Active Learning, Gaussian Process, Non-Stationary Kernel, IMSPE, Sequential Design",
+        "link": "https://www.tandfonline.com/doi/abs/10.1080/00401706.2026.2702433",
+        "code": null,
+        "abstract": "Simulating complex physical processes across a domain of input parameters can be very computationally expensive. Multi-fidelity surrogate modeling can resolve this issue by integrating cheaper simulations with the expensive ones in order to obtain better predictions at a reasonable cost. We are specifically interested in computer experiments where real-valued fidelity parameters determine the fidelity of the numerical output, such as finite element methods. In these cases, integrating this fidelity parameter in the analysis enables us to make inference on fidelity levels that have not been observed yet. Such models have been developed, and we propose a new adaptive non-stationary kernel function that captures a broader class of behaviors in simulation outputs across fidelity levels. In addition, we develop an active learning strategy based on the integrated mean squared prediction error (IMSPE) to identify the best design points across input parameters and fidelity parameters, while taking into account the computational cost associated with the fidelity parameters. We illustrate this methodology through numerical examples and applications to finite element methods. An R package for the proposed methodology is provided in an open repository.",
+        "rank": 1,
+        "core_work": "本文针对连续保真度（continuous-fidelity）计算机试验提出了一种新型多保真度代理建模与主动学习框架：通过自适应非平稳核函数刻画仿真输出随保真度参数变化的复杂行为，并基于积分均方预测误差（IMSPE）在输入参数与保真度参数联合空间中进行序贯设计，同时考虑不同保真度水平的计算成本。",
+        "contributions": "提出自适应非平稳核函数，能够捕捉跨保真度水平更广泛的输出行为；构建基于IMSPE的主动学习策略，在输入参数与保真度参数上联合选点并计入保真度成本；通过数值算例与有限元应用验证方法有效性；方法以开源R包形式发布。",
+        "innovation": "将保真度参数作为连续变量纳入核函数的非平稳建模，使模型可对未观测过的保真度水平进行推断；IMSPE采集准则同时在输入空间与保真度空间优化采样，实现精度与计算成本的显式权衡。",
+        "relevance": "与您偏好高度相关：多保真度建模（Very High）+ 高斯过程（Very High）+ 序贯试验设计/主动学习（High）。连续保真度设定与有限元应用直接对应物理仿真场景下的自适应采样问题，Technometrics为质量工程顶刊。",
+        "citations": 0,
+        "venue_tier": "Top Journal",
+        "images": [],
+        "content": [
+          "在输入参数域上模拟复杂物理过程计算代价高昂，多保真度代理建模通过融合廉价低保真仿真与昂贵高保真仿真缓解该问题。本文关注保真度由实值参数（如有限元网格密度）决定的计算机试验，提出自适应非平稳核函数以刻画跨保真度水平的广泛输出行为，并发展基于IMSPE的主动学习策略，在输入参数与保真度参数联合空间中选择最优设计点，同时考虑保真度参数关联的计算成本。",
+          "**核心贡献**：（1）提出新的自适应非平稳核函数，扩展了可建模的保真度间行为类别；（2）发展IMSPE主动学习策略，联合优化输入位置与保真度水平并计入成本；（3）在数值算例与有限元方法应用上验证；（4）提供开源R包，可复现性好。",
+          "**创新之处**：把保真度参数直接嵌入核函数的非平稳结构中，使代理模型可以插值到外推未观测的保真度水平；IMSPE准则在输入-保真度联合空间做序贯设计，比固定保真度网格的嵌套设计更灵活、更经济。",
+          "**与您偏好关联**：直接命中多保真度建模、高斯过程方法、序贯试验设计三大核心方向；连续保真度视角对您研究多类型输入输出与物理引导采样具有直接借鉴价值。"
+        ]
+      },
+      {
+        "title": "Multi-fidelity surrogates for mechanics of composites: from co-kriging to multi-fidelity neural networks",
+        "authors": "H Wen, E Kiyani, G Li, S Pilla, GE Karniadakis, et al.",
+        "venue": "arXiv preprint, 2026",
+        "year": 2026,
+        "date": "2026-05",
+        "tags": "Multi-Fidelity, Co-Kriging, Gaussian Process, Deep GP, Multi-Fidelity Neural Network, Composites",
+        "link": "https://arxiv.org/abs/2605.02871",
+        "code": null,
+        "abstract": "Composite materials exhibit strongly hierarchical and anisotropic properties governed by coupled mechanisms spanning constituents, plies, laminates, structures, and manufacturing history. This intrinsic complexity makes predictive modeling of composites expensive, because repeated experiments and high-fidelity simulations are needed to cover large design spaces of material, structure, and manufacturing. Multi-fidelity surrogate modeling addresses this challenge by combining abundant, less expensive data with limited high-accuracy data to recover reliable high-fidelity predictions. This review presents a structured overview of multi-fidelity modeling for composite mechanics, covering Gaussian-process or Kriging-based methods, including co-Kriging, coregionalization models, autoregressive formulations, nonlinear autoregressive Gaussian processes, multi-fidelity deep Gaussian processes, and multi-fidelity neural networks.",
+        "rank": 2,
+        "core_work": "本文系统综述了面向复合材料力学的多保真度代理建模方法，覆盖从经典co-Kriging、区域化模型、自回归形式、非线性自回归高斯过程（NARGP）、多保真度深度高斯过程到多保真度神经网络的完整方法谱系，解决复合材料设计空间中实验与高保真仿真昂贵的核心瓶颈。",
+        "contributions": "梳理复合材料多层级（组分-铺层-层合板-结构-制造工艺）建模中的多保真度数据融合框架；统一比较GP/Kriging类与深度学习类多保真度方法的假设、成本与精度特性；给出面向复合材料设计、优化与不确定性量化的方法选型指导。",
+        "innovation": "以复合材料力学的层级耦合特性为主线，将统计类（co-Kriging/自回归GP）与机器学习类（深度GP、多保真度NN）方法置于同一框架下对比，是该交叉领域少见的系统性综述。",
+        "relevance": "与您偏好高度相关：多保真度建模（Very High）+ 高斯过程（Very High）+ 多类型输入输出（Very High）。Karniadakis组为多保真度/物理引导学习领域权威团队，综述可作为方法地图直接使用。",
+        "citations": 0,
+        "venue_tier": "Preprint",
+        "images": [
+          "2_multi_fidelity_surrogates_composites_x1.png",
+          "2_multi_fidelity_surrogates_composites_x2.png",
+          "2_multi_fidelity_surrogates_composites_x3.png",
+          "2_multi_fidelity_surrogates_composites_x4.png"
+        ],
+        "content": [
+          "复合材料的强层级与各向异性特性使其预测建模昂贵：需要大量实验与高保真仿真覆盖材料-结构-制造的大设计空间。本文综述多保真度代理建模如何通过融合丰富廉价数据与有限高精度数据恢复可靠的高保真预测，覆盖co-Kriging、区域化、自回归、非线性自回归GP、多保真度深度GP与多保真度神经网络等方法。",
+          "**核心贡献**：系统组织复合材料力学中的多保真度建模文献；对GP类与NN类方法的统计假设、外推能力、训练成本进行结构化对比；面向设计优化与UQ给出方法选择建议。论文64页18图，已投稿Composites Part B。",
+          "**创新之处**：以材料层级耦合机制为线索贯通统计代理与神经代理两条技术路线，明确指出各方法在小样本高保真 regime 下的适用边界，为复合材料数字孪生提供方法学基础。",
+          "**与您偏好关联**：多保真度+GP+多类型输出的全面综述，适合作为您跟踪该方向方法演进的参考框架；作者团队（Karniadakis）为多保真度与物理引导学习领域的核心力量。"
+        ]
+      },
+      {
+        "title": "Multifidelity Gaussian process regression for solving nonlinear partial differential equations",
+        "authors": "Fatima-Zahrae El-Boukkouri, Josselin Garnier, Olivier Roustant",
+        "venue": "arXiv preprint, 2026",
+        "year": 2026,
+        "date": "2026-05",
+        "tags": "Multi-Fidelity, Gaussian Process, Cokriging, Kernel Learning, Physics-Informed, PDE",
+        "link": "https://arxiv.org/abs/2605.10383",
+        "code": null,
+        "abstract": "Solving nonlinear partial differential equations (PDEs) using kernel methods offers a compelling alternative to traditional numerical solvers. However, the performance of these methods strongly depends on the choice of kernel. In this work, as the available information is inherently multifidelity, we propose a kernel learning approach based on cokriging, leveraging empirical information from multifidelity simulations. In the first step, we fit a differentiable non-stationary kernel to an empirical kernel obtained from low-fidelity simulations. In the second step, we derive a high-fidelity kernel with estimated hyperparameters, and construct a corresponding high-fidelity mean using the multifidelity framework. These components can then be used within a Gaussian process framework for solving PDEs. Finally, we demonstrate the performance of the proposed physics-informed method on the Burgers equation and other benchmarks.",
+        "rank": 3,
+        "core_work": "本文提出一种基于cokriging核学习的多保真度高斯过程回归方法用于求解非线性偏微分方程：先从低保真仿真估计经验核并拟合可微非平稳核，再导出高保真核与均值，最后嵌入物理信息GP框架求解PDE。",
+        "contributions": "提出两阶段多保真度核学习流程：低保真经验核→可微非平稳核拟合→高保真核与均值构建；将学到的核与均值接入GP-PDE求解框架；在Burgers方程等基准上验证物理信息方法的性能。",
+        "innovation": "用数据驱动的核学习替代手工选核，利用多保真度仿真中天然存在的层级信息构建非平稳核，显著提升核方法求解非线性PDE的精度与样本效率。",
+        "relevance": "与您偏好高度相关：多保真度（Very High）+ 高斯过程（Very High）+ 物理知识引导（Very High）。Garnier与Roustant为GP/计算机试验领域知名学者，方法直接面向物理仿真。",
+        "citations": 0,
+        "venue_tier": "Preprint",
+        "images": [],
+        "content": [
+          "核方法求解非线性PDE是传统数值求解器的有力替代，但性能强烈依赖核选择。本文利用问题中天然的多保真度信息，提出基于cokriging的核学习方法：第一步将低保真仿真的经验核拟合为可微非平稳核；第二步导出高保真核（含估计超参数）并构建多保真度框架下的高保真均值；随后这些成分被用于GP框架求解PDE。",
+          "**核心贡献**：两阶段多保真度核学习管线；非平稳核从数据中学习而非人工指定；在Burgers方程等非线性PDE基准上展示物理信息GP求解器的性能提升。",
+          "**创新之处**：把低保真解的核结构作为高保真求解的先验知识，实现保真度间核结构的传递；学习的非平稳核能刻画解的局部剧烈变化（如激波），这是平稳核GP求解器的已知短板。",
+          "**与您偏好关联**：多保真度+GP+物理引导三者深度融合的代表作，与您关注的物理知识引导自适应建模方向高度契合；作者团队（Garnier/Roustant）在计算机试验与GP理论方面积累深厚。"
+        ]
+      },
+      {
+        "title": "REMAL: Residual Equilibrium Manifold Active Learning for Surrogate-Based Multidisciplinary Design Analysis",
+        "authors": "K Yuan, A Renganathan",
+        "venue": "arXiv preprint, 2026",
+        "year": 2026,
+        "date": "2026-06",
+        "tags": "Active Learning, Multi-Task Gaussian Process, Surrogate Modeling, Multidisciplinary Design, Equilibrium Residual",
+        "link": "https://arxiv.org/abs/2606.13245",
+        "code": null,
+        "abstract": "Multidisciplinary design analysis of coupled engineering systems requires the computation of equilibrium states in which all disciplinary coupling variables are mutually consistent. Conventional fixed-point iteration resolves this consistency problem separately at each design point, which can become expensive when disciplinary evaluations are costly and many analyses are required in outer-loop tasks such as multidisciplinary design optimization, uncertainty quantification, or digital twin updating. This paper introduces REMAL, a residual manifold surrogate modeling framework for coupled systems. Instead of approximating each discipline independently or directly learning converged coupling variables, the proposed method learns a surrogate model of the joint residual manifold via multitask Gaussian process models. An entropy-based active learning strategy selects additional residual evaluations to maximally reduce surrogate uncertainty.",
+        "rank": 4,
+        "core_work": "本文提出REMAL框架：针对耦合工程系统的多学科设计分析（MDA），不直接学习收敛的耦合变量，而是用多任务高斯过程学习联合残差流形，并配合基于熵的主动学习策略自适应选择残差评估点，大幅降低外层优化/UQ/数字孪生任务中的固定点迭代成本。",
+        "contributions": "提出残差流形代理建模思想，将多学科一致性问题的学习对象从解本身转移到联合残差；采用多任务GP捕捉学科间耦合；发展基于熵的主动学习选点策略；在气动弹性等耦合系统算例上验证对MDO/UQ外层任务的加速。",
+        "innovation": "学习残差流形而非收敛解，使代理模型直接编码多学科一致性条件；熵准则主动学习聚焦于残差不确定性最大的区域，样本效率显著优于逐学科独立建模或直接拟合收敛映射。",
+        "relevance": "与您偏好高度相关：主动学习/序贯设计（High）+ 多类型输出/多任务GP（Very High）+ 代理建模（High）。Renganathan组深耕GP代理与多保真度建模，方法面向复杂耦合工程系统。",
+        "citations": 1,
+        "venue_tier": "Preprint",
+        "images": [
+          "4_remal_active_learning_mda_x1.png",
+          "4_remal_active_learning_mda_x2.png",
+          "4_remal_active_learning_mda_legend.png",
+          "4_remal_active_learning_mda_aeroelastic_model_diagram.png"
+        ],
+        "content": [
+          "耦合工程系统的多学科设计分析要求各学科耦合变量相互一致的平衡态，传统固定点迭代在每个设计点单独求解一致性问题，当学科评估昂贵且外层任务（MDO、UQ、数字孪生更新）需要大量分析时代价高昂。REMAL提出残差流形代理框架：通过多任务高斯过程学习联合残差流形，并用基于熵的主动学习选择额外残差评估以最大化降低代理不确定性。",
+          "**核心贡献**：将MDA一致性求解转化为残差流形上的代理学习问题；多任务GP联合建模各学科残差并捕捉耦合结构；熵驱动的主动学习实现样本高效的模型精炼；在耦合系统基准上显著减少达到给定精度所需的学科评估次数。",
+          "**创新之处**：区别于逐学科代理或直接学习收敛耦合变量的常规做法，残差流形视角把系统一致性约束显式编码进学习问题；主动学习直接面向平衡态求解精度而非单学科拟合精度。",
+          "**与您偏好关联**：多任务GP（多类型输出）+主动学习+代理建模的组合正中您的核心偏好；对耦合系统UQ与序贯设计有方法论借鉴意义。"
+        ]
+      },
+      {
+        "title": "Efficient Controller Learning from Human Preferences and Numerical Data Via Multi-Modal Surrogate Models",
+        "authors": "Lukas Theiner, Maik Pfefferkorn, Yongpeng Zhao, Sebastian Hirt, Rolf Findeisen",
+        "venue": "ECC 2026",
+        "year": 2026,
+        "date": "2026-03",
+        "tags": "Preferential Bayesian Optimization, Multi-Fidelity, Multi-Modal, Gaussian Process, Coregionalization, Controller Tuning",
+        "link": "https://arxiv.org/abs/2603.24138",
+        "code": null,
+        "abstract": "Tuning control policies manually to meet high-level objectives is often time-consuming. Bayesian optimization provides a data-efficient framework for automating this process using numerical evaluations of an objective function. However, many systems, particularly those involving humans, require optimization based on subjective criteria. Preferential Bayesian optimization addresses this by learning from pairwise comparisons instead of quantitative measurements, but relying solely on preference data can be inefficient. We propose a multi-fidelity, multi-modal Bayesian optimization framework that integrates low-fidelity numerical data with high-fidelity human preferences. Our approach employs Gaussian process surrogate models with both hierarchical, autoregressive and non-hierarchical, coregionalization-based structures, enabling efficient learning from mixed-modality data. We illustrate the approach on controller tuning problems and show improved data efficiency.",
+        "rank": 5,
+        "core_work": "本文提出多保真度、多模态贝叶斯优化框架，将低保真数值数据与高保真人类偏好（成对比较）融合用于控制器调参：采用层级自回归与非层级区域化（coregionalization）两类GP代理结构，实现混合模态数据的高效学习，已被ECC 2026接收。",
+        "contributions": "构建融合数值评估与主观偏好的多模态BO框架；比较层级自回归与coregionalization两类多输出GP结构在混合模态下的表现；在控制器学习问题上展示比纯偏好BO更高的数据效率。",
+        "innovation": "把数值数据视为低保真、人类偏好视为高真信息源，用多保真度GP统一建模两种异质模态，突破了偏好BO只能使用成对比较数据的效率瓶颈。",
+        "relevance": "与您偏好高度相关：贝叶斯优化（High）+ 多保真度/多类型输入输出（Very High）+ 高斯过程（Very High）。Findeisen组在BO与学习控制方向持续产出，属于知名团队。",
+        "citations": 0,
+        "venue_tier": "Top Conference",
+        "images": [
+          "5_controller_learning_preferences_multimodal_x1.png",
+          "5_controller_learning_preferences_multimodal_x2.png",
+          "5_controller_learning_preferences_multimodal_x3.png"
+        ],
+        "content": [
+          "手动调节控制策略以满足高层目标耗时费力；BO可基于数值目标评估实现数据高效的自动调参，但涉人系统常需基于主观标准优化。偏好BO通过成对比较学习，但仅用偏好数据效率低。本文提出多保真度多模态BO框架，整合低保真数值数据与高保真人类偏好，采用层级自回归与非层级coregionalization两类GP代理结构，实现混合模态数据的高效学习。",
+          "**核心贡献**：数值+偏好的多模态多保真度BO框架；两类多输出GP结构（自回归层级式 vs coregionalization）的系统比较；控制器调参实验验证数据效率提升。",
+          "**创新之处**：将人类偏好显式建模为最高保真度信息源，数值仿真作为低保真辅助，用多保真度GP的保真度层级结构自然融合异质反馈——为多类型输入输出建模提供了新颖应用范式。",
+          "**与您偏好关联**：BO+多保真度+多模态GP的组合与您的多类型输入输出建模偏好直接对应；Findeisen团队的工作一贯具有较高的工程可信度。"
+        ]
+      },
+      {
+        "title": "Informed Initialization for Bayesian Optimization and Active Learning",
+        "authors": "Carl Hvarfner, David Eriksson, Eytan Bakshy, Max Balandat",
+        "venue": "NeurIPS 2025",
+        "year": 2025,
+        "date": "2025-10",
+        "tags": "Bayesian Optimization, Active Learning, Gaussian Process, Initialization, Experimental Design",
+        "link": "https://arxiv.org/abs/2510.23681",
+        "code": null,
+        "abstract": "Bayesian Optimization is a widely used method for optimizing expensive black-box functions, relying on probabilistic surrogate models such as Gaussian Processes. The quality of the surrogate model is crucial for good optimization performance, especially in the few-shot setting where only a small number of batches of points can be evaluated. In this setting, the initialization plays a critical role in shaping the surrogate's predictive quality and guiding subsequent optimization. Despite this, practitioners typically rely on (quasi-)random designs to cover the input space. However, such approaches neglect two key factors: (a) space-filling designs may not be desirable to reduce predictive uncertainty, and (b) efficient hyperparameter learning during initialization is essential for high-quality prediction, which may conflict with space-filling designs. To address these limitations, we propose informed initialization strategies that account for both predictive uncertainty reduction and hyperparameter learning.",
+        "rank": 6,
+        "core_work": "本文系统研究贝叶斯优化与主动学习中的初始化问题：指出常用的（拟）随机空间填充设计忽视了两个关键因素——空间填充未必最利于降低预测不确定性，且初始化阶段的超参数学习与空间填充目标存在冲突；据此提出兼顾预测不确定性降低与超参数学习的知情初始化策略。NeurIPS 2025接收。",
+        "contributions": "形式化分析few-shot设定下初始化对GP代理质量与后续优化性能的影响；揭示空间填充设计与超参数学习之间的张力；提出知情初始化策略并在多个基准上验证其对BO与主动学习性能的稳定提升。",
+        "innovation": "将初始化从\"无关紧要的预处理\"提升为影响BO成败的关键设计决策，把超参数学习目标显式纳入初始设计准则，填补了BO实践中被长期忽视的环节。",
+        "relevance": "与您偏好高度相关：贝叶斯优化（High）+ 序贯试验设计/主动学习（High）+ 高斯过程（Very High）。Meta BO团队（Eriksson/Bakshy/Balandat，BoTorch核心开发者）出品，CCF-A会议。",
+        "citations": 0,
+        "venue_tier": "Top Conference",
+        "images": [
+          "6_informed_initialization_bo_active_learning_x1.png",
+          "6_informed_initialization_bo_active_learning_x2.png",
+          "6_informed_initialization_bo_active_learning_x3.png",
+          "6_informed_initialization_bo_active_learning_x4.png"
+        ],
+        "content": [
+          "BO依赖GP等概率代理模型，代理质量对优化性能至关重要，尤其在只能评估少量批次的few-shot设定下，初始化深刻塑造代理的预测质量并引导后续优化。然而实践者通常依赖（拟）随机设计覆盖输入空间，忽视了：(a) 空间填充未必利于降低预测不确定性；(b) 初始化阶段的高效超参数学习对高质量预测必不可少，且可能与空间填充冲突。",
+          "**核心贡献**：提出知情初始化策略，同时考虑预测不确定性降低与超参数学习；理论分析两类目标的冲突机制；在BO与主动学习基准上验证初始化选择对最终性能的显著影响。",
+          "**创新之处**：首次将超参数可学习性作为初始设计的显式准则，纠正了\"初始设计只需空间填充\"的普遍误区；对任何使用GP代理的序贯流程都有直接实践价值。",
+          "**与您偏好关联**：BO+主动学习+GP+试验设计四重命中；BoTorch核心团队的方法学工作，值得纳入您的序贯设计工具箱。"
+        ]
+      },
+      {
+        "title": "BITS for GAPS: Bayesian Information-Theoretic Sampling for hierarchical GAussian Process Surrogates",
+        "authors": "Kyla D. Jones, Alexander W. Dowling",
+        "venue": "Computers & Chemical Engineering, 2026",
+        "year": 2026,
+        "date": "2025-11",
+        "tags": "Bayesian Experimental Design, Gaussian Process, Hierarchical Bayes, Information-Theoretic Sampling, Hyperparameter Uncertainty",
+        "link": "https://arxiv.org/abs/2511.16815",
+        "code": null,
+        "abstract": "We introduce Bayesian Information-Theoretic Sampling for hierarchical GAussian Process Surrogates (BITS for GAPS), a framework enabling information-theoretic experimental design of Gaussian process-based surrogate models. Unlike standard methods, which use fixed or point-estimated hyperparameters in acquisition functions, our approach propagates hyperparameter uncertainty into the sampling criterion through Bayesian hierarchical modeling. In this framework, a latent function receives a Gaussian process prior, while hyperparameters are assigned additional priors to capture the modeler's knowledge of the governing physical phenomena. Consequently, the acquisition function incorporates uncertainties from both the latent function and its hyperparameters, ensuring that sampling is guided by both data scarcity and model uncertainty. We further establish theoretical results in this context.",
+        "rank": 7,
+        "core_work": "本文提出BITS for GAPS框架：通过贝叶斯层级建模将GP超参数不确定性传播到信息论采样准则中——潜函数赋予GP先验，超参数再赋予反映物理知识的先验，使采集函数同时计入潜函数与超参数两个层级的不确定性，实现由数据稀缺与模型不确定性共同引导的序贯试验设计。发表于Computers & Chemical Engineering 2026。",
+        "contributions": "构建层级贝叶斯GP的信息论试验设计框架；超参数先验编码建模者对物理现象的知识；采集函数同时涵盖潜函数不确定性与超参数不确定性；给出该设定下的理论结果（含一致性分析）。",
+        "innovation": "突破标准BOED中使用固定或点估计超参数的做法，将超参数不确定性显式传入采样准则；物理知识通过超参数先验进入设计回路，实现知识引导的自适应采样。",
+        "relevance": "与您偏好高度相关：高斯过程（Very High）+ 物理知识引导自适应采样（Very High）+ 序贯试验设计（High）。Dowling组在化学过程系统的BOED方向成果扎实，期刊为过程系统工程顶刊。",
+        "citations": 0,
+        "venue_tier": "Top Journal",
+        "images": [
+          "7_bits_for_gaps_overview.png",
+          "7_bits_for_gaps_gp_lhs_design.png",
+          "7_bits_for_gaps_activity_3d_surface.png",
+          "7_bits_for_gaps_entropy_surface_1.png"
+        ],
+        "content": [
+          "标准信息论试验设计在采集函数中使用固定或点估计的GP超参数，忽略了超参数不确定性对采样的影响。BITS for GAPS通过贝叶斯层级建模把超参数不确定性传播到采样准则：潜函数取GP先验，超参数再取反映物理知识的先验，采集函数因此同时包含潜函数与超参数的不确定性，使采样由数据稀缺与模型不确定性共同引导。",
+          "**核心贡献**：层级GP的信息论序贯设计框架；物理知识经超参数先验注入设计过程；理论上给出该框架的性质分析；在代理建模基准上展示相对固定超参数方法的采样效率优势。",
+          "**创新之处**：把超参数层级从推断细节提升为设计变量——小样本阶段超参数后验很宽时，采集函数自动更保守地探索，随数据积累逐步聚焦，这与您对物理知识引导自适应采样的兴趣完全一致。",
+          "**与您偏好关联**：GP+层级贝叶斯+信息论设计+物理先验，四个关键词全部命中您的Very High/High偏好项；方法可直接迁移到您的自适应采样研究中。"
+        ]
+      },
+      {
+        "title": "Probabilistic function-on-function nonlinear autoregressive model for emulation and reliability analysis of stochastic dynamical systems",
+        "authors": "Zhouzhou Song, Marcos A. Valdebenito, Styfen Schär, Stefano Marelli, Bruno Sudret, Matthias G. R. Faes",
+        "venue": "arXiv preprint, 2026",
+        "year": 2026,
+        "date": "2026-02",
+        "tags": "Function-on-Function, Gaussian Process, Emulator, Stochastic Dynamical System, Reliability Analysis, PCA",
+        "link": "https://arxiv.org/abs/2602.01929",
+        "code": null,
+        "abstract": "Constructing accurate and computationally efficient surrogate models (or emulators) for predicting dynamical system responses is critical in many engineering domains, yet remains challenging due to the strongly nonlinear and high-dimensional mapping from external excitations and system parameters to system responses. This work introduces a novel Function-on-Function Nonlinear AutoRegressive model with eXogenous inputs (F2NARX), which reformulates the recently proposed F-NARX method from a function-on-function regression perspective. The proposed framework substantially improves predictive efficiency while maintaining high accuracy. By combining principal component analysis with Gaussian process regression, F2NARX further enables probabilistic predictions of dynamical responses via the unscented transform in an autoregressive manner. Such probabilistic prediction capabilities support reliability analysis of stochastic dynamical systems.",
+        "rank": 8,
+        "core_work": "本文提出F2NARX：从函数对函数（function-on-function）回归视角重构F-NARX方法，结合主成分分析与高斯过程回归，以自回归方式经无迹变换实现随机动力系统响应的概率预测，在保持高精度的同时大幅提升预测效率，并支撑随机动力系统的可靠性分析。",
+        "contributions": "提出函数对函数视角的NARX概率模拟器；PCA+GP组合实现函数型输出的概率预测；无迹变换在自回归循环中传播不确定性；应用于随机动力系统仿真与可靠性分析，效率显著优于原F-NARX。",
+        "innovation": "将动力系统代理建模从向量回归提升为函数对函数回归，配合KL/PCA降维与GP，实现对整条响应时间历程（函数型输出）的概率仿真与不确定性传播。",
+        "relevance": "与您偏好高度相关：多类型输入输出/函数型输出（Very High）+ 高斯过程（Very High）+ 不确定性量化（High）。Sudret与Faes为UQ领域权威（ETH UQLab与TU Dortmund可靠性组）。",
+        "citations": 0,
+        "venue_tier": "Preprint",
+        "images": [
+          "8_probabilistic_f2narx_emulator_x1.png",
+          "8_probabilistic_f2narx_emulator_x2.png",
+          "8_probabilistic_f2narx_emulator_x3.png",
+          "8_probabilistic_f2narx_emulator_x4.png"
+        ],
+        "content": [
+          "为动力系统响应构建精确且计算高效的代理模型（模拟器）在诸多工程领域至关重要，但从外部激励与系统参数到系统响应的映射强非线性且高维。本文提出F2NARX，从函数对函数回归视角重构F-NARX：结合PCA与GP回归，以自回归方式通过无迹变换实现动力响应的概率预测，支撑随机动力系统的可靠性分析。",
+          "**核心贡献**：函数对函数的概率NARX模拟器框架；PCA+GP实现函数型响应的高效概率预测；自回归循环中的不确定性传播；在随机动力系统仿真与可靠性算例上验证精度与效率。",
+          "**创新之处**：把整条时间历程作为函数型输出整体建模（而非逐时刻标量输出），使代理能保持响应的时间相关性结构；无迹变换使GP预测分布在自回归迭代中闭式传播。",
+          "**与您偏好关联**：函数型输入输出+GP+UQ的组合直接对应您的多类型输入输出建模偏好；Sudret/Faes团队的方法工程成熟度高，适合跟踪引用。"
+        ]
+      },
+      {
+        "title": "A Bayesian latent Gaussian process framework for aerodynamic uncertainty quantification",
+        "authors": "Geoffrey Davis, Ashwin Renganathan",
+        "venue": "arXiv preprint, 2026",
+        "year": 2026,
+        "date": "2026-06",
+        "tags": "Gaussian Process, Bayesian Calibration, Kennedy-O'Hagan, Input Uncertainty, Multi-Fidelity, Aerodynamic UQ",
+        "link": "https://arxiv.org/abs/2606.28871",
+        "code": null,
+        "abstract": "Predicting the aerodynamic performance (e.g. lift, drag, and moment coefficients) of an aircraft is challenging -- computational models are biased and direct simulations are prohibitive. A pragmatic way to overcome this limitation is by calibrating low-fidelity computational predictions with experimental measurements. This, however, requires calibrating against sparse measurements contaminated with uncertainty in both the control inputs and the measured aerodynamic response. We develop a methodology to address this problem based on Gaussian process surrogates and the classical Kennedy-O'Hagan calibration. A surrogate model learned on abundant-but-cheap low-fidelity data is calibrated with a sparse set of measurement data. Crucially, we develop a Bayesian latent Gaussian process based approach that marginalizes the calibrated surrogate model over the input uncertainty, while quantifying the posterior of the discrepancy.",
+        "rank": 9,
+        "core_work": "本文针对飞行器气动性能（升力、阻力、力矩系数）预测中计算模型有偏、直接仿真昂贵的问题，基于GP代理与经典Kennedy-O'Hagan校准框架，用稀疏且含噪声的实验测量校准低保真代理；核心贡献是贝叶斯隐高斯过程方法：在控制输入与气动响应均含不确定性的情况下，将校准代理对输入不确定性边缘化，同时量化模型差异项的后验。",
+        "contributions": "构建Kennedy-O'Hagan框架下融合低保真仿真与稀疏实验的气动UQ方法；提出贝叶斯隐GP处理输入不确定性（errors-in-variables）；对校准后的代理做输入不确定性边缘化并给出差异项后验；在气动算例上验证校准与UQ效果。",
+        "innovation": "把输入不确定性显式纳入K-O校准的GP代理中（隐变量视角），避免将含噪控制输入当作精确值导致的校准偏差，是气动UQ中少见的严谨处理。",
+        "relevance": "与您偏好高度相关：高斯过程（Very High）+ 多保真度（Very High）+ 不确定性量化（High）。Renganathan组本期第二篇入选，持续深耕GP代理校准与UQ。",
+        "citations": 0,
+        "venue_tier": "Preprint",
+        "images": [
+          "9_bayesian_latent_gp_aerodynamic_uq_desired_pts.png",
+          "9_bayesian_latent_gp_aerodynamic_uq_x1.png",
+          "9_bayesian_latent_gp_aerodynamic_uq_1dlatent_.png",
+          "9_bayesian_latent_gp_aerodynamic_uq_Cd_xfoilgp_validation.png"
+        ],
+        "content": [
+          "预测飞行器气动性能（升阻与力矩系数）面临计算模型有偏、直接仿真昂贵的双重困难；可行路线是用实验测量校准低保真预测，但测量稀疏且控制输入与气动响应均含不确定性。本文基于GP代理与Kennedy-O'Hagan校准：先在丰富廉价的低保真数据上学习代理，再用稀疏测量校准；关键是提出贝叶斯隐GP方法，将校准代理对输入不确定性边缘化，同时量化差异项后验。",
+          "**核心贡献**：输入不确定性下的K-O校准贝叶斯框架；隐GP边缘化含噪控制输入；差异函数后验的完整量化；气动算例（XFOIL+实验数据）验证。",
+          "**创新之处**：经典K-O框架假设输入精确已知，本文用隐变量GP把输入不确定性传播到校准后验中，对风洞/飞行试验中普遍存在的输入噪声问题给出原则性解法。",
+          "**与您偏好关联**：GP+多保真度校准+UQ，且处理多类型数据（仿真+实验、含噪输入），与您偏好的多类型输入输出建模高度一致。"
+        ]
+      },
+      {
+        "title": "Active learning strategy for excursion-set confidence regions of functional simulator outputs",
+        "authors": "Lucas Brunel, Mathieu Balesdent, Loïc Brevault, Rodolphe Le Riche, Bruno Sudret",
+        "venue": "arXiv preprint, 2026",
+        "year": 2026,
+        "date": "2026-05",
+        "tags": "Active Learning, Excursion Set, Functional Output, Gaussian Process, Karhunen-Loeve, Sequential Design",
+        "link": "https://arxiv.org/abs/2605.29516",
+        "code": null,
+        "abstract": "Estimating excursion set confidence regions seeks to identify regions where a function may exceed some threshold with a given confidence level. This paper focuses on estimating such confidence regions in cases where the function has random inputs and a functional output that is returned all at once. We develop a surrogate-based approach for estimating the confidence region, combining principal component analysis and Gaussian process regression. An active learning strategy is also introduced, based on a max-min criterion that selects new samples which are likely to reduce the uncertainty in the confidence region. This strategy leverages efficient sampling of the Gaussian process through a Karhunen-Loeve expansion. The proposed approach is applied to estimate the confidence regions of three case studies: a synthetic function, the surface pressure coefficient distribution of a hypersonic vehicle, and an industrial application.",
+        "rank": 10,
+        "core_work": "本文研究随机输入、函数型输出（一次性返回整条曲线/场）仿真器的偏移集（excursion set）置信区域估计问题：结合PCA与GP回归构建代理，提出基于max-min准则的主动学习策略选择最可能降低置信区域不确定性的新样本，并利用Karhunen-Loève展开实现GP的高效采样。",
+        "contributions": "提出函数型输出下偏移集置信区域的代理估计框架；max-min主动学习准则定向降低置信区域不确定性；KL展开加速GP条件采样；应用于合成函数、高超声速飞行器表面压力系数分布与工业案例三个算例。",
+        "innovation": "将偏移集估计从标量输出推广到函数型输出场景，主动学习准则直接面向置信区域体积的不确定性而非逐点预测方差，显著提升稀有区域识别的样本效率。",
+        "relevance": "与您偏好高度相关：主动学习/序贯设计（High）+ 函数型多类型输出（Very High）+ 高斯过程（Very High）。Balesdent/Brevault/Le Riche/Sudret为法语区GP序贯设计与可靠性领域核心团队。",
+        "citations": 0,
+        "venue_tier": "Preprint",
+        "images": [
+          "10_active_learning_excursion_set_functional_x1.png",
+          "10_active_learning_excursion_set_functional_x2.png",
+          "10_active_learning_excursion_set_functional_x3.png",
+          "10_active_learning_excursion_set_functional_x4.png"
+        ],
+        "content": [
+          "偏移集置信区域估计旨在找出函数以给定置信水平超过阈值的区域。本文针对随机输入、函数型输出（一次返回整条曲线）的仿真器，结合PCA与GP回归发展置信区域的代理估计方法；提出基于max-min准则的主动学习策略，选择最可能降低置信区域不确定性的新样本，并借助Karhunen-Loève展开实现GP的高效采样。",
+          "**核心贡献**：函数型输出的偏移集置信区域估计框架；max-min主动学习准则；KL展开的高效GP采样；三个算例（合成函数、高超声速表面压力分布、工业应用）验证。",
+          "**创新之处**：采集准则面向集合估计的不确定性（而非点预测方差），并通过函数空间的KL分解把函数型输出的GP采样成本降到可接受水平，是函数型数据序贯设计的扎实工作。",
+          "**与您偏好关联**：主动学习+函数型输出+GP序贯设计，直接命中您的多类型输出与序贯试验设计偏好；团队为GP可靠性/序贯设计领域的标杆。"
+        ]
+      }
+    ],
+    "supplementary": [
+      {
+        "title": "Bayesian Optimization of Genetic Algorithm Hyperparameters in a Multi-Fidelity Framework for Efficient Lattice Material Design",
+        "authors": "Sergei Zorkaltsev, Maciej Haranczyk, Christina Schenk",
+        "venue": "arXiv preprint, 2026",
+        "date": "2026-07",
+        "tags": "Bayesian Optimization, Multi-Fidelity, Gaussian Process, Hyperparameter Tuning, Lattice Materials",
+        "link": "https://arxiv.org/abs/2607.07289",
+        "abstract": "This study presents a multi-fidelity framework for the systematic optimization of genetic algorithm (GA) hyperparameters. The framework integrates three fidelity levels: high-fidelity FFT homogenization for validation, a medium-fidelity 3D CNN surrogate for rapid property evaluation, and a low-fidelity GP surrogate within a BO framework to guide the hyperparameter search. Various acquisition functions are evaluated, with logNEI achieving the best performance. The framework identifies GA configurations enabling a 25-generation run to match full 75-generation optimization quality."
+      },
+      {
+        "title": "Active learning-based Bayesian optimization in the realm of copper slag-blended cement systems",
+        "authors": "Debadri Som, Rayna Maheshwari, Mathijs Schuurmans, Panagiotis Patrinos, Yiannis Pontikes",
+        "venue": "arXiv preprint, 2026",
+        "date": "2026-06",
+        "tags": "Bayesian Optimization, Active Learning, Gaussian Process, Materials Design, Sustainable Cement",
+        "link": "https://arxiv.org/abs/2606.21948",
+        "abstract": "The authors demonstrate that BO can identify near-optimal blended cement formulations with minimal experimental data. Starting with only 10 initial experiments and a 2:1 data-to-variable ratio, copper slag-limestone-Portland cement systems were optimized for 2-day compressive strength, cost, and CO2 emissions. GP surrogates guided sequential experimentation through EI and UCB acquisition functions; within 2-6 iterations BO identified Pareto non-dominated solutions meeting strength requirements."
+      },
+      {
+        "title": "Structure-preserving variational neural fields: Uncertainty-quantified reduced-order modeling of nonlinear conservation laws",
+        "authors": "Aviral Prakash, Marc L. Klasky",
+        "venue": "arXiv preprint, 2026",
+        "date": "2026-07",
+        "tags": "Uncertainty Quantification, Reduced-Order Model, Gaussian Process, Conservation Laws, Latent Dynamics",
+        "link": "https://arxiv.org/abs/2607.10965",
+        "abstract": "Reduced-order models such as latent dynamics models accelerate simulations of parameterized physical systems governed by nonlinear conservation laws, but most frameworks neither provide uncertainty estimates nor guarantee adherence to conservation laws. This work develops a variational latent neural field framework integrating GP-inspired surrogates, enabling predictive confidence estimation for in- and out-of-distribution parameter regimes while exactly preserving conservation laws."
+      },
+      {
+        "title": "When is multivariate kriging worthwhile? A design-geometry analysis of heterotopic multi-output Gaussian processes",
+        "authors": "Zexun Chen, Jun Fan, Kuo Wang",
+        "venue": "arXiv preprint, 2026",
+        "date": "2026-07",
+        "tags": "Multi-Output Gaussian Process, Cokriging, Multi-Fidelity, Design of Experiments, Heterotopic Sampling",
+        "link": "https://arxiv.org/abs/2607.06832",
+        "abstract": "Heterotopic sampling (related outputs observed at different input locations) is common in multi-fidelity computer models. Whether joint multivariate kriging predicts better than separate univariate metamodels has remained unresolved. For separable multi-output GPs, the authors show the answer is governed by the geometry of output-specific designs, introduce model-free diagnostics (directed coverage, directed proximity, borrowing potential), and derive an exact identity for the oracle prediction gain of joint modeling."
+      },
+      {
+        "title": "Operator-Informed Gaussian Processes for Complex Helmholtz Wavefields: From Synthetic Data to Experimental Validation",
+        "authors": "Boyuan Deng, Kshitiz Upadhyay, Michael Shields",
+        "venue": "arXiv preprint, 2026",
+        "date": "2026-07",
+        "tags": "Physics-Informed Gaussian Process, Helmholtz Equation, Uncertainty Quantification, Wave Propagation, PDE Residual",
+        "link": "https://arxiv.org/abs/2607.14193",
+        "abstract": "Physics-informed GP regression returns a posterior over PDE solutions, but operator-conditioned formulations have been developed almost exclusively for real-valued fields. The authors extend operator-informed GP regression to complex-valued Helmholtz problems by realifying the complex operator into a coupled real block, admitting priors from proper diagonal to coregionalized and multiscale variants, conditioning on PDE residuals and boundary traces, validated on 1D-3D benchmarks and experimental data."
+      }
+    ]
+  },
+  {
+    "date": "2026-07-27",
+    "label": "2026-07-27",
+    "main_papers": [
+      {
+        "title": "A Latent Variable Approach for Non-Hierarchical Multi-Fidelity Adaptive Sampling",
+        "authors": "Yi-Ping Chen, Liwei Wang, Yigitcan Comlek, Wei Chen",
+        "venue": "Computer Methods in Applied Mechanics and Engineering, 2024",
+        "date": "2024-02",
+        "tags": "Multi-Fidelity, Adaptive Sampling, Gaussian Process, Latent Variable, Sequential Design",
+        "link": "https://www.sciencedirect.com/science/article/abs/pii/S004578252400029X",
+        "code": "Available upon request",
+        "rank": 1,
+        "core_work": "本文提出了一种基于隐变量方法的非层级多保真度自适应采样框架MuFASa，通过隐变量高斯过程（LVGP）构建多保真度代理模型，无需预先定义保真度层级关系，同时利用pre-posterior分析精确量化不同保真度样本对高频响应的增益，实现全局拟合（GF）和贝叶斯优化（BO）的统一自适应采样策略。",
+        "contributions": "提出非层级多保真度自适应采样框架MuFASa；利用隐变量高斯过程（LVGP）构建无需先验层级假设的多保真度代理模型；引入pre-posterior分析量化不同保真度样本的增益；兼容大多数单保真度采集函数，适用于全局拟合和贝叶斯优化。",
+        "innovation": "首次将隐变量高斯过程与pre-posterior分析结合用于多保真度自适应采样。LVGP能够将不同保真度源嵌入可解释的隐空间，自动学习它们之间的相关性，无需预设层级结构。pre-posterior分析显式利用了隐空间中编码的相关性信息，准确量化未来样本的收益，解决了传统方法忽视低保真度样本对高频性能影响的问题。",
+        "relevance": "与您偏好高度相关：涉及多保真度建模、自适应采样、高斯过程和序贯设计。论文发表在CMAME（应用力学与工程计算方法顶级期刊，属于用户目标期刊列表），方法同时适用于全局拟合和贝叶斯优化，且无需预先定义保真度层级，在多源异构数据融合场景中具有广泛适用性。",
+        "images": [],
+        "content": [
+          "本文针对多保真度建模中的自适应采样问题，提出了一种基于隐变量方法的非层级多保真度自适应采样框架MuFASa。传统多保真度方法通常假设保真度之间存在层级关系（如低保真度到高保真度的嵌套结构），但在实际工程问题中，不同数据源（如不同精度的仿真模型、实验数据等）之间的关系往往是复杂且非层级的。",
+          "**核心贡献——MuFASa框架**：该框架包含两个核心要素：（1）隐变量高斯过程多保真度建模（MF-LVGP）——将不同保真度水平嵌入一个隐空间中，通过数据自动学习它们之间的相关性和关系，无需预先定义层级结构；（2）Pre-posterior分析——在LVGP框架下评估在特定位置采集特定保真度样本对高频模型性能的预期提升，从而同时决定\"在哪里采样\"和\"使用哪个保真度\"。",
+          "**MF-LVGP模型**：LVGP最初用于处理定性变量和定量变量的混合输入。本文将其扩展到多保真度场景，将保真度标签视为定性变量。通过为每个保真度源学习一个隐空间表示，模型能够捕捉不同保真度之间的相关性。隐空间的可视化提供了对数据源关系的直观理解，且无需任何层级假设或保真度排序的先验知识。",
+          "**Pre-posterior分析**：传统隐式方法仅使用相关性进行响应预测，而定性假设低保真度改进能够惠及高频模型。本文的pre-posterior分析显式利用隐空间中编码的相关性，量化在特定保真度采集新样本后对高频预测方差的预期减少。这使得采样决策能够直接优化高频模型精度，而非间接地通过改进低保真度模型。",
+          "**与您偏好关联**：该方法完美匹配您对多类型输入/输出自适应建模和序贯加点的偏好。无需预设保真度层级的特性使其在处理真实世界中复杂、异构的多源数据时更具鲁棒性。发表在CMAME（应用力学顶级期刊），已被引用34次，是该方向的重要方法论突破。"
+        ]
+      },
+      {
+        "title": "Active Learning with Gaussian Process Regression for Solving Non-linear Time-dependent Partial Differential Equations",
+        "authors": "S. Sinha et al.",
+        "venue": "Engineering Applications of Artificial Intelligence, 2025",
+        "date": "2025-10",
+        "tags": "Active Learning, Gaussian Process Regression, PDE Solver, Uncertainty Quantification, Physics-Informed",
+        "link": "https://www.sciencedirect.com/science/article/abs/pii/S0952197625018810",
+        "code": null,
+        "rank": 2,
+        "core_work": "本文提出了一种将主动学习与高斯过程回归（GPR）相结合的新方法，用于求解非线性时间依赖型偏微分方程（PDE）。该方法利用GPR的概率预测能力（均值+方差），通过主动学习策略智能选择最具信息量的空间-时间点进行训练，显著减少了计算成本，同时保持预测精度。",
+        "contributions": "提出基于GPR的主动学习算法用于求解时间依赖型非线性PDE；引入不确定性量化到PDE求解过程中；设计数据增强策略高效选择新数据点；在Burgers方程、Allen-Cahn方程、Stefan方程和Korteweg-de Vries方程上验证了方法的有效性。",
+        "innovation": "首次将GPR与主动学习结合用于时间依赖型非线性PDE求解。与需要全局网格离散化的传统数值方法不同，该方法通过主动学习策略在每一时间步选择最具不确定性的点进行精确计算，实现了数据高效的PDE求解。GPR提供的置信区间使预测具有可量化的可靠性。",
+        "relevance": "与您偏好高度相关：结合了主动学习、高斯过程、不确定性量化和物理知识（PDE求解）。发表在Engineering Applications of Artificial Intelligence（AI应用工程领域高水平期刊），在气候、材料、生物医学仿真等领域有广泛应用前景。",
+        "images": [],
+        "content": [
+          "本文提出了一种利用主动学习结合高斯过程回归（GPR）求解非线性时间依赖型偏微分方程（PDE）的新方法。传统数值方法（如有限差分法、有限元法）需要对整个时空域进行细粒度离散化，随着PDE复杂度增加，计算成本急剧上升。本文的方法通过GPR的概率预测和主动学习的智能选点，大幅减少了所需的计算点数量。",
+          "**核心方法**：该方法的工作流程如下：首先在空间网格上选择少量初始训练点（t=0时刻的已知值），建立初始GPR模型。然后，GPR模型预测整个时空网格上的解，并识别预测不确定性（方差）最高的点。这些高不确定性点通过数值方法精确求解PDE得到真实值，然后添加到训练集中重新训练GPR模型。该过程迭代进行，逐步提升预测精度并降低不确定性。",
+          "**核函数设计**：为了处理PDE中的非线性特性，本文采用Matern核和RBF（径向基函数）核。这些核函数能够捕捉解的空间相关性，而主动学习策略则确保模型在最具挑战性的区域（如梯度变化剧烈或解出现奇异的区域）获得足够的训练数据。",
+          "**实验验证**：在四个经典PDE上进行了验证：（1）Burgers方程——描述冲击波传播的非线性对流-扩散方程；（2）Allen-Cahn方程——描述相变过程的抛物型方程；（3）Stefan方程——描述相界面移动的自由边界问题；（4）Korteweg-de Vries方程——描述浅水波传播的非线性色散方程。实验结果表明，该方法在保持高精度的同时，显著减少了计算点的数量。",
+          "**与您偏好关联**：该方法将主动学习、GPR和物理PDE求解相结合，完美契合您对\"结合领域知识或物理知识引导的自适应采样\"的偏好。GPR提供的不确定性估计直接指导采样决策，使得计算资源集中在最具信息量的区域。该方法在工程应用中具有巨大潜力，特别是在需要多次求解相似PDE的场景（如参数化设计优化）中。"
+        ]
+      },
+      {
+        "title": "Uncertainty Quantification and Propagation in Surrogate-Based Bayesian Inference",
+        "authors": "P. Reiser et al.",
+        "venue": "Statistics and Computing, 2025",
+        "date": "2025-03",
+        "tags": "Uncertainty Quantification, Surrogate Model, Bayesian Inference, Active Learning, Sequential Design",
+        "link": "https://link.springer.com/article/10.1007/s11222-025-10597-8",
+        "code": null,
+        "rank": 3,
+        "core_work": "本文提出了一个可扩展的贝叶斯代理建模框架，系统性地处理代理模型训练和推理两步过程中的不确定性量化与传播问题。框架区分了认知不确定性（epistemic，可减少）和偶然不确定性（aleatoric，不可减少），并提出了四种不同的不确定性传播方法来将训练阶段的后验分布传播到推理阶段。",
+        "contributions": "提出两步过程（T-Step训练+I-Step推理）的代理建模不确定性量化框架；区分认知不确定性和偶然不确定性并系统建模；提出四种不确定性传播方法并分析其权衡；开发了主动学习策略用于序贯优化代理模型的实验设计。",
+        "innovation": "系统性地将代理模型中的不确定性分为认知不确定性和偶然不确定性，并提供了严格的贝叶斯处理方案。特别是在不确定性传播方面，提出了多种传播方法（包括插件法、矩匹配法、全贝叶斯法等），并分析了每种方法在偏差-方差权衡上的特性。",
+        "relevance": "与您偏好高度相关：核心关注不确定性量化、代理建模和序贯试验设计。发表在Statistics and Computing（统计学计算领域顶级期刊），已被引用37次，是代理模型不确定性量化方向的重要综述性和方法论论文。",
+        "images": [],
+        "content": [
+          "本文针对基于代理模型的贝叶斯推断中的不确定性量化与传播问题，提出了一个统一的理论框架。在许多科学和工程应用中，复杂仿真器的计算成本极高，因此需要使用代理模型（如高斯过程、神经网络）来近似仿真器。然而，代理模型引入了额外的不确定性，如何正确量化和传播这种不确定性是一个关键挑战。",
+          "**两步过程框架**：本文将代理模型的应用分为两个步骤：（1）训练步骤（T-Step）——使用仿真器生成训练数据，拟合代理模型参数；（2）推理步骤（I-Step）——使用训练好的代理模型对真实观测数据进行推断。在T-Step中，代理模型参数的后验分布描述了认知不确定性（由于有限训练数据导致的）。这种不确定性需要被正确传播到I-Step中，以确保最终推断结果的可靠性。",
+          "**不确定性分类**：本文区分了两种不确定性：（1）认知不确定性（Epistemic Uncertainty）——由于训练数据有限导致的代理模型参数的不确定性，随着训练数据增加可减少；（2）偶然不确定性（Aleatoric Uncertainty）——系统固有的随机性（如观测噪声），不可减少。在T-Step中主要存在认知不确定性，而在I-Step中代理模型参数的不确定性变为\"偶然\"的（从I-Step视角不可减少）。",
+          "**不确定性传播方法**：本文提出了四种传播不确定性从T-Step到I-Step的方法：（1）插件估计（Plug-in）——使用点估计忽略不确定性，简单但低估方差；（2）矩匹配（Moment Matching）——近似传播后验的均值和方差，计算效率高；（3）全贝叶斯（Fully Bayesian）——通过MCMC从后验采样并传播，最严格但计算成本高；（4）混合方法——平衡计算效率和统计严格性。",
+          "**主动学习组件**：框架的最后部分是一个主动学习模块，用于序贯优化实验设计。当前的代理模型用于识别下一个最优的仿真器输入点，以最大化对后验推断的信息增益。这包括目标导向的采集函数（类似贝叶斯优化）、近似后验的迭代采样、温度策略和MCMC引导的设计等多种策略。",
+          "**与您偏好关联**：该论文完美契合您对不确定性量化和序贯试验设计的偏好。论文提供了从理论到实践的完整框架，不仅关注代理模型的精度，更关注不确定性的正确量化和传播。37次引用表明该工作已引起广泛关注，是该方向必读的方法论论文。"
+        ]
+      },
+      {
+        "title": "CAKE: Context-Aware Kernel Evolution for Bayesian Optimization with Large Language Models",
+        "authors": "Richard C. Suwandi et al.",
+        "venue": "NeurIPS 2025",
+        "date": "2025-12",
+        "tags": "Bayesian Optimization, Gaussian Process, Kernel Design, Large Language Model, Adaptive",
+        "link": "https://neurips.cc/virtual/2025/poster/119378",
+        "code": "https://github.com/richardcsuwandi/cake",
+        "rank": 4,
+        "core_work": "本文提出了一种基于大语言模型（LLM）的上下文感知核进化方法CAKE，用于自适应地生成和优化贝叶斯优化中的高斯过程核函数。传统BO方法依赖固定或启发式核选择，而CAKE利用LLM作为交叉和变异算子，根据观测数据自适应地生成新的核函数，并通过BIC-采集核排序（BAKER）选择最有效的核。",
+        "contributions": "提出CAKE方法利用LLM自适应生成和优化GP核函数；设计BAKER排序机制平衡模型拟合（BIC）与期望改进；在超参数优化、控制器调优和光子芯片设计等真实任务上验证了方法的优越性。",
+        "innovation": "将大语言模型引入贝叶斯优化的核函数设计中，突破了传统固定核函数的限制。LLM作为进化算子能够基于观测数据的上下文生成更适配的核函数，使得BO能够在优化过程中动态调整其模型假设，适应复杂的非平稳目标函数。",
+        "relevance": "与您偏好相关：涉及贝叶斯优化和高斯过程的自适应建模。发表在NeurIPS（机器学习顶会），代码已开源。虽然主要创新在于利用LLM进化核函数，但其核心仍围绕GP代理模型的自适应增强。",
+        "images": [],
+        "content": [
+          "本文提出了一种名为CAKE（Context-Aware Kernel Evolution）的新方法，利用大语言模型（LLM）自适应地生成和优化贝叶斯优化（BO）中的高斯过程（GP）核函数。BO的效率很大程度上依赖于GP核函数的选择，核函数决定了模型对目标函数的平滑性、周期性和非平稳性等假设。",
+          "**传统方法的局限**：传统BO通常使用固定核函数（如RBF、Matérn）或简单的核组合（如加法、乘法）。这些固定核函数可能在优化初期表现良好，但随着更多数据被观测到，如果核函数与目标函数的真实结构不匹配，模型预测会变得不准确，导致采样效率下降。",
+          "**CAKE方法**：CAKE将LLM作为进化算法的交叉和变异算子。在BO的每次迭代中，CAKE根据当前观测数据生成一个上下文描述，然后提示LLM生成新的核函数候选。这些候选核函数通过语法解析转换为可执行的GP核，并在验证集上评估其性能。",
+          "**BAKER排序机制**：为了从大量候选核中选择最有效的核，本文提出了BIC-Acquisition Kernel Ranking（BAKER）方法。BAKER综合考虑了两个因素：（1）模型拟合优度——通过贝叶斯信息准则（BIC）衡量；（2）优化潜力——通过期望改进（Expected Improvement）衡量。这种平衡确保了选择的核既能够良好拟合已有数据，又能够引导BO找到更优解。",
+          "**实验验证**：在三个真实世界任务上进行了验证：（1）机器学习超参数优化——优化XGBoost和神经网络的超参数；（2）控制器调优——优化PID控制器的参数；（3）光子芯片设计——优化光子器件的几何参数。实验结果表明，CAKE在这些任务上 consistently 优于使用固定核的传统BO方法。",
+          "**与您偏好关联**：虽然CAKE的核心创新在于利用LLM进行核进化，而非传统的自适应采样策略，但其目标与您的偏好一致——通过自适应地改进代理模型来提升序贯设计的效率。发表在NeurIPS顶会，代码开源，具有良好的可复现性。"
+        ]
+      },
+      {
+        "title": "Exploring and Exploiting Model Uncertainty in Bayesian Optimization",
+        "authors": "NeurIPS 2025 Authors",
+        "venue": "NeurIPS 2025",
+        "date": "2025-12",
+        "tags": "Bayesian Optimization, Gaussian Process, Model Uncertainty, Non-stationary, Heavy-tailed",
+        "link": "https://neurips.cc/virtual/2025/poster/115988",
+        "code": null,
+        "rank": 5,
+        "core_work": "本文提出了一种名为无穷高斯过程（∞-GP）的新型代理模型，用于处理奖励分布类型未知且可能高度非平稳、多模态或重尾的贝叶斯优化问题。∞-GP是一个基于空间狄利克雷过程混合的序贯模型，能够同时量化值不确定性和模型不确定性，结合Thompson Sampling实现分布空间中的探索与利用。",
+        "contributions": "提出∞-GP代理模型，通过空间狄利克雷过程混合实现灵活的非参数建模；同时量化值不确定性和模型不确定性；理论证明∞-GP能够近似广泛类别的奖励分布；在高度非平稳和重尾奖励场景中验证了优越性。",
+        "innovation": "突破了传统GP对奖励分布高斯假设的限制。∞-GP通过狄利克雷过程混合将GP基线扩展到能够建模任意复杂奖励分布的框架，并首次在BO中显式地量化了\"模型不确定性\"（即对奖励分布类型本身的不确定性），而不仅仅是值不确定性。",
+        "relevance": "与您偏好相关：涉及贝叶斯优化和代理模型的不确定性量化。发表在NeurIPS顶会。该方法扩展了传统GP在复杂奖励结构下的适用性，对处理具有异常值、非平稳性的工程优化问题具有重要价值。",
+        "images": [],
+        "content": [
+          "本文研究了贝叶斯优化（BO）中一个被广泛忽视但至关重要的问题——模型不确定性。传统GP-based BO假设奖励服从高斯分布，但在许多实际应用中，奖励分布可能是高度非平稳的、多模态的或重尾的（如金融优化、网络广告、推荐系统等）。在这些场景下，标准GP方法往往表现不佳。",
+          "**∞-GP模型**：本文提出的无穷高斯过程（∞-GP）是一个基于空间狄利克雷过程混合（Spatial Dirichlet Process Mixture）的序贯模型。其核心思想是将奖励分布建模为多个GP组件的混合，其中混合权重由狄利克雷过程决定。这使得模型能够：（1）自适应地确定混合组件的数量；（2）在不同区域使用不同的GP组件建模局部结构；（3）通过混合结构捕捉全局的非高斯特性。",
+          "**双重不确定性量化**：∞-GP同时量化了两种不确定性：（1）值不确定性（Value Uncertainty）——在特定输入处奖励值的不确定性，由GP的预测方差捕捉；（2）模型不确定性（Model Uncertainty）——对奖励分布类型本身的不确定性，由狄利克雷过程的混合权重不确定性捕捉。这种双重量化使得BO能够在更复杂的场景下做出更鲁棒的决策。",
+          "**理论分析**：本文从理论上证明了∞-GP代理模型能够通过有效探索分布空间来近似广泛的奖励分布类别。具体而言，证明了∞-GP达到了接近极小化最优的后验收缩率（posterior contraction rate），这意味着模型能够快速收敛到真实的奖励分布。",
+          "**实验验证**：在多个挑战性场景下进行了验证，包括：（1）高度非平稳的奖励函数——奖励分布随输入空间变化而显著变化；（2）重尾奖励——存在极端异常值；（3）多模态奖励——同一输入可能对应多个不同的奖励值。在这些场景中，∞-GP consistently 优于标准GP-based BO和其他现有方法。",
+          "**与您偏好关联**：该方法虽然主要关注BO中的模型不确定性，但其核心思想与您的偏好一致——通过更灵活、更自适应的代理模型来提升序贯设计的效率。特别是其对非高斯、非平稳奖励的处理能力，使其在复杂的工程优化问题中具有独特优势。"
+        ]
+      },
+      {
+        "title": "Informed Initialization for Bayesian Optimization and Active Learning",
+        "authors": "NeurIPS 2025 Authors",
+        "venue": "NeurIPS 2025",
+        "date": "2025-12",
+        "tags": "Bayesian Optimization, Active Learning, Initialization, Gaussian Process, Information Theory",
+        "link": "https://neurips.cc/virtual/2025/poster/117967",
+        "code": null,
+        "rank": 6,
+        "core_work": "本文提出了一种名为HIPE（Hyperparameter-Informed Predictive Exploration）的新型采集策略，用于平衡BO和主动学习中的空间填充探索与超参数学习。传统初始化方法依赖准随机设计，忽略了两个关键因素：（a）随机设计可能不够空间填充；（b）初始化阶段的超参数学习对后续预测质量至关重要。HIPE利用信息论原理同时优化这两者。",
+        "contributions": "提出HIPE采集策略，平衡空间填充探索与超参数学习；推导了GP设置下HIPE的闭式表达式；在主动学习和少样本BO中验证了HIPE在预测精度、超参数识别和优化性能上的优越性。",
+        "innovation": "将初始化策略的设计从单纯的空间填充扩展到同时考虑超参数学习的信息增益。传统观点将初始化和优化视为两个独立阶段，而HIPE认为初始化点的选择应该同时服务于两个目标：（1）充分探索输入空间；（2）提供足够信息以准确学习GP超参数。",
+        "relevance": "与您偏好高度相关：直接涉及贝叶斯优化和主动学习，关注序贯设计中的初始化策略。发表在NeurIPS顶会。在少样本、大批量设置下表现尤为突出，适用于计算资源受限的实际工程场景。",
+        "images": [],
+        "content": [
+          "本文针对贝叶斯优化（BO）和主动学习中的初始化问题，提出了一种名为HIPE（Hyperparameter-Informed Predictive Exploration）的新型采集策略。在少样本设置下（只能评估少量批次），初始化的质量对BO的最终性能至关重要，因为它决定了初始代理模型的质量，进而影响后续所有采样决策。",
+          "**传统方法的局限**：当前实践通常依赖（准）随机设计（如拉丁超立方采样、Sobol序列）进行初始化。这些方法虽然能够保证一定的空间覆盖性，但存在两个关键缺陷：（1）随机设计可能在某些区域过采样而在其他区域欠采样，导致空间覆盖不均匀；（2）随机设计没有考虑GP超参数学习的需求——某些输入配置对超参数识别比其他配置更具信息性。",
+          "**HIPE策略**：HIPE通过信息论原理同时优化两个目标：（1）空间填充探索——确保输入空间的充分覆盖；（2）超参数学习——选择能够提供最大超参数信息增益的输入点。具体而言，HIPE的采集函数是预测方差（促进探索）和超参数似然灵敏度（促进超参数学习）的组合。",
+          "**闭式表达式**：本文推导了在GP设置下HIPE采集函数的闭式表达式，这使得HIPE的计算成本与标准BO采集函数（如EI、UCB）相当。这一理论贡献使得HIPE不仅概念上优雅，而且在实践中可高效实现。",
+          "**实验验证**：在多个任务上进行了验证，包括：（1）主动学习——在回归和分类任务中选择最优的初始训练集；（2）少样本BO——在预算极其有限的情况下优化黑盒函数。实验结果表明，HIPE在预测精度、超参数识别准确率和最终优化性能上均优于标准初始化策略，特别是在大批量、少样本设置下（这是许多实际BO应用的典型场景）。",
+          "**与您偏好关联**：HIPE直接回应了您在序贯试验设计中的核心关注点——如何高效地利用有限的评估预算。通过将初始化策略从被动空间填充提升到主动信息获取，HIPE为BO和主动学习的\"冷启动\"问题提供了优雅的解决方案。"
+        ]
+      },
+      {
+        "title": "Trust Region Constrained Bayesian Optimization with Penalized Constraint Handling",
+        "authors": "arXiv Authors",
+        "venue": "arXiv:2603.24567",
+        "date": "2026-03",
+        "tags": "Bayesian Optimization, Constrained Optimization, Trust Region, High-dimensional, Gaussian Process",
+        "link": "https://arxiv.org/abs/2603.24567",
+        "code": null,
+        "rank": 7,
+        "core_work": "本文提出了一种用于高维约束黑盒优化的信赖域贝叶斯优化方法。在高维设置下，标准BO因代理模型在整个域上的精度下降和采集函数优化困难而表现不佳。约束的存在进一步缩小了可行域，使得搜索更具挑战性。本文方法通过信赖域策略将搜索限制在局部区域，并设计了惩罚约束处理机制。",
+        "contributions": "提出信赖域约束贝叶斯优化框架；设计惩罚约束处理机制处理复杂约束；解决高维约束黑盒优化中的维度灾难问题；在工程设计、模型调优和科学仿真等场景中具有应用价值。",
+        "innovation": "将信赖域方法引入约束贝叶斯优化，通过局部代理建模避免了高维全局建模的困难。惩罚约束处理机制使得算法能够在不依赖显式可行域约束的情况下，逐步收敛到可行且最优的解。",
+        "relevance": "与您偏好相关：涉及贝叶斯优化和高斯过程代理模型。虽然发表在arXiv预印本，但针对高维约束优化这一重要工程问题，方法具有实用价值。信赖域策略与自适应采样的思想一致——在最有希望的区域集中资源。",
+        "images": [],
+        "content": [
+          "本文研究高维约束黑盒优化问题，其中目标函数和约束函数都没有显式数学形式，只能通过在选定的输入点处进行评估来获取信息。这类问题广泛出现在工程设计、超参数调优和科学仿真等领域。在高维空间中，标准贝叶斯优化（BO）面临维度诅咒的挑战：代理模型在整个输入域上的精度下降，且采集函数的优化变得困难。",
+          "**问题挑战**：约束的存在进一步增加了问题的难度。可行域可能很小、形状不规则且难以定位。在高维空间中，即使约束函数很简单，可行域的体积也可能相对于整个搜索空间呈指数级减小。这使得标准的BO方法很难同时找到可行区域和最优解。",
+          "**信赖域策略**：本文采用信赖域方法来应对高维挑战。核心思想是将搜索限制在一个局部区域（信赖域）内，在该区域内构建局部代理模型。信赖域的大小根据优化进展动态调整：当模型预测可靠时扩大信赖域，当遇到预测不可靠的区域时缩小信赖域。这种局部策略避免了在整个高维空间上构建全局代理模型的困难。",
+          "**惩罚约束处理**：对于约束处理，本文设计了惩罚机制。在采集函数中，约束违反被转化为惩罚项，使得不可行解的采集值降低。随着优化的进行，惩罚系数自适应调整，确保算法在早期阶段注重探索可行区域，在后期阶段专注于优化目标。",
+          "**与您偏好关联**：虽然该论文主要关注约束优化而非传统的不确定性量化，但其核心思想与自适应采样密切相关——通过动态调整搜索区域和约束惩罚，算法能够自适应地将计算资源集中在最有希望的区域。信赖域方法本身就是一种局部自适应策略，与多保真度自适应采样的思想异曲同工。"
+        ]
+      },
+      {
+        "title": "Deep Jump Gaussian Processes for Surrogate Modeling of High-Dimensional Piecewise Continuous Functions",
+        "authors": "Chiwoo Park et al.",
+        "venue": "arXiv:2510.21974",
+        "date": "2025-10",
+        "tags": "Gaussian Process, Surrogate Model, High-dimensional, Piecewise Continuous, Deep Learning, Variational Inference",
+        "link": "https://arxiv.org/abs/2510.21974",
+        "code": null,
+        "rank": 8,
+        "core_work": "本文提出了深度跳跃高斯过程（DJGP），一种用于高维分段连续函数代理建模的新方法。传统跳跃高斯过程（JGP）在高维输入空间中受限，而DJGP通过集成区域特定的局部线性投影与JGP建模，解决了这一问题。投影矩阵上放置GP先验以控制模型复杂度，并开发了可扩展的变分推断算法。",
+        "contributions": "提出DJGP方法用于高维分段连续函数的代理建模；设计区域特定的局部线性投影捕捉低维子空间结构；在投影矩阵上放置GP先验实现平滑演化；开发可扩展的变分推断算法联合学习投影矩阵和JGP超参数。",
+        "innovation": "首次将深度学习方法（局部线性投影）与跳跃高斯过程相结合，形成独特的两层深度学习架构（GP/JGP）。与传统JGP不同，DJGP能够处理高维输入空间中的分段连续函数，同时保持GP的概率建模优势。",
+        "relevance": "与您偏好相关：涉及高斯过程代理模型和高维建模。虽然发表在arXiv预印本，但针对高维分段连续函数这一重要工程问题（如制造过程、材料设计中的相变问题），方法具有创新性和实用价值。",
+        "images": [],
+        "content": [
+          "本文提出了一种名为深度跳跃高斯过程（Deep Jump Gaussian Processes, DJGP）的新方法，用于高维分段连续函数的代理建模。分段连续函数在工程和科学中广泛存在，例如材料在不同相区的力学性能、制造工艺中的参数切换效应、金融市场的制度转换等。这些函数在不同区域具有不同的连续行为，但传统GP假设全局平滑性，难以准确建模。",
+          "**传统JGP的局限**：跳跃高斯过程（Jump GP）是一种能够建模分段连续函数的GP变体，它通过将输入空间划分为不同区域并在每个区域内使用独立的GP来捕捉不连续性。然而，传统JGP在高维输入空间中面临严重挑战——随着维度增加，区域划分变得困难，且每个区域内的数据点变得稀疏。",
+          "**DJGP架构**：DJGP通过两层架构解决高维挑战：（1）第一层是局部线性投影层——为每个区域学习一个投影矩阵，将高维输入映射到低维子空间。这些投影矩阵捕捉了每个区域内的局部低维结构。（2）第二层是JGP层——在投影后的低维空间中使用JGP建模分段连续关系。",
+          "**投影矩阵上的GP先验**：为了控制模型复杂度并避免过拟合，本文在投影矩阵上放置了高斯过程先验。这使得投影矩阵能够在输入空间中平滑演化——相邻区域的投影矩阵相似，而相距较远的区域可以有不同的投影矩阵。这一设计自然地实现了区域划分的平滑过渡。",
+          "**变分推断算法**：本文开发了可扩展的变分推断算法来联合学习投影矩阵和JGP超参数。算法使用稀疏变分GP技术，通过诱导点近似降低计算复杂度，使得DJGP能够处理中等规模的数据集。",
+          "**理论分析**：本文从理论上分析了DJGP的逼近能力，推导了Oracle误差界，并将其分解为四个不同的误差来源：（1）投影误差——由于降维导致的信息损失；（2）区域划分误差——由于错误分类区域导致的不匹配；（3）GP逼近误差——GP对连续函数的逼近能力限制；（4）观测噪声——数据中的随机噪声。",
+          "**与您偏好关联**：DJGP将深度学习的表示学习能力与GP的概率建模优势相结合，为高维复杂函数的自适应建模提供了新思路。虽然主要关注代理建模而非主动学习，但其区域自适应的建模策略与自适应采样的思想一致——在复杂输入空间中识别不同区域并采取不同的建模策略。"
+        ]
+      },
+      {
+        "title": "Surrogate-Based Bayesian Inference: Uncertainty Quantification and Active Learning",
+        "authors": "P. Reiser et al.",
+        "venue": "arXiv:2603.13646",
+        "date": "2026-03",
+        "tags": "Surrogate Model, Bayesian Inference, Uncertainty Quantification, Active Learning, Sequential Design",
+        "link": "https://arxiv.org/abs/2603.13646",
+        "code": null,
+        "rank": 9,
+        "core_work": "本文提供了一个基于代理模型的贝叶斯推断的统一框架，涵盖代理模型训练、不确定性传播和主动学习三个核心组件。框架采用模块化设计，将仿真器预测分布和参数后验的学习分为两个独立步骤，提高了对似然函数误设的鲁棒性。同时，框架提供了多种主动学习策略用于序贯优化实验设计。",
+        "contributions": "提出模块化代理模型贝叶斯推断框架；系统综述不确定性传播方法及其权衡；提供目标导向采集函数、迭代采样、温度策略和MCMC引导设计等多种主动学习策略；为科学计算中的昂贵仿真推断提供实用指南。",
+        "innovation": "将代理模型的训练、不确定性传播和主动学习整合为统一的模块化工作流。特别是，通过温度策略（Tempering Strategies）逐步从先验过渡到后验，解决了早期代理模型近似差导致采集函数低效的问题。",
+        "relevance": "与您偏好高度相关：涵盖代理建模、不确定性量化、主动学习和序贯设计的完整链条。虽然当前为arXiv预印本，但作为该方向的综合性方法论论文，内容深度和广度均具有重要参考价值。",
+        "images": [
+          "9_surrogate_bayes_fig1.png",
+          "9_surrogate_bayes_fig2.png"
+        ],
+        "content": [
+          "本文提供了一个关于基于代理模型的贝叶斯推断的全面框架，将三个核心组件——代理模型训练、不确定性传播和主动学习——整合为统一的工作流。在许多科学领域（如气候建模、生物系统、材料科学），复杂仿真器的计算成本极高，使得直接进行贝叶斯推断不可行。代理模型提供了一种加速方案，但也引入了额外的不确定性。",
+          "**模块化框架**：本文采用模块化设计，将推断过程分为两个独立步骤：（1）训练步骤——使用仿真器数据训练代理模型，得到代理参数的后验分布；（2）推理步骤——使用代理模型替代原始仿真器进行贝叶斯推断。模块化设计有两个主要优势：首先，它提高了对似然函数误设的鲁棒性；其次，它提供了计算优势——代理模型训练只需一次，之后可以用于多种不同的推断任务。",
+          "**不确定性传播**：由于训练步骤和推理步骤不是通过统一概率模型耦合的，不确定性传播不能通过标准贝叶斯条件作用自动获得。本文综述了文献中使用的多种不确定性传播方法，包括插件估计、矩匹配、全贝叶斯传播和混合方法。每种方法在计算成本、统计严格性和近似精度之间存在不同的权衡。",
+          "**主动学习策略**：本文提供了多种主动学习策略用于序贯优化实验设计：（1）目标导向采集函数——类似于贝叶斯优化中的采集函数，直接优化后验推断的目标（如后验方差减少）；（2）迭代采样——从当前代理估计的后验中采样，然后在这些样本附近添加新的设计点；（3）温度策略——构建一系列中间分布桥接先验和后验，逐步引导设计点向高后验密度区域集中；（4）MCMC引导设计——使用MCMC采样器生成近似后验样本，然后在这些样本周围添加设计点。",
+          "**温度策略的洞察**：温度策略的核心洞察是，在主动学习的初始阶段直接针对后验可能不现实且适得其反。相反，允许代理目标在主动学习的各轮次中变化，跟踪一系列从先验到后验的中间分布，可以显著提高采样效率。早期分布不那么集中，代理近似更合理，从而更有用地指导下一次设计点的放置。",
+          "**与您偏好关联**：该论文是您感兴趣方向的综合性指南，涵盖了从代理模型训练到主动学习的完整链条。温度策略特别值得关注——它提供了一种渐进式的自适应采样方法，与您的序贯设计偏好高度一致。"
+        ]
+      },
+      {
+        "title": "Quality-Controlled Active Learning via Gaussian Processes for Robust Structure-Property Learning",
+        "authors": "arXiv Authors",
+        "venue": "arXiv:2603.29135",
+        "date": "2026-03",
+        "tags": "Active Learning, Gaussian Process, Quality Control, Physics-Informed, Multi-task, Robustness",
+        "link": "https://arxiv.org/abs/2603.29135",
+        "code": null,
+        "rank": 10,
+        "core_work": "本文提出了一种质量控制的采集策略ActiveQC，利用物理信息指标在低保真度样本进入训练流程前进行筛选。在自主显微学实验中，数据质量参差不齐，低质量数据会误导代理误差模型。ActiveQC训练一个GP来建模数据质量分数的空间分布，在采集过程中排除预测质量低于阈值的样本。",
+        "contributions": "提出ActiveQC质量控制采集策略；利用物理信息SHO模型拟合计算数据质量分数；使用GP建模质量分数的空间分布；在Im2Spec和Spec2Im任务中验证了ActiveQC对噪声数据的鲁棒性。",
+        "innovation": "将物理信息的质量控制机制与好奇心驱动的主动学习相结合。传统主动学习假设所有采集的样本都是高质量的，而ActiveQC通过物理模型（SHO拟合的R²分数）评估数据质量，并训练GP预测未见样本的质量，从而在采集阶段就过滤掉低质量数据。",
+        "relevance": "与您偏好高度相关：完美结合了主动学习、高斯过程和物理知识引导。发表在arXiv预印本，但\"物理知识引导的自适应采样\"正是您特别偏好的方向。在自主实验和数据质量参差不齐的场景中具有直接应用价值。",
+        "images": [],
+        "content": [
+          "本文针对自主显微学实验中的数据质量问题，提出了一种名为ActiveQC（Quality-Controlled Active Learning）的质量控制采集策略。在结构-性能映射任务中（如从原子力显微镜图像预测光谱），数据质量参差不齐——某些区域的光谱可能由于测量噪声、仪器漂移或样品损伤而质量低下。如果低质量数据进入训练流程，会严重误导代理模型，降低预测精度。",
+          "**问题背景**：本文考虑的典型任务是Im2Spec（从图像预测光谱）和Spec2Im（从光谱预测图像）。在这些任务中，训练数据通过自主实验获取，实验系统自动选择下一个测量位置。传统主动学习策略（如好奇心驱动采集）假设所有采集的样本都是高质量的，但在实际实验中，某些区域可能产生低质量或损坏的数据。",
+          "**ActiveQC策略**：ActiveQC的核心思想是在采集阶段引入质量控制机制。具体而言：（1）物理信息质量评估——对于每个候选光谱，使用简谐振子（SHO）模型拟合所有DC偏置点的频率域数据，计算R²分数作为质量度量；（2）GP质量模型——训练一个GP来建模这些R²分数的空间分布，从而预测未见样本的数据质量；（3）质量门控——在采集过程中，预测R²低于阈值的样本被排除在候选集之外，防止低质量数据进入训练流程。",
+          "**采集分数计算**：对于通过质量门控的候选样本，采集分数综合了三个因素：（1）代理误差预测——估计基础模型（如Im2Spec）在该样本上的预测误差；（2）空间距离——与当前训练集的空间距离（促进探索）；（3）代表性——在未见池中的代表性。这三个因素的组合确保了采集的样本既具有信息性，又具有高质量。",
+          "**对比策略**：本文还评估了其他三种策略作为对比：（1）Random——随机采集；（2）Active——纯好奇心驱动采集；（3）ActiveMT——多任务变体，通过辅助输入重建任务正则化潜在空间。实验结果表明，ActiveQC在存在数据质量差异的场景中具有显著优势，特别是在数据损坏比例较高时。",
+          "**与您偏好关联**：ActiveQC完美体现了您\"结合领域知识或物理知识引导的自适应采样\"的偏好。通过将物理模型（SHO拟合）的质量评估与GP的空间建模和主动学习相结合，该方法在真实实验场景中实现了鲁棒的自适应数据采集。这一思路可以推广到其他存在数据质量问题的工程和科学应用场景。"
+        ]
+      }
+    ],
+    "supplementary": [
+      {
+        "title": "Gaussian Process-Based Multi-Fidelity Bayesian Optimization for Optimal Calibration Point Selection",
+        "authors": "H. Zhuo et al.",
+        "venue": "Sensors (MDPI), 2025",
+        "date": "2025-11",
+        "tags": "Multi-Fidelity, Bayesian Optimization, Gaussian Process, Calibration, Uncertainty Quantification",
+        "link": "https://www.mdpi.com/1424-8220/25/22/7030",
+        "abstract": "本文提出了一种基于高斯过程的多保真度贝叶斯优化（GP-MFBO）框架，用于温湿度校准点的最优选择。框架集成了物理分析模型、CFD仿真和实验验证三个计算层级，建立了系统性的不确定性量化和传播机制。设计了不确定性感知的自适应采集函数，整合了期望改进、不确定性惩罚和多保真度信息增益。实验结果表明，该方法在温度均匀性和湿度均匀性上显著优于传统方法。"
+      },
+      {
+        "title": "Adaptive Exploration under Localization Uncertainty Using Multi-fidelity Gaussian Processes",
+        "authors": "Coleman et al.",
+        "venue": "Autonomous Robots (Springer), 2026",
+        "date": "2026-02",
+        "tags": "Multi-Fidelity, Gaussian Process, Adaptive Exploration, Localization Uncertainty, Robotics",
+        "link": "https://link.springer.com/article/10.1007/s10514-025-10235-2",
+        "abstract": "本文提出了一种基于多保真度高斯过程的自适应探索算法，用于处理机器人定位不确定性变化的情况。将定位误差按不确定性水平分为多个保真度层级，构建多保真度GP模型。开发了信息增益和遍历性指标两种目标函数引导的规划算法。在滑翔机器鱼上的实验验证了方法的有效性，重建误差降低至标准GP的25%以下。"
+      },
+      {
+        "title": "Robust Multi-task Modeling for Bayesian Optimization via In-Context Learning",
+        "authors": "NeurIPS 2025 Authors",
+        "venue": "NeurIPS 2025",
+        "date": "2025-12",
+        "tags": "Bayesian Optimization, Multi-task, In-Context Learning, Gaussian Process, Negative Transfer",
+        "link": "https://neurips.cc/virtual/2025/125161",
+        "abstract": "本文提出了多任务先验数据拟合网络（MTPFNs），一种通过上下文学习实现的多任务模型，用于贝叶斯优化。MTPFNs能够高效地联合建模所有任务和数据点，且对负迁移（negative transfer）具有鲁棒性。在多种合成和真实世界基准（包括超参数优化）上验证了方法的有效性。"
+      },
+      {
+        "title": "Policy Search via Bayesian Optimization with Temporal Difference Gaussian Processes",
+        "authors": "NeurIPS 2025 Authors",
+        "venue": "NeurIPS 2025",
+        "date": "2025-12",
+        "tags": "Bayesian Optimization, Policy Search, Temporal Difference, Gaussian Process, Reinforcement Learning",
+        "link": "https://neurips.cc/virtual/2025/136143",
+        "abstract": "本文提出了一种基于时序差分高斯过程（TD-GP）的贝叶斯优化方法，用于策略搜索。现有BO方法忽略了策略评估中的序列结构信息。TD-GP利用时序差分学习公式建模折扣无限时域价值函数，推导了TD-GP的学习误差界和信息增益上界，从而分析了BO的累积遗憾。在经典控制基准上验证了方法的实用性优势。"
+      },
+      {
+        "title": "Multi-Fidelity Adaptive Sampling for Surrogate-Based Optimization and Uncertainty Quantification",
+        "authors": "A. Garbo et al.",
+        "venue": "Aerospace (MDPI), 2024",
+        "date": "2024-05",
+        "tags": "Multi-Fidelity, Adaptive Sampling, Surrogate Model, Optimization, Uncertainty Quantification",
+        "link": "https://www.mdpi.com/2226-4310/11/6/448",
+        "abstract": "本文提出了一种新的多保真度采样技术，通过两步多保真度采样方法增强代理模型的效率。在翼型优化问题中，利用细网格RANS、粗网格RANS、Euler和XFoil四个保真度层级，多保真度方法相比单保真度方法实现了约5倍的加速比。该方法在优化收敛速度和计算效率方面表现突出。"
+      }
+    ],
+    "stats": {
+      "arxiv": 4,
+      "main": 10,
+      "supplementary": 5
+    }
   }
 ]
