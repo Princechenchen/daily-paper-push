@@ -25,6 +25,11 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial
 .search-icon { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: #94a3b8; }
 .history-panel { display: none; position: absolute; right: 0; top: 100%; margin-top: 8px; background: #fff; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.15); border: 1px solid #e2e8f0; width: 260px; z-index: 50; overflow: hidden; }
 .history-panel.open { display: block; }
+.history-list { max-height: calc(100vh - 150px); overflow-y: auto; overscroll-behavior: contain; }
+.history-list::-webkit-scrollbar { width: 6px; }
+.history-list::-webkit-scrollbar-track { background: transparent; }
+.history-list::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+.history-list::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
 .history-item { padding: 12px 16px; border-bottom: 1px solid #f1f5f9; cursor: pointer; transition: background 0.2s; }
 .history-item:hover { background: #f8fafc; }
 .history-item.active { background: linear-gradient(135deg, #0ea5e9, #0284c7); color: #fff; }
@@ -378,14 +383,14 @@ function renderSupp(supplementary) {
 function renderHistory(activeIdx) {
     const el = document.getElementById("historyPanel");
     if (!PAPERS_DATA || !PAPERS_DATA.weeks) { el.innerHTML = ""; return; }
-    el.innerHTML = PAPERS_DATA.weeks.map((w, i) => {
+    el.innerHTML = '<div class="history-list">' + PAPERS_DATA.weeks.map((w, i) => {
         const stats = w.stats || {};
         const active = i === activeIdx ? " active" : "";
-        return '<div class="history-item' + active + '" onclick="renderWeek(' + i + '); toggleHistory()">' +
+        return '<div class="history-item' + active + '" data-idx="' + i + '" onclick="renderWeek(' + i + '); toggleHistory()">' +
             '<div style="font-weight:600;">' + esc(w.label || w.date) + '</div>' +
             '<div class="history-stats">arXiv: ' + (stats.arxiv || 0) + ' | 重点: ' + (stats.main || 0) + ' | 补充: ' + (stats.supplementary || 0) + '</div>' +
         '</div>';
-    }).join("");
+    }).join("") + '</div>';
 }
 
 function toggleDetail(i) {
@@ -422,7 +427,12 @@ function toggleAll(expand) {
 
 function toggleHistory() {
     const p = document.getElementById("historyPanel");
-    if (p) p.classList.toggle("open");
+    if (!p) return;
+    p.classList.toggle("open");
+    if (p.classList.contains("open")) {
+        const active = p.querySelector(".history-item.active");
+        if (active) active.scrollIntoView({ block: "nearest" });
+    }
 }
 
 function openPdf(url, title) {
