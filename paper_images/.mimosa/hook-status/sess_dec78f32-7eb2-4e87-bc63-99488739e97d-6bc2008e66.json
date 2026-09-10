@@ -1,14 +1,14 @@
 {
   "schemaVersion": "mimosa-hook-status/v1",
-  "recordedAt": "2026-09-03T02:27:47.433Z",
+  "recordedAt": "2026-09-10T02:55:17.115Z",
   "sessionId": "sess_dec78f32-7eb2-4e87-bc63-99488739e97d",
   "event": "PostToolUse",
-  "toolName": "Write",
+  "toolName": "Edit",
   "file": "F:/学习工作/千里之行始于足下/每周论文学习/new_week_data.json",
   "outcome": "clear",
   "coverage": "complete",
   "findingCount": 0,
-  "durationMs": 6,
+  "durationMs": 5,
   "hostState": "hook_complete",
   "reportHint": ".mimosa/reports/"
 }
